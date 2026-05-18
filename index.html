@@ -986,6 +986,9 @@ function tutupModal() { document.getElementById('book-modal').style.display = 'n
 
     // Fitur Lia AI Pintar (Beneran Konektif Online Tanpa Database)
     // =================================================================
+	// =================================================================
+// PENANDA: FUNGSI LIA AI BENERAN (VERSI UPDATE TAHAN ERROR)
+// =================================================================
 async function tanyaLia() {
     const input = document.getElementById('chat-input');
     const area = document.getElementById('chat-area');
@@ -993,57 +996,64 @@ async function tanyaLia() {
     
     if (userMsg === "") return;
 
-    // 1. Tampilkan chat dari Pemustaka/User di layar
+    // 1. Tampilkan chat dari kamu di layar
     area.innerHTML += `<p style="margin: 5px 0; color: var(--text-dark);"><strong>Kamu:</strong> ${userMsg}</p>`;
-    input.value = ""; // Kosongkan kolom input
-    area.scrollTop = area.scrollHeight; // Auto scroll ke bawah
+    input.value = ""; 
+    area.scrollTop = area.scrollHeight; 
 
-    // 2. Tampilkan status "Lia sedang mengetik..." agar user tahu AI sedang memproses
+    // 2. Tampilkan status sedang berpikir
     const loadingId = "lia-loading-" + Date.now();
     area.innerHTML += `<p id="${loadingId}" style="margin: 5px 0; color: var(--primary-rose); font-style: italic;"><strong>Lia AI:</strong> Sedang berpikir...</p>`;
     area.scrollTop = area.scrollHeight;
 
-    // 3. API KEY Kamu yang sudah aktif
+    // 3. MASUKKAN API KEY BARU KAMU DI SINI
     const GAP_KEY = "AIzaSyDna666UxNxvdnEohs4RDuMnPalTfjLSyk"; 
 
-    // Perintah khusus (System Instruction) agar Gemini bertingkah seperti Pustakawan Litera Space
-    const promptSistem = `Kamu adalah Lia AI, seorang Pustakawan AI pintar, ramah, dan estetik dari perpustakaan digital premium bernama "Litera Space". Sloganmu adalah "Your Space, Your Literacies". Jawablah pertanyaan user dengan gaya bahasa yang sopan, solutif, ceria, dan gunakan panggilan hangat seperti "Readers" atau "Ji". Fokuslah membantu mereka seputar rekomendasi buku, tips membaca, atau seputar dunia perpustakaan dan literasi informasi digital. Jawab dengan ringkas namun jelas.`;
+    // Instruksi Karakter Pustakawan untuk Lia AI
+    const promptSistem = `Kamu adalah Lia AI, seorang Pustakawan AI pintar, ramah, dan estetik dari perpustakaan digital premium bernama "Litera Space". Jawablah pertanyaan user dengan gaya bahasa yang sopan, solutif, ceria, dan gunakan panggilan hangat seperti "Readers" atau "Ji". Fokuslah membantu mereka seputar rekomendasi buku, tips membaca, atau seputar dunia perpustakaan dan literasi informasi digital. Jawab dengan ringkas namun jelas maksimal 3-4 kalimat saja.`;
 
-       try {
-        // Jalur koneksi resmi menembak ke server Google Gemini
+    try {
+        // 4. Tembak langsung ke model Gemini 1.5 Flash terbaru
         const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GAP_KEY}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                contents: [
-                    { 
-                        role: "user", 
-                        parts: [
-                            { text: promptSistem + "\n\nPertanyaan Pemustaka: " + userMsg }
-                        ] 
-                    }
-                ]
+                contents: [{
+                    parts: [{ text: promptSistem + "\n\nPertanyaan Pemustaka: " + userMsg }]
+                }]
             })
         });
 
         const data = await response.json();
         
-        // Hapus tulisan "Sedang berpikir..."
-        document.getElementById(loadingId).remove();
+        // Hapus status mengetik
+        const loadingElement = document.getElementById(loadingId);
+        if (loadingElement) loadingElement.remove();
 
-        // VALIDASI KEAMANAN RESPON: Cek apakah data candidates nya ada atau tidak
-        if (data && data.candidates && data.candidates[0].content && data.candidates[0].content.parts) {
+        // 5. Cek struktur data dengan sangat teliti biar gak kecolongan respon kosong
+        if (data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0]) {
             const aiResponse = data.candidates[0].content.parts[0].text;
             area.innerHTML += `<p style="margin: 5px 0; color: var(--primary-rose);"><strong>Lia AI:</strong> ${aiResponse}</p>`;
         } else {
-            // Jika API merespon tapi formatnya kosong atau terblokir filter keamanan Google
-            area.innerHTML += `<p style="margin: 5px 0; color: var(--primary-rose);"><strong>Lia AI:</strong> Maaf ya Ji, pertanyaannya terlalu sensitif atau sistemku sedang dibatasi. Boleh coba tanya seputar rekomendasi buku yang lain?</p>`;
-            console.log("Respon API Aneh:", data);
+            // Antisipasi kalau respon diblokir Google karena hal sensitif
+            area.innerHTML += `<p style="margin: 5px 0; color: var(--primary-rose);"><strong>Lia AI:</strong> Hmm, aku agak kurang paham maksudnya, Ji. Boleh coba tanyakan pakai kalimat lain seputar rekomendasi buku?</p>`;
+            console.log("Struktur API berubah:", data);
         }
         
     } catch (error) {
+        // Antisipasi kalau internet putus atau API Key diblokir server
+        const loadingElement = document.getElementById(loadingId);
+        if (loadingElement) loadingElement.remove();
+        
+        area.innerHTML += `<p style="margin: 5px 0; color: #E53935;"><strong>Lia AI:</strong> Waduh Ji, koneksiku ke pusat server terputus nih. Pastikan API Key-nya aktif dan internetmu lancar ya!</p>`;
+        console.error("Detail Error:", error);
+    }
+
+    area.scrollTop = area.scrollHeight; 
+}
+// =================================================================
 
     // Fungsi Pengoperasian Layanan Modul Baca Buku Fisik/Digital
     function bacaBuku(title, content) {
