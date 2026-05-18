@@ -1019,7 +1019,11 @@ async function tanyaLia() {
             },
             body: JSON.stringify({
                 contents: [{
-                    parts: [{ text: promptSistem + "\n\nPertanyaan Pemustaka: " + userMsg }]
+                    role: "user",
+                    parts: [
+                        { text: promptSistem },
+                        { text: "Pertanyaan: " + userMsg }
+                    ]
                 }]
             })
         });
@@ -1030,27 +1034,16 @@ async function tanyaLia() {
         const loadingElement = document.getElementById(loadingId);
         if (loadingElement) loadingElement.remove();
 
-        // 5. Cek struktur data dengan sangat teliti biar gak kecolongan respon kosong
+        // 5. Cek struktur data dengan sangat teliti
         if (data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0]) {
             const aiResponse = data.candidates[0].content.parts[0].text;
             area.innerHTML += `<p style="margin: 5px 0; color: var(--primary-rose);"><strong>Lia AI:</strong> ${aiResponse}</p>`;
         } else {
-            // Antisipasi kalau respon diblokir Google karena hal sensitif
             area.innerHTML += `<p style="margin: 5px 0; color: var(--primary-rose);"><strong>Lia AI:</strong> Hmm, aku agak kurang paham maksudnya, Ji. Boleh coba tanyakan pakai kalimat lain seputar rekomendasi buku?</p>`;
-            console.log("Struktur API berubah:", data);
+            console.log("Respon log server:", data);
         }
         
     } catch (error) {
-        // Antisipasi kalau internet putus atau API Key diblokir server
-        const loadingElement = document.getElementById(loadingId);
-        if (loadingElement) loadingElement.remove();
-        
-        area.innerHTML += `<p style="margin: 5px 0; color: #E53935;"><strong>Lia AI:</strong> Waduh Ji, koneksiku ke pusat server terputus nih. Pastikan API Key-nya aktif dan internetmu lancar ya!</p>`;
-        console.error("Detail Error:", error);
-    }
-
-    area.scrollTop = area.scrollHeight; 
-}
 // =================================================================
 
 
