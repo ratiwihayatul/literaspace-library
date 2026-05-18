@@ -986,8 +986,6 @@ function tutupModal() { document.getElementById('book-modal').style.display = 'n
 
     // Fitur Lia AI Pintar (Beneran Konektif Online Tanpa Database)
     // =================================================================
-// PENANDA: FUNGSI LIA AI BENERAN (TERHUBUNG KE GEMINI API)
-// =================================================================
 async function tanyaLia() {
     const input = document.getElementById('chat-input');
     const area = document.getElementById('chat-area');
@@ -1005,14 +1003,14 @@ async function tanyaLia() {
     area.innerHTML += `<p id="${loadingId}" style="margin: 5px 0; color: var(--primary-rose); font-style: italic;"><strong>Lia AI:</strong> Sedang berpikir...</p>`;
     area.scrollTop = area.scrollHeight;
 
-    // 3. Masukkan API KEY yang kamu dapatkan dari Google AI Studio di bawah ini
+    // 3. API KEY Kamu yang sudah aktif
     const GAP_KEY = "AIzaSyBnHBxWyRqAhIZcecFyZnx4bwSTcgPqQ_o"; 
 
     // Perintah khusus (System Instruction) agar Gemini bertingkah seperti Pustakawan Litera Space
     const promptSistem = `Kamu adalah Lia AI, seorang Pustakawan AI pintar, ramah, dan estetik dari perpustakaan digital premium bernama "Litera Space". Sloganmu adalah "Your Space, Your Literacies". Jawablah pertanyaan user dengan gaya bahasa yang sopan, solutif, ceria, dan gunakan panggilan hangat seperti "Readers" atau "Ji". Fokuslah membantu mereka seputar rekomendasi buku, tips membaca, atau seputar dunia perpustakaan dan literasi informasi digital. Jawab dengan ringkas namun jelas.`;
 
     try {
-        // 4. Jalur koneksi resmi menembak ke server Google Gemini
+        // 4. Struktur data request yang sudah disesuaikan agar pas dengan server Gemini
         const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GAP_KEY}`, {
             method: "POST",
             headers: {
@@ -1023,8 +1021,7 @@ async function tanyaLia() {
                     { 
                         role: "user", 
                         parts: [
-                            { text: promptSistem },
-                            { text: "Pertanyaan Pemustaka: " + userMsg }
+                            { text: promptSistem + "\n\nPertanyaan Pemustaka: " + userMsg }
                         ] 
                     }
                 ]
@@ -1033,18 +1030,24 @@ async function tanyaLia() {
 
         const data = await response.json();
         
-        // Hapus tulisan "Sedang berpikir..."
-        document.getElementById(loadingId).remove();
+        // Ambil elemen loading, cek dulu agar tidak memicu error
+        const loadingElement = document.getElementById(loadingId);
+        if (loadingElement) loadingElement.remove();
 
-        // 5. Ambil teks jawaban asli dari otak Gemini
-        const aiResponse = data.candidates[0].content.parts[0].text;
-
-        // Tampilkan jawaban asli Lia AI di chat area
-        area.innerHTML += `<p style="margin: 5px 0; color: var(--primary-rose);"><strong>Lia AI:</strong> ${aiResponse}</p>`;
+        // 5. Validasi apakah ada respon teks dari server
+        if (data.candidates && data.candidates[0].content && data.candidates[0].content.parts[0].text) {
+            const aiResponse = data.candidates[0].content.parts[0].text;
+            // Tampilkan jawaban asli Lia AI di chat area
+            area.innerHTML += `<p style="margin: 5px 0; color: var(--primary-rose);"><strong>Lia AI:</strong> ${aiResponse}</p>`;
+        } else {
+            area.innerHTML += `<p style="margin: 5px 0; color: #E53935;"><strong>Lia AI:</strong> Maaf ya Ji, responnya agak kosong nih. Boleh coba ketik ulang pertanyaannya?</p>`;
+        }
         
     } catch (error) {
-        // Jika internet putus atau API Key salah, jalankan fungsi darurat ini
-        document.getElementById(loadingId).remove();
+        // Jika internet putus atau ada kendala teknis lainnya
+        const loadingElement = document.getElementById(loadingId);
+        if (loadingElement) loadingElement.remove();
+        
         area.innerHTML += `<p style="margin: 5px 0; color: #E53935;"><strong>Lia AI:</strong> Waduh, koneksiku agak terhambat nih, Readers. Pastikan jaringan internetmu stabil ya!</p>`;
         console.error("Error Gemini API:", error);
     }
