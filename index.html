@@ -1,0 +1,1158 @@
+<html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Litera Space - Premium Digital Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-rose: #F06292;
+            --gradient-accent: linear-gradient(135deg, #F06292 0%, #FF8A65 100%);
+            --sidebar-warm: #EEDCC6;
+            --bg-butter: #FFFDF5;
+            --text-dark: #3E3E3E;
+			--card-bg: white;
+            --shadow-premium: 0 20px 40px rgba(141, 123, 109, 0.15);
+			--border-light: rgba(255, 255, 255, 0.6);
+            --input-bg: white;
+            --text-muted: #555;
+        }
+        /* --- THEME DARK MODE --- */
+        [data-theme="dark"] {
+           --sidebar-warm: #2C2520;
+           --bg-butter: #1E1A17;
+           --text-dark: #F5EBE0;
+           --card-bg: #2D2724;
+           --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.4);
+           --border-light: rgba(0, 0, 0, 0.2);
+           --input-bg: #3A322E;
+           --text-muted: #CBD5E1;
+        }
+        * { box-sizing: border-box;
+		font-family: 'Quicksand', sans-serif; 
+		transition: background 0.3s, color 0.3s, border-color 0.3s;
+		}
+        body {
+        background: linear-gradient(135deg, #EEDCC6 0%, #F5EBE0 100%);
+    
+        /* TAMBAHAN MOTIF GRID HALUS */
+        background-image: 
+        linear-gradient(rgba(141, 123, 109, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(141, 123, 109, 0.05) 1px, transparent 1px);
+        background-size: 20px 20px; /* Mengatur ukuran kotak motif */
+        margin: 0; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+        height: 100vh; 
+        overflow: hidden;
+        color: var(--text-dark);
+        }
+		
+        /* --- INTERFACE UTAMA --- */
+            .container {
+            width: 1200px; height: 780px;
+            background: var(--bg-butter) url('bck.jpeg');
+            border-radius: 40px;
+			display: none; /* Disembunyikan sebelum login */
+            box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+			overflow: hidden;
+            border: 1px solid var(--border-light);
+            position: relative;
+       }
+
+        /* --- OVERLAY LOGIN & REGISTRASI --- */
+           .auth-overlay {
+            width: 1200px; 
+            height: 780px;
+            background: var(--bg-butter);
+            border-radius: 40px; 
+            display: flex;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.15); 
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+       }
+           .auth-banner {
+            flex: 1.2; 
+            background: var(--gradient-accent), url('motif pinterest.jpeg');
+            background-size: cover;
+            background-blend-mode: soft-light; /* Trik biar motifnya samar-samar estetik di atas warna pink-oranye */
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center;
+            padding: 60px; 
+            color: white; 
+            position: relative;
+       }
+           .auth-box {
+           flex: 1; 
+           padding: 60px; 
+           display: flex; 
+           flex-direction: column;
+           justify-content: center; 
+           background: var(--card-bg);
+      }
+          .auth-form { display: none; 
+           animation: fadeIn 0.5s ease;
+      }
+
+         .auth-form.active-form { 
+         display: block;
+      }
+
+       /* --- SIDEBAR --- */
+           .sidebar {
+            width: 290px; 
+			background: var(--sidebar-warm);
+            padding: 40px 20px; 
+			display: flex; 
+			flex-direction: column;
+            border-right: 1px solid rgba(141, 123, 109, 0.2);
+      }
+            .logo-area {
+            font-size: 28px; 
+			font-weight: 800; 
+			color: var(--primary-rose);
+            margin-bottom: 35px; 
+			padding-left: 10px; l
+			etter-spacing: -0.5px;
+       }
+           .logo-area span { 
+		   color: #FF8A65;
+	   }
+           .nav-item {
+            padding: 14px 22px; 
+			margin-bottom: 6px; 
+			border-radius: 20px;
+            cursor: pointer; 
+			font-weight: 700; 
+			color: #7D6B5D;
+            display: flex; 
+			align-items: center; 
+			gap: 15px; 
+			font-size: 14px;
+			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+            [data-theme="dark"] .nav-item { 
+		    color: #A39284;
+		}
+            .nav-item:hover, .nav-item.active {
+            background: var(--card-bg) url('bck.jpeg'); 
+			color: var(--primary-rose);
+            transform: translateX(8px); 
+			box-shadow: var(--shadow-premium);
+        }
+           .dark-toggle-btn {
+            margin-top: auto; 
+            padding: 14px 22px; 
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 700;
+            border: 2px dashed var(--primary-rose);
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 10px; 
+            font-size: 14px;
+            color: var(--primary-rose); 
+            background: transparent;
+        }
+        /* --- CONTENT AREA --- */
+            .content { 
+		    flex: 1; 
+		    padding: 45px; 
+		    overflow-y: auto; 
+		    scroll-behavior: smooth;
+		}
+           .page { 
+		    display: none; 
+		    animation: slideUp 0.6s ease forwards;
+		}
+           .page.active { 
+		    display: block; 
+		}
+
+           @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+         
+		/* --- BADGE JUDUL SESUAI REFERENSI --- */
+            .page-subtitle-badge {
+            display: inline-block; 
+            background: #FCE4EC; 
+            color: var(--primary-rose);
+            padding: 6px 16px; 
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 700; 
+            margin-bottom: 30px;
+        }
+           [data-theme="dark"] .page-subtitle-badge {
+           background: #4A1525; 
+           color: #FF8A65;
+        }
+
+        /* --- PREMIUM WIDGETS --- */
+           .banner {
+            background: var(--gradient-accent); 
+            padding: 35px; 
+			border-radius: 35px; 
+			color: white; 
+			margin-bottom: 30px;
+            box-shadow: 0 15px 30px rgba(240, 98, 146, 0.3); 
+        }
+           .grid { 
+		    display: grid;
+		    grid-template-columns: 1fr 1fr; 
+		    gap: 25px; 
+	    }
+           .grid-3 { 
+		    display: grid;
+		    grid-template-columns: 1fr 1fr 1fr; 
+		    gap: 20px; 
+		}
+            .card {
+            background: var(--card-bg); 
+			padding: 25px; 
+			border-radius: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+			margin-bottom: 25px;
+			border: 1px solid rgba(141, 123, 109, 0.1);
+        }
+           .btn-action {
+            background: var(--gradient-accent); 
+			color: white; 
+			border: none;
+            padding: 12px 24px; 
+			border-radius: 16px; 
+			cursor: pointer; 
+			font-weight: 700;
+        }
+            .btn-action:hover { 
+		     transform: scale(1.05); 
+		     box-shadow: 0 8px 20px rgba(240, 98, 146, 0.4);
+		}
+
+        /* Buku-buku di Koleksi */
+         .book-item {
+            background: white; 
+			padding: 20px; 
+			border-radius: 25px; 
+			text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+			transition: 0.3s; 
+			cursor: pointer;
+			border: 1px solid rgba(141, 123, 109, 0.1);
+        }
+         .book-item:hover { 
+		    transform: translateY(-8px) scale(1.02); 
+		    box-shadow: var(--shadow-premium); 
+		}
+          .book-cover { 
+		     height: 130px; 
+		     background: #f5f5f5; 
+		     border-radius: 15px; 
+		     margin-bottom: 15px; 
+		     display: flex; 
+		     align-items: center; 
+		     justify-content: center;
+		     font-size: 40px; 
+		}
+
+        /* Modal Popup Membaca Buku */
+          .modal {
+            display: none;
+			position: absolute; 
+			top: 0; 
+			left: 0;
+			width: 100%;
+			height: 100%;
+            background: rgba(0,0,0,0.4); 
+			backdrop-filter: blur(8px); 
+			justify-content: center; 
+			align-items: center;
+			z-index: 1000;
+        }
+          .modal-content { 
+		    background: white; 
+		    padding: 40px; 
+		    border-radius: 35px; 
+		    width: 600px; 
+		    text-align: center;
+		    box-shadow: var(--shadow-premium);
+		    color: var(--text-dark);
+		}
+		
+		/* Style Tambahan untuk Sub-Tab Koleksi */
+        .tab-koleksi-btn {
+            flex: 1;
+			background: transparent; 
+			border: none; 
+			padding: 10px;
+            border-radius: 12px;
+			font-weight: 700; 
+			color: #7D6B5D; 
+			cursor: pointer;
+            transition: 0.3s; 
+			font-size: 13px;
+        }
+        .tab-koleksi-btn:hover, .tab-koleksi-btn.active-tab {
+            background: white;
+			color: var(--primary-rose);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .sub-koleksi { 
+		    display: none; 
+		    animation: fadeIn 0.4s ease; 
+		}
+        .sub-koleksi.active-sub { 
+		   display: block; 
+		}
+		
+		/* --- STYLE HIGHLIGHT JUDUL & SUB-JUDUL (EFEK REKOMENDASI) --- */
+        .title-highlight {
+            display: inline-block;
+            background-color: #FCE4EC; /* Pink Pastel Soft */
+            color: #C2185B;
+            padding: 8px 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+			font-size: 22px;
+            font-weight: 800;
+        }
+
+        .subtitle-highlight {
+            display: inline-block;
+            background-color: #FFF3E0; /* Orange Pastel Soft */
+            color: #E65100;
+            padding: 6px 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+		[data-theme="dark"] .tab-koleksi-btn { color: #A39284; }
+		[data-theme="dark"] .title-highlight { background-color: #4A1525; color: #FF8A65; }
+        [data-theme="dark"] .subtitle-highlight { background-color: #4A3215; color: #FFB74D; }
+		
+		@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+		.faq-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+         input, textarea, select {
+         background: var(--input-bg);
+         color: var(--text-dark); 
+         border: 2px solid #EEDCC6; 
+         outline: none; 
+       }
+         [data-theme="dark"] input, [data-theme="dark"] textarea, [data-theme="dark"] select {
+         border-color: #4A3E36; 
+       }
+    </style>
+</head>
+<body>
+
+     <div class="auth-overlay" id="auth-section">
+     <div class="auth-banner">
+       <div style="font-size: 36px; font-weight: 800; margin-bottom: 10px;">Litera<span>Space</span></div>
+       <div style="font-size: 14px; background: rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 20px; display: inline-block; margin-bottom: 30px; font-weight: 700;">Premium Digital Library</div>
+       <h2 style="font-size: 28px; margin: 0 0 15px 0;">"Your Space, Your Literacies"</h2>
+       <p style="opacity: 0.9; font-size: 15px; line-height: 1.6; margin: 0;">Masuk ke dalam ekosistem membaca digital modern untuk mengakses koleksi jurnal ilmiah, buku teks fisik, repositori tugas akhir, dan layanan asisten cerdas.</p>
+      </div>
+  
+  <div class="auth-box">
+      <div id="login-form" class="auth-form active-form">
+      <h2 style="margin-top: 0; font-size: 26px; color: var(--primary-rose);">Selamat Datang</h2>
+      <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 30px;">Silakan masuk menggunakan akun pemustaka aktif kamu.</p>
+      <form onsubmit="handleAuth(event)">
+        <label style="font-weight:700; font-size:13px;">NIM / ID Anggota</label>
+        <input type="text" placeholder="Masukkan ID Anggota..." style="width:100%; padding:12px; border-radius:12px; margin-top:5px; margin-bottom:20px;" required>
+        <label style="font-weight:700; font-size:13px;">Kata Sandi</label>
+        <input type="password" placeholder="••••••••" style="width:100%; padding:12px; border-radius:12px; margin-top:5px; margin-bottom:25px;" required>
+        <button class="btn-action" type="submit" style="width:100%; padding:14px;">Masuk Ke Perpustakaan</button>
+      </form>
+      <p style="text-align:center; font-size:13px; margin-top:25px; color:var(--text-muted);">Belum punya akun? <a href="#" onclick="toggleAuthPage('register')" style="color:var(--primary-rose); font-weight:700; text-decoration:none;">Daftar Sekarang</a></p>
+      </div>
+
+    <div id="register-form" class="auth-form">
+      <h2 style="margin-top: 0; font-size: 26px; color: var(--primary-rose);">Buat Akun Baru</h2>
+      <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 30px;">Daftarkan diri untuk bergabung dengan ekosistem Litera Space.</p>
+      <form onsubmit="alert('Registrasi berhasil! Silakan login menggunakan akun Anda.'); toggleAuthPage('login');">
+        <label style="font-weight:700; font-size:13px;">Nama Lengkap</label>
+        <input type="text" placeholder="Ketik nama lengkap..." style="width:100%; padding:12px; border-radius:12px; margin-top:5px; margin-bottom:15px;" required>
+        <label style="font-weight:700; font-size:13px;">NIM / Nomor Identitas</label>
+        <input type="text" placeholder="Ketik NIM prodi..." style="width:100%; padding:12px; border-radius:12px; margin-top:5px; margin-bottom:15px;" required>
+        <label style="font-weight:700; font-size:13px;">Kata Sandi</label>
+        <input type="password" placeholder="Buat kata sandi aman..." style="width:100%; padding:12px; border-radius:12px; margin-top:5px; margin-bottom:25px;" required>
+        <button class="btn-action" type="submit" style="width:100%; padding:14px;">Selesaikan Pendaftaran</button>
+      </form>
+      <p style="text-align:center; font-size:13px; margin-top:25px; color:var(--text-muted);">Sudah terdaftar? <a href="#" onclick="toggleAuthPage('login')" style="color:var(--primary-rose); font-weight:700; text-decoration:none;">Login di sini</a></p>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="main-app">
+    <div class="sidebar">
+    <div class="logo-area" style="display: flex; align-items: center; gap: 15px; margin-bottom: 50px;">
+        <img src="logoperpus2.png" alt="Logo Litera Space" style="height: 70px; width: auto; object-fit: contain;">
+        <span style="color: var(--primary-rose);">Litera<span style="color: #FF8A65;">Space</span></span>
+    </div>
+        <div class="nav-item active" id="nav-home" onclick="switchPage('home')"><i class="fa-solid fa-house"></i>🏠 Beranda</div>
+        <div class="nav-item" id="nav-profil" onclick="switchPage('profil')"><i class="fa-solid fa-address-card"></i>👥 Profil Perpustakaan</div>
+        <div class="nav-item" id="nav-katalog" onclick="switchPage('katalog')"><i class="fa-solid fa-magnifying-glass"></i> 🔍 Katalog Online (OPAC)</div>
+        <div class="nav-item" id="nav-layanan" onclick="switchPage('layanan')"><i class="fa-solid fa-bell-concierge"></i> ✨ Layanan Digital</div>
+        <div class="nav-item" id="nav-koleksi" onclick="switchPage('koleksi')"><i class="fa-solid fa-book-bookmark"></i>📚 Koleksi Literatur</div>
+        <div class="nav-item" id="nav-faq" onclick="switchPage('faq')"><i class="fa-solid fa-circle-question"></i>❓ Panduan & FAQ</div>
+        <div class="nav-item" id="nav-agenda" onclick="switchPage('agenda')"><i class="fa-solid fa-calendar-days"></i>📅 Agenda & Berita</div>
+        <div class="nav-item" id="nav-kontak" onclick="switchPage('kontak')"><i class="fa-solid fa-envelope-open-text"></i>📞 Kontak Kami</div>
+		
+		<button class="dark-toggle-btn" onclick="toggleDarkMode()">
+        <i class="fa-solid fa-moon" id="dark-icon"></i> <span id="dark-text">Mode Gelap</span>
+        </button>
+    </div>
+	
+    <div class="content"> 
+        <div id="home" class="page active">
+        <div class="banner">
+        <div class="logo-area" style="display: flex; align-items: center; gap: 15px; margin-bottom: 50px;">
+        <img src="maskotperpus2.png" alt="Logo Litera Space" style="height: 70px; width: auto; object-fit: contain;">
+        <span style="color: white;">Hello,<span style="color: white;">Reader!</span></span>
+    </div>
+      	<p style="font-size: 16px; opacity: 0.9;">"Your Space, Your Literacies" — Temukan ruang membaca yang tak terbatas dalam ekosistem digital Litera Space.</p>
+    </div>
+	
+     <div class="grid">
+     <div class="card" style="border-left: 6px solid var(--primary-rose);">
+          <h3 class="subtitle-highlight">📢 Berita & Pengumuman Utama</h3>
+          <p>Litera Space meluncurkan 3.000 koleksi e-book eksklusif baru bidang Ilmu Informasi minggu ini.</p>
+     </div>
+     <div class="card" style="border-left: 6px solid #FF8A65;">
+          <h3 style="margin-top: 0;">💡 Kegiatan Terdekat</h3>
+          <p>Jangan lewatkan Virtual Bedah Buku bersama jajaran dosen TI pada tanggal 20 Mei 2026 mendatang!</p>
+     </div>
+    </div>
+    </div>
+
+       <div id="profil" class="page">
+            <h2 class="title-highlight">👥 Profil Litera Space</h2>
+            <div class="card">
+                <h3 class="subtitle-highlight">📜 Sejarah Berdirinya</h3>
+                <p>Litera Space didirikan oleh sekelompok mahasiswa dengan visi mulia: Menciptakan wadah literasi yang inklusif, modern, dan tanpa batas ruang dan waktu.
+                   Berbeda dengan perpustakaan digital tradisional, Litera Space dirancang dengan pendekatan estetika modern agar setiap sudut fiturnya memberikan kenyamanan maksimal bagi para penjelajah ilmu digital.</p>
+                
+	    <div class="grid" style="margin-top: 20px;">
+        <div>
+        <strong style="color: #E65100;">🎯 Visi:</strong>
+                <p>Menjadi perpustakaan digital inovatif yang menghadirkan akses pengetahuan tanpa batas, serta menjadi ruang literasi modern yang mendukung pembelajaran, kreativitas, dan pengembangan wawasan masyarakat di era digital..</p>
+         </div>
+                    <div>
+                        <strong style="color: #E65100;">🚀 Misi:</strong>
+                        <p>1. Menyediakan koleksi digital berkualitas yang mudah diakses kapan saja dan di mana saja.</p>
+                        <p>2. Menghadirkan pengalaman membaca digital yang nyaman, interaktif, dan modern bagi seluruh pengguna.</p>
+                        <p>3. Mendukung peningkatan literasi digital melalui layanan informasi yang inovatif dan relevan.</p>
+                        <p>4. Menjadi wadah pembelajaran yang mendorong eksplorasi pengetahuan, kreativitas, dan pengembangan diri.</p>
+                    </div>
+                </div>
+				
+                <h3 class="subtitle-highlight">👔 Struktur Organisasi Pengelola</h3>
+                <div class="grid-3">
+                    <img src="struktur.jpeg" alt="struktur organisasi" style="height: 400px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+				</div>
+            </div>
+        </div>
+
+        <div id="katalog" class="page">
+            <h2 class="title-highlight">🔍 Katalog Online Cerdas (OPAC)</h2>
+            <div class="card">
+                <p>Cari koleksi fisik maupun digital perpustakaan secara cepat tanpa database tradisional:</p>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="opac-search" placeholder="Ketik judul buku (Contoh: Manajemen Informasi, Tren IT)..." style="flex: 1; padding: 15px; border-radius: 15px; border: 2px solid #EEDCC6; font-size: 15px;">
+                    <button class="btn-action" onclick="cariBuku()">Cari Koleksi</button>
+                </div>
+                <div id="opac-result" style="margin-top: 25px;"></div>
+            </div>
+        </div>
+
+        <div id="layanan" class="page">
+            <h2 class="title-highlight">✨ Layanan Unggulan Masa Kini</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3 class="subtitle-highlight">🤖 Lia AI Assistant (Pustakawan AI)</h3>
+                    <div id="chat-area" style="background: #FFFDF5; height: 130px; overflow-y: auto; border-radius: 15px; padding: 10px; font-size: 14px; border: 1px dashed var(--primary-rose); margin-bottom: 10px;">
+                        <p style="color: var(--primary-rose); margin: 0;"><strong>Lia AI:</strong> Hai! Mau rekomendasi buku atau butuh bantuan riset tugas akhir di Litera Space hari ini?</p>
+                    </div>
+                    <div style="display: flex; gap: 5px;">
+                        <input type="text" id="chat-input" placeholder="Tanya Lia..." style="flex: 1; padding: 10px; border-radius: 10px; border: 1px solid #ddd;">
+                        <button class="btn-action" onclick="tanyaLia()" style="padding: 10px 15px;">Kirim</button>
+                    </div>
+                </div>
+                
+				 <div class="card">
+                    <h3 class="subtitle-highlight">👥 Co-Reading Space</h3>
+                    <p style="color: #666; font-size: 13px; margin-bottom: 20px;">Ruang membaca bersama dan diskusi kelompok aktif secara interaktif.</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                        <div style="background: #FCE4EC; border-radius: 15px; padding: 20px; border: 1px solid #F8BBD0;">
+                            <h4 style="color: #C2185B; margin-top: 0; font-size: 15px;">📖 Buku Aktif Kelompok</h4>
+                            <div style="display: flex; gap: 15px; margin-top: 15px;">
+                                <div style="font-size: 40px;">📖</div>
+                                <div>
+                                    <strong style="font-size: 15px;">Ronggeng Dukuh Paruk</strong><br>
+                                    <small style="color: #777;">Penulis: Ahmad Tohari</small><br>
+                                    <div style="margin-top: 8px; background: #fff; border-radius: 8px; padding: 4px 8px; display: inline-block; font-size: 11px; color: #C2185B; font-weight: bold;">
+                                        Target: Bab 3 (Minggu Ini)
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 15px;">
+                                <div style="display: flex; justify-content: space-between; font-size: 12px; color: #555; margin-bottom: 5px;">
+                                    <span>Progress Membaca Bersama</span>
+                                    <strong>65%</strong>
+                                </div>
+                                <div style="background: #fff; height: 8px; border-radius: 4px; overflow: hidden;">
+                                    <div style="background: var(--primary-rose); width: 65%; height: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background: #F5F5F5; border-radius: 15px; padding: 20px; display: flex; flex-direction: column; height: 220px; border: 1px solid #E0E0E0;">
+                            <h4 style="color: #333; margin-top: 0; font-size: 15px;">💬 Catatan & Diskusi Pemustaka</h4>
+                            <div id="coread-chat-area" style="flex: 1; overflow-y: auto; background: #fff; border-radius: 10px; padding: 10px; font-size: 13px; border: 1px solid #E0E0E0;">
+                                <p style="margin: 5px 0;"><strong>Andi:</strong> Menurutku konflik batin Srintil di Bab 2 dapet banget sih emosinya.</p>
+                                <p style="margin: 5px 0; color: #C2185B;"><strong>Siti:</strong> Iya bener! Penggambaran kultur Dukuh Paruk-nya juga detail banget.</p>
+                            </div>
+                            <div style="display: flex; gap: 8px; margin-top: 10px;">
+                                <input type="text" id="coread-input" placeholder="Tulis catatan/opini kamu..." style="flex: 1; padding: 8px; border-radius: 8px; border: 1px solid #ccc; font-size: 13px;">
+                                <button onclick="kirimKomentarCoRead()" style="background: var(--primary-rose); color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: bold;">Kirim</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+			<div class="card" style="margin-top: 30px; padding: 25px; background: #fff; border-radius: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); text-align: left;">
+                <h3 class="subtitle-highlight">🔄 Layanan Sirkulasi Mandiri</h3>
+                <p style="color: #666; font-size: 13px; margin-bottom: 20px;">Formulir digital untuk simulasi peminjaman dan pengembalian koleksi perpustakaan.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                    <div style="background: #FFF3E0; border-radius: 15px; padding: 20px; border: 1px solid #FFE0B2;">
+                        <h4 style="color: #E65100; margin-top: 0; font-size: 15px;">📝 Isi Data Peminjaman</h4>
+                        <label style="font-size: 12px; font-weight: bold; color: #555;">Nama Pemustaka:</label><br>
+                        <input type="text" id="sirkulasi-nama" placeholder="Ketik nama kamu/dosen..." style="width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 13px; box-sizing: border-box;"><br>
+                        <label style="font-size: 12px; font-weight: bold; color: #555;">Pilih Koleksi:</label><br>
+                        <select id="sirkulasi-buku" style="width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #ccc; font-size: 13px; box-sizing: border-box;">
+                            <option value="Ronggeng Dukuh Paruk">E-Book: Ronggeng Dukuh Paruk</option>
+                            <option value="Re: dan perempuan">E-Book: Re: dan perempuan</option>
+                            <option value="Jurnal Identitas Nasional">Jurnal: Identitas Nasional (UUD 1945)</option>
+                            <option value="Skripsi Manual Handling REBA">Skripsi: Analisa Manual Handling REBA</option>
+						    <option value="As Long As the Lemon Trees Grow">E-Book: As Long As the Lemon Trees Grow</option>
+                        </select><br>
+                        <button onclick="prosesSirkulasi()" style="width: 100%; background: #E65100; color: white; border: none; padding: 10px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: bold;">Ajukan Peminjaman</button>
+                    </div>
+                    <div style="background: #F5F5F5; border-radius: 15px; padding: 20px; display: flex; flex-direction: column; height: 240px; border: 1px solid #E0E0E0; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
+                        <h4 style="color: #333; margin-top: 0; font-size: 15px;">📊 Riwayat Transaksi Sirkulasi</h4>
+                        <div id="sirkulasi-log-area" style="flex: 1; overflow-y: auto; background: #fff; border-radius: 10px; padding: 10px; font-size: 12px; border: 1px solid #E0E0E0; line-height: 1.6;">
+                            <p style="margin: 5px 0; color: #777; text-align: center; margin-top: 50px;">Belum ada transaksi sirkulasi hari ini.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="koleksi" class="page">
+            <h2 class="title-highlight">📚 Repositori & Koleksi Litera Space</h2>
+            <p style="color: #888; font-size: 14px; margin-bottom: 25px;">Jelajahi berbagai format pustaka yang tersedia di ekosistem digital kami.</p>
+            
+            <div style="display: flex; gap: 10px; margin-bottom: 30px; background: #EEDCC6; padding: 8px; border-radius: 15px;">
+                <button class="tab-koleksi-btn active-tab" onclick="switchSubKoleksi('koleksi-buku')">📖 Koleksi Buku</button>
+                <button class="tab-koleksi-btn" onclick="switchSubKoleksi('koleksi-digital')">🎧 Koleksi Digital</button>
+                <button class="tab-koleksi-btn" onclick="switchSubKoleksi('koleksi-ebook')">📊 E-Book</button>
+                <button class="tab-koleksi-btn" onclick="switchSubKoleksi('koleksi-jurnal')">💻 Jurnal Ilmiah</button>
+                <button class="tab-koleksi-btn" onclick="switchSubKoleksi('koleksi-skripsi')">📝 Skripsi & Tugas Akhir</button>
+            </div>
+
+            <div id="koleksi-buku" class="sub-koleksi active-sub">
+                <h3 style="color: var(--primary-rose);">Koleksi Buku Fisik (Teks)</h3>
+                <div class="grid-3">
+                    <div class="book-item">
+                        <img src="cover laut bercerita.jpeg" alt="cover laut bercerita" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                        <br>
+                        <strong>Laut Bercerita</strong><br><small>Penulis: Leila S.Chudori</small><br>
+                        <span style="font-size: 12px; color: #66BB6A; font-weight: bold;">Tersedia di Rak S-1</span>
+                    </div>
+                    <div class="book-item">
+                        <img src="cover rumah untuk alie.jpeg" alt="cover rumah untuk alie" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                        <br>
+                        <strong>Rumah Untuk Alie</strong><br><small>Penulis: Lenn Liu</small><br>
+                        <span style="font-size: 12px; color: #66BB6A; font-weight: bold;">Tersedia di Rak S-4</span>
+                    </div>
+					<div class="book-item">
+                        <img src="cover manajemen.jpg" alt="cover manajemen" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                        <br>
+                        <strong>Manajemen Sumber Informasi dan Perpustakaan</strong><br><small>Penulis: Drs. Hartono, S.S., M.Hum.</small><br>
+                        <span style="font-size: 12px; color: #66BB6A; font-weight: bold;">Tersedia di Rak S-3</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="koleksi-digital" class="sub-koleksi">
+                <h3 style="color: var(--primary-rose);">Koleksi Digital (Audio & Video)</h3>
+                <div class="grid-3">
+                    <div class="book-item">
+                        <div class="book-cover">📹</div>
+                        <strong>Video Tutorial Olah Arsip Aktif</strong><br>
+                        <small>Sumber: Biro Umum ATR/BPN</small><br><br>
+                        <button class="btn-action" style="padding: 6px 12px; font-size: 12px;" 
+                           onclick="bacaBuku('Video: Penataan Arsip Aktif dengan Map Arsip dan Guide Arsip', 'RINGKASAN VIDEO TUTORIAL: Video ini menjelaskan panduan taktis penyimpanan arsip aktif secara efisien, efektif, dan aman di dalam Central File. Arsip kertas disimpan dalam folder/map berdasarkan satu kegiatan yang sama, lalu dipisahkan menggunakan penyekat (Guide) berdasarkan perbedaan kode klasifikasi. Semua berkas disusun tegak di dalam Filing Cabinet yang terkunci aman. Pengelolaan ini wajib tercatat dalam Daftar Berkas dan Daftar Isi Berkas yang memuat indeks (nomor, nama, atau subjek) serta disusun berurutan secara kronologis waktu agar memudahkan proses Temu Kembali Informasi (Information Retrieval) di kemudian hari. Silakan tonton video resminya melalui link berikut: https://youtu.be/ey1QxOf-rkg')">
+                           Tonton Video
+                        </button>
+                    </div>
+                    <div class="book-item">
+                        <img src="Galigo manuskrip.jpg" alt="Galigo manuskrip" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                        <br>
+                        <strong>Manuskrip Sureq Galigo</strong><br>
+                        <small>Sumber: Wikipedia</small><br><br>
+                        <button class="btn-action" style="padding: 6px 12px; font-size: 12px;" onclick="bacaBuku('Manuskrip: Sureq Galigo', 'Sureq Galigo, I La Galigo, atau Galigo, atau disebut juga La Galigo adalah sebuah epik mitos penciptaan dari peradaban Bugis di Sulawesi Selatan (sekarang bagian dari Republik Indonesia) yang disalin oleh Colliq Pujie pada abad ke-19 dalam bentuk puisi bahasa Bugis kuno, ditulis dalam aksara Lontara.[1] Puisi ini terdiri dalam sajak bersuku lima dan selain menceritakan kisah asal-usul manusia, peran penting Bissu dalam kebudayaan Bugis dan juga berfungsi sebagai almanak praktis sehari-hari.')">Baca Manuskrip</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="koleksi-ebook" class="sub-koleksi">
+                <h3 style="color: var(--primary-rose);">Koleksi Buku Elektronik (E-Book)</h3>
+                <div class="grid-3">
+                    <div class="book-item">
+                        <img src="Re-Dan-perempuan.jpg" alt="Re-Dan-Perempuan" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                        <br>
+                        <strong>Re: dan perempuan</strong><br>
+                        <small>Penulis: Maman Suherman</small><br><br>
+                        <button class="btn-action" style="padding: 6px 12px; font-size: 12px;" 
+                           onclick="bacaBuku('E-Book: Re: dan perempuan (Maman Suherman)', 
+                           'SINOPSIS & CATATAN PENULIS: Buku ini merupakan karya penting dari Maman Suherman yang mengangkat kisah kelam, perjuangan, sekaligus potret realitas kehidupan perempuan bernama Re. Melalui narasi yang mendalam dan berani, penulis mengajak pembaca untuk melihat sisi lain dari jeritan hati, ketangguhan, dan nilai-nilai kemানুsiaan yang sering kali terabaikan dalam labirin kehidupan sosial. Buku ini menyajikan refleksi sosiologis yang sangat kuat mengenai hak, martabat, dan ruang hidup perempuan di tengah realitas yang kerap kali tidak berpihak pada mereka.')">
+                           Baca E-Book
+                        </button>
+                    </div>
+					<div class="book-item">
+                        <img src="cover ronggeng.jpg" alt="Ronggeng Dukuh Paruk" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                        <br>
+                        <strong>Ronggeng Dukuh Paruk</strong><br>
+                        <small>Penulis: Ahmad Tohari</small><br><br>
+                        <button class="btn-action" style="padding: 6px 12px; font-size: 12px;" 
+                           onclick="bacaBuku('E-Book: Re: dan perempuan (Maman Suherman)', 
+                           'SINOPSIS & CATATAN PENULIS: Novel ini mengisahkan kehidupan di Dukuh Paruk, sebuah desa terpencil yang sarat dengan kemiskinan dan kelaparan namun memiliki tradisi menari ronggeng yang kental. Tokoh utamanya, Srintil, sejak kecil dipercaya memiliki bakat alamiah untuk menjadi seorang ronggeng baru di desanya. Melalui perjuangan yang panjang, Srintil akhirnya dinobatkan sebagai ronggeng pujaan dukuh tersebut. Namun, di balik kemewahan dan status sosialnya, Srintil harus menghadapi kenyataan pahit mengenai pengorbanan batin, hilangnya kebebasan sebagai perempuan, serta konflik politik dan tragedi sosial tahun 1965 yang melanda desanya, mengubah jalan hidupnya dan masa depan Dukuh Paruk selamanya.')">
+                           Baca E-Book
+                        </button>
+                    </div>
+					<div class="book-item">
+                        <img src="cover as long as.jpg" alt="Cover Lemon Trees" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                        <br>
+                        <strong>As Long As the Lemon Trees Grow</strong><br>
+                        <small>Penulis: Zoulfa Katouh</small><br><br>
+                        <button class="btn-action" style="padding: 6px 12px; font-size: 12px;" 
+                           onclick="bacaBuku('E-Book: As Long As the Lemon Trees Grow (Zoulfa Katouh)', 'SINOPSIS NOVEL: Novel ini berlatar belakang revolusi Suriah yang mencekam. Kisahnya berfokus pada Salama Kassab, seorang mahasiswa farmasi berusia 18 tahun yang terpaksa menjadi dokter bedah di rumah sakit Homs karena kekurangan tenaga medis. Di tengah trauma kehilangan keluarga dan bayang-bayang ketakutan, Salama dirundung dilema besar: apakah dia harus tetap tinggal dan berbakti demi negaranya, atau melarikan diri demi keselamatan bayi yang dikandung kakak iparnya. Kehidupan Salama mulai berubah ketika ia bertemu dengan Kenan, seorang pemuda pengemas video demonstrasi yang memperlihatkan keindahan harapan dan cinta di tengah reruntuhan, membuktikan bahwa selama pohon lemon masih tumbuh, harapan tidak akan pernah mati.')">
+                           Baca E-Book
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="koleksi-jurnal" class="sub-koleksi">
+                <h3 style="color: var(--primary-rose);">Jurnal Ilmiah Berkala</h3>
+                <div class="grid-3">
+                    <div class="book-item">
+                        <img src="cover-jurnal.jpg" alt="Cover Jurnal" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                        <br>
+                        <strong>Identitas Nasional ditinjau dari UUD 1945 dan UU No. 24 Tahun 2009</strong><br>
+                        <small>Penulis: Tatu Afifah (Ajudikasi: Jurnal Ilmu Hukum)</small><br><br>
+                        <button class="btn-action" style="padding: 6px 12px; font-size: 12px;" 
+                           onclick="bacaBuku('Jurnal: Identitas Nasional ditinjau dari UUD 1945 dan UU No. 24 Tahun 2009', 
+                           'ABSTRAK JURNAL: Identitas nasional merupakan ciri yang dimiliki oleh suatu bangsa sebagai pengenalan dan penjelasan kepribadian dari suatu negara. Identitas nasional Indonesia dapat dirumuskan dalam tiga bidang yaitu: Pertama, identitas fundamental yaitu Pancasila. Kedua, identitas instrumental yang mencakup UUD 1945, Bahasa Indonesia, Garuda Pancasila, Sang Saka Merah Putih, Bhineka Tunggal Ika, dan Indonesia Raya. Ketiga, identitas alamiah yang meliputi Indonesia sebagai negara kepulauan dan keragaman suku, budaya, agama. UUD 1945 mengatur identitas nasional pada bab 15 yang telah mengalami amandemen atau perubahan sebanyak dua kali, yang memiliki 5 pasal yang mengatur lambang identitas nasional.')">
+                           Buka Jurnal
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="koleksi-skripsi" class="sub-koleksi">
+                <h3 style="color: var(--primary-rose);">Repositori Skripsi & Tugas Akhir</h3>
+                <div class="grid-3">
+                    <div class="book-item">
+                        <img src="cover-skripsi.jpg" alt="Cover Skripsi" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                        <br>
+                        <strong>Analisa Manual Handling dengan Metode REBA di PT Arnott's Indonesia</strong><br>
+                        <small>Penulis: Eko Sarwiyadi (Fakultas Teknik Industri)</small><br><br>
+                        <button class="btn-action" style="padding: 6px 12px; font-size: 12px;" 
+                           onclick="bacaBuku('Skripsi: Analisa Manual Handling dengan Metode REBA di PT Arnott\'s Indonesia', 
+                           'RINGKASAN SKRIPSI: Penelitian tugas akhir ini berfokus pada analisis ergonomi mengenai aktivitas kerja manual handling (pengangkatan produk secara manual) yang dilakukan oleh para pekerja di lingkungan industri PT Arnott\'s Indonesia. Dengan menerapkan metode REBA (Rapid Entire Body Assessment), penelitian ini mengidentifikasi tingkat risiko postur tubuh pekerja saat memindahkan produk WIP (Work In Process) ke mesin feeder serta pengolahan adonan cream. Hasil analisa digunakan untuk memberikan rekomendasi perbaikan stasiun kerja, poster panduan keselamatan kerja, serta usulan alat bantu mekanis seperti Truck Lifter guna meminimalkan risiko cedera otot atau Musculoskeletal Disorders (MSDs) bagi karyawan.')">
+                           Buka Skripsi
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="faq" class="page">
+            <h2 class="title-highlight">❓ Panduan Lengkap & FAQ</h2>
+            <div class="card">
+                <h3 class="subtitle-highlight">💡 Cara Memakai Sistem OPAC</h3>
+                <p><b>Selamat datang di OPAC LiteraSpace!
+                      Temukan buku favoritmu dengan mudah dan cepat melalui katalog digital kami. Yuk ikuti langkah-langkah manis berikut:</b></p>
+
+                <p><b> 1. Cari Buku Kesayanganmu 🔍 </b></p>
+                       Ketik judul buku, nama penulis, subjek, atau kata kunci pada kolom pencarian.
+                <p><b> 2. Gunakan Filter Pencarian 🎀</b></p>
+                       Persempit hasil pencarian berdasarkan kategori, tahun terbit, penulis, atau ketersediaan buku.
+                <p><b> 3. Klik Detail Buku 📖 </b></p>
+                       Lihat informasi lengkap seperti:
+                       - Judul buku
+                       - Nama penulis
+                       - Tahun terbit
+                       - Lokasi rak
+                       - Status ketersediaan
+
+                <p><b> 4. Reservasi Buku ✨ </b></p>
+                       Jika buku tersedia, klik tombol “Pinjam Sekarang” atau “Reservasi”.
+                <p><b> 5. Cek Status Peminjaman 💌 </b></p>
+                       Pantau status pinjaman, tanggal jatuh tempo, dan riwayat peminjaman melalui akun pribadimu.
+                <p><b> Tips Lucu dari LiteraSpace 🌷</b></p>
+                       Pastikan kata kunci yang kamu masukkan tepat ya, biar pencarian makin akurat dan anti zonk~.</p>
+                <h3 class="subtitle-highlight">📌 Syarat Pinjam Koleksi</h3>
+                <p><b>Syarat Peminjaman 🎀</b>
+
+                <p>🌷 Pengguna wajib memiliki akun LiteraSpace yang aktif</p>
+                <p>🌷 Login terlebih dahulu sebelum melakukan peminjaman </p>
+                <p>🌷 Setiap pengguna dapat meminjam maksimal 3 buku sekaligus </p>
+                <p>🌷 Pastikan tidak memiliki tunggakan atau keterlambatan sebelumnya </p>
+                <p><b>Ketentuan Peminjaman ✨</b></p>
+                <p>💗 Masa peminjaman berlaku selama 7 hari </p>
+                <p>💗 Peminjaman dapat diperpanjang 1 kali jika buku belum dipesan pengguna lain </p>
+                <p>💗 Buku yang telah jatuh tempo wajib segera dikembalikan </p>
+                <p><b> Keterlambatan 📌</b></p>
+                <p><b>Jika melewati batas waktu pengembalian:</b></p>
+                <p>🎀 Akun akan dikenakan pembatasan peminjaman sementara <p>
+                <p>🎀 Pengguna perlu menyelesaikan kewajiban sebelum meminjam kembali<p>
+			</p>
+                <h3 class="subtitle-highlight">❓ FAQ: Apa itu Fitur L.Charity?</h3>
+                <p>L.Charity adalah layanan sosial khas Litera Space di mana akumulasi lembar halaman digital yang kamu selesaikan akan dihitung untuk mendonasikan buku fisik asli ke sekolah terpencil.</p>
+            </div>
+        </div>
+
+        <div id="agenda" class="page">
+            <h2 class="subtitle-highlight">📅 Lini Masa Agenda & Pengumuman Perpustakaan</h2>
+            <div class="card" style="border-left: 6px solid #66BB6A;">
+                <h4 style="margin: 0; color: #66BB6A;">BERHASIL TERLAKSANA (Berita Terbaru)</h4>
+                <p><strong>Workshop Penulisan Jurnal Ilmiah (10 Mei 2026):</strong> Telah sukses diikuti oleh lebih dari 500 peserta. Dokumentasi materi PDF dapat diunduh pada menu Koleksi.</p>
+                <p><strong>Litera Space Festival 2026 Sukses Digelar Festival berlangsung 1–3 Mei 2026:</strong> dihadiri 1.200+ peserta dari berbagai kampus di Jawa Tengah. Pemenang Lomba Resensi Buku Nasional telah diumumkan.</p>
+		        <p><strong>L.Charity:</strong> 200 Buku Terdonasikan ke Sekolah Pelosok
+		 </div>
+            <div class="card" style="border-left: 6px solid #42A5F5;">
+                <h4 style="margin: 0; color: #42A5F5;">AGENDA MENDATANG</h4>
+                <p><strong>Litera Space Festival 2026:</strong> Pameran inovasi perpustakaan digital, peluncuran fitur terbaru, serta perlombaan resensi buku tingkat nasional.</p>
+                <p><strong>Bedah Buku "Ronggeng Dukuh Paruk" bersama Ahmad Tohari :</strong>diskusi makna sosial dan sejarah di balik novel ikonik ini.</p>
+			    <p><strong>Workshop Menulis Karya Ilmiah :</strong>teknik sitasi APA/MLA untuk skripsi dan jurnal.</p>
+		        <p><strong>Pelatihan Literasi Digital :</strong>cara membedakan berita hoaks vs. sumber terpercaya.</p>
+			</div>
+        </div>
+
+        <div id="kontak" class="page">
+      <h2 class="title-highlight">Kontak Kami</h2>
+      <div class="page-subtitle-badge">Punya pertanyaan atau butuh bantuan layanan? Hubungi tim pustakawan kami</div>
+      
+      <div class="grid">
+        <div class="card" style="line-height: 1.6; margin-bottom:0; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3 style="color: var(--primary-rose); margin-top:0;">Hubungi Pustakawan</h3>
+            <p style="font-size:14px; color:#555;">Jika kamu memiliki kendala sistem akses repositori, pertanyaan seputar sirkulasi mandiri, atau memerlukan bantuan referensi, silakan hubungi tim pengelola kami:</p>
+            <p style="margin-top: 15px; font-size:14px;"><strong><i class="fa-solid fa-location-dot" style="color:var(--primary-rose);"></i> Alamat:</strong>XC3H+CH8, Jl. Bukit Sari Raya, Sumurboto, Kec. Banyumanik, Kota Semarang, Jawa Tengah</p>
+            <p style="font-size:14px;"><strong><i class="fa-solid fa-phone" style="color:var(--primary-rose);"></i> Telepon:</strong> 086788999123</p>
+			<p style="font-size:14px;"><strong><i class="fa-solid fa-envelope" style="color:var(--primary-rose);"></i> Email Resmi:</strong> pustakawan@literaspace.id</p>
+            <p style="font-size:14px; margin-bottom: 15px;"><strong><i class="fa-solid fa-clock" style="color:var(--primary-rose);"></i> Jam Layanan:</strong> Senin - Kamis dan Minggu (24 jam)</p>
+          </div>
+          
+          <div style="width: 100%; height: 160px; border-radius: 15px; overflow: hidden; border: 2px solid #EEDCC6; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.6833102706432!2d110.42639337356745!3d-7.046451569043044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d0036e3033d%3A0x72a57c2725f8253e!2sLiteraspace%20library!5e0!3m2!1sid!2sid!4v1779025141338!5m2!1sid!2sid" 
+              height="100%" 
+			  width="100%"
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom:0;">
+          <h3 style="margin-top:0; margin-bottom: 15px;">Kirim Pesan Cepat</h3>
+          <form onsubmit="event.preventDefault(); alert('Pesan kamu berhasil dikirim ke pustakawan!');">
+          <input type="text" placeholder="Nama Lengkap" style="width:100%; padding:12px; border-radius:12px; border:1px solid #ddd; margin-bottom:10px; font-family:inherit;" required>
+          <textarea placeholder="Tulis pesan atau pertanyaan tugas akhir kamu di sini..." rows="4" style="width:100%; padding:12px; border-radius:12px; border:1px solid #ddd; margin-bottom:12px; font-family:inherit;" required></textarea>
+          <button class="btn-action" type="submit" style="width:100%;">Kirim Masukan</button>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+ </div>
+
+<div id="bookModal" class="modal">
+    <div class="modal-content">
+        <h2 id="modalTitle" style="color: var(--primary-rose); margin-top: 0;"></h2>
+		<div style="margin-bottom: 15px; display: flex; gap: 10px; justify-content: center;">
+  <button onclick="ubahUkuranFont('kurang')">A-</button>
+  <button onclick="ubahUkuranFont('tambah')">A+</button>
+  <button onclick="gantiTemaBaca('sepia')">Sepia</button>
+  <button onclick="gantiTemaBaca('dark')">Gelap</button>
+  <button onclick="gantiTemaBaca('light')">Terang</button>
+</div>
+   <p id="modalBody" style="font-size: 16px; text-align: justify;">
+     (Isi teks buku ceritanya di sini...)
+   </p>
+        <p id="modalBody" style="line-height: 1.6; text-align: justify; color: #555; background: #fafafa; padding: 20px; border-radius: 20px; border: 1px solid #eee;"></p>
+        <button class="btn-action" onclick="tutupBuku()">Selesai Membaca</button>
+    </div>
+</div>
+
+<script>
+    // Logika Pindah Form Login / Registrasi
+function toggleAuthPage(page) {
+  document.querySelectorAll('.auth-form').forEach(form => form.classList.remove('active-form'));
+  if (page === 'login') {
+    document.getElementById('login-form').classList.add('active-form');
+  } else {
+    document.getElementById('register-form').classList.add('active-form');
+  }
+}
+
+   // Simulasi Berhasil Masuk Aplikasi setelah Submit Form
+function handleAuth(event) {
+  event.preventDefault();
+  document.getElementById('auth-section').style.display = 'none';
+  document.getElementById('main-app').style.display = 'flex';
+}
+
+    // Fitur Ganti Tema (Dark / Light Mode)
+function toggleDarkMode() {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const icon = document.getElementById('dark-icon');
+  const text = document.getElementById('dark-text');
+  
+  if (currentTheme === 'dark') {
+    document.documentElement.removeAttribute('data-theme');
+    icon.className = "fa-solid fa-moon";
+    text.innerText = "Mode Gelap";
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    icon.className = "fa-solid fa-sun";
+    text.innerText = "Mode Terang";
+  }
+}
+    
+    function switchPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+  
+  const targetPage = document.getElementById(pageId);
+  if(targetPage) targetPage.classList.add('active');
+  const targetNav = document.getElementById('nav-' + pageId);
+  if(targetNav) targetNav.classList.add('active');
+}
+
+function tutupModal() { document.getElementById('book-modal').style.display = 'none'; }
+
+    // Fitur Simulasi OPAC Interaktif Tanpa Database
+    // Fungsi OPAC Pintar: Terkoneksi Langsung dengan Koleksi Asli
+    function cariBuku() {
+        const query = document.getElementById('opac-search').value.toLowerCase().trim();
+        const resultDiv = document.getElementById('opac-result');
+        
+        if(query === "") { 
+            alert('Masukkan kata kunci pencarian dahulu, Ji!'); 
+            return; 
+        }
+        
+        // Kosongkan dulu hasil pencarian sebelumnya
+        resultDiv.innerHTML = "";
+        
+        // 1. DATA BASE MINI KOLEKSI KAMU
+        if(query.includes('re:') || query.includes('maman') || query.includes('perempuan')) {
+            resultDiv.innerHTML = `
+                <div class="card" style="background: #E8F5E9; border: 2px solid #A5D6A7; animation: slideUp 0.4s ease;">
+                    🟢 <strong>Koleksi Ditemukan! (Kategori: E-Book)</strong><br><br>
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <div style="font-size: 30px;">📖</div>
+                        <div>
+                            <strong>Re: dan perempuan</strong> — <small>Maman Suherman</small><br>
+                            <span style="font-size: 13px; color: #555;">Status: Tersedia dalam format Digital.</span><br>
+                            <button class="btn-action" style="padding: 5px 10px; font-size: 12px; margin-top: 8px;" 
+                                onclick="switchPage('koleksi'); switchSubKoleksi('koleksi-ebook');">
+                                Lihat di Menu Koleksi
+                            </button>
+                        </div>
+                    </div>
+                </div>`;
+        } 
+        else if(query.includes('ronggeng') || query.includes('paruk') || query.includes('tohari') || query.includes('srintil')) {
+            resultDiv.innerHTML = `
+                <div class="card" style="background: #E8F5E9; border: 2px solid #A5D6A7; animation: slideUp 0.4s ease;">
+                    🟢 <strong>Koleksi Ditemukan! (Kategori: E-Book)</strong><br><br>
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <div style="font-size: 30px;">📖</div>
+                        <div>
+                            <strong>Ronggeng Dukuh Paruk</strong> — <small>Ahmad Tohari</small><br>
+                            <span style="font-size: 13px; color: #555;">Status: Tersedia dalam format Digital.</span><br>
+                            <button class="btn-action" style="padding: 5px 10px; font-size: 12px; margin-top: 8px;" 
+                                onclick="switchPage('koleksi'); switchSubKoleksi('koleksi-ebook');">
+                                Lihat di Menu Koleksi
+                            </button>
+                        </div>
+                    </div>
+                </div>`;
+        }
+        else if(query.includes('identitas') || query.includes('nasional') || query.includes('tatu') || query.includes('uud')) {
+            resultDiv.innerHTML = `
+                <div class="card" style="background: #E8F5E9; border: 2px solid #A5D6A7; animation: slideUp 0.4s ease;">
+                    🟢 <strong>Koleksi Ditemukan! (Kategori: Jurnal Ilmiah)</strong><br><br>
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <div style="font-size: 30px;">💻</div>
+                        <div>
+                            <strong>Identitas Nasional ditinjau dari UUD 1945 dan UU No. 24 Tahun 2009</strong> — <small>Tatu Afifah</small><br>
+                            <span style="font-size: 13px; color: #555;">Status: Tersedia Terbuka (Open Access).</span><br>
+                            <button class="btn-action" style="padding: 5px 10px; font-size: 12px; margin-top: 8px;" 
+                                onclick="switchPage('koleksi'); switchSubKoleksi('koleksi-jurnal');">
+                                Lihat di Menu Koleksi
+                            </button>
+                        </div>
+                    </div>
+                </div>`;	
+        }
+		else if(query.includes('laut') || query.includes('bercerita') || query.includes('leila') || query.includes('chudori')) {
+            resultDiv.innerHTML = `
+                <div class="card" style="background: #E8F5E9; border: 2px solid #A5D6A7; animation: slideUp 0.4s ease;">
+                    🟢 <strong>Koleksi Ditemukan! (Kategori: E-book)</strong><br><br>
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <div style="font-size: 30px;">💻</div>
+                        <div>
+                            <strong>Laut Bercerita</strong> — <small>Leila Chudori</small><br>
+                            <span style="font-size: 13px; color: #555;">Status: Tersedia Terbuka (Open Access).</span><br>
+                            <button class="btn-action" style="padding: 5px 10px; font-size: 12px; margin-top: 8px;" 
+                                onclick="switchPage('koleksi'); switchSubKoleksi('koleksi-ebook');">
+                                Lihat di Menu Koleksi
+                            </button>
+                        </div>
+                    </div>
+                </div>`;
+		}
+        else if(query.includes('arsip') || query.includes('aktif') || query.includes('video') || query.includes('atrbpn')) {
+            resultDiv.innerHTML = `
+                <div class="card" style="background: #E8F5E9; border: 2px solid #A5D6A7; animation: slideUp 0.4s ease;">
+                    🟢 <strong>Koleksi Ditemukan! (Kategori: Koleksi Digital)</strong><br><br>
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <div style="font-size: 30px;">📹</div>
+                        <div>
+                            <strong>Video Tutorial Olah Arsip Aktif</strong> — <small>Biro Umum ATR/BPN</small><br>
+                            <span style="font-size: 13px; color: #555;">Status: Streaming Video Tersedia.</span><br>
+                            <button class="btn-action" style="padding: 5px 10px; font-size: 12px; margin-top: 8px;" 
+                                onclick="switchPage('koleksi'); switchSubKoleksi('koleksi-digital');">
+                                Lihat di Menu Koleksi
+                            </button>
+                        </div>
+                    </div>
+                </div>`;
+        }
+		else if(query.includes('lemon') || query.includes('trees') || query.includes('zoulfa') || query.includes('salama')) {
+            resultDiv.innerHTML = `
+                <div class="card" style="background: #E8F5E9; border: 2px solid #A5D6A7; animation: slideUp 0.4s ease;">
+                    🟢 <strong>Koleksi Ditemukan! (Kategori: E-Book)</strong><br><br>
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <div style="font-size: 30px;">📖</div>
+                        <div>
+                            <strong>As Long As the Lemon Trees Grow</strong> — <small>Zoulfa Katouh</small><br>
+                            <span style="font-size: 13px; color: #555;">Status: Tersedia dalam format Digital.</span><br>
+                            <button class="btn-action" style="padding: 5px 10px; font-size: 12px; margin-top: 8px;" 
+                                onclick="switchPage('koleksi'); switchSubKoleksi('koleksi-ebook');">
+                                Lihat di Menu Koleksi
+                            </button>
+                        </div>
+                    </div>
+                </div>`;
+        }
+        // 2. JIKA TIDAK ADA YANG COCOK
+        else {
+            resultDiv.innerHTML = `
+                <div class="card" style="background: #FFEBEE; border: 2px solid #EF9A9A; animation: slideUp 0.4s ease;">
+                    🔴 <strong>Koleksi Tidak Ditemukan</strong><br><br>
+                    Maaf, kata kunci "<span style="color: var(--primary-rose); font-weight: bold;">${document.getElementById('opac-search').value}</span>" tidak cocok dengan koleksi Litera Space saat ini. Coba ketik kata lain seperti 'Ronggeng', 'Arsip', atau 'Maman'.
+                </div>`;
+        }
+    }
+
+    // Fitur Lia AI Pintar (Beneran Konektif Online Tanpa Database)
+    async function tanyaLia() {
+        const input = document.getElementById('chat-input');
+        const area = document.getElementById('chat-area');
+        const userMsg = input.value.trim();
+        
+        if(userMsg === "") return;
+        
+        // Tampilkan pesan kamu di layar chat
+        area.innerHTML += `<p style="margin: 5px 0; text-align: right;"><strong>Anda:</strong> ${userMsg}</p>`;
+        input.value = "";
+        area.scrollTop = area.scrollHeight;
+
+        // Tampilkan status "Lia sedang mengetik..." agar terlihat interaktif
+        const typingId = "typing-" + Date.now();
+        area.innerHTML += `<p id="${typingId}" style="margin: 5px 0; color: var(--primary-rose);"><strong>Lia AI:</strong> <i>Sedang berpikir... 🤔</i></p>`;
+        area.scrollTop = area.scrollHeight;
+
+        try {
+            // Kita gunakan API AI publik gratis yang ramah untuk web statis
+            const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://api.simsimi.vn/v1/simtalk`)}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({
+                    'text': userMsg,
+                    'lc': 'id' // Mengatur respon agar otomatis berbahasa Indonesia
+                })
+            });
+
+            const data = await response.json();
+            const resText = JSON.parse(data.contents);
+            
+            // Ambil teks balasan dari AI
+            let balasanAI = resText.message || "Maaf ya, koneksi sistemku sedang penuh. Coba tanyakan hal lain!";
+            
+            // Hapus tulisan "Sedang berpikir..." dan ganti dengan jawaban AI asli
+            document.getElementById(typingId).remove();
+            area.innerHTML += `<p style="margin: 5px 0; color: var(--primary-rose);"><strong>Lia AI:</strong> ${balasanAI}</p>`;
+            
+        } catch (error) {
+            // Jika internet mati atau server down, berikan jawaban cadangan pintar
+            document.getElementById(typingId).remove();
+            area.innerHTML += `<p style="margin: 5px 0; color: var(--primary-rose);"><strong>Lia AI:</strong> Halo! Aku mendeteksi kamu sedang offline atau jaringan sedang sibuk. Sebagai AI Litera Space, pastikan laptopmu terkoneksi internet ya untuk mengaktifkan fitur kecerdasan penuhku!</p>`;
+        }
+        
+        area.scrollTop = area.scrollHeight;
+    }
+
+    // Fungsi Pengoperasian Layanan Modul Baca Buku Fisik/Digital
+    function bacaBuku(title, content) {
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalBody').innerText = content;
+        document.getElementById('bookModal').style.display = 'flex';
+    }
+    function tutupBuku() { document.getElementById('bookModal').style.display = 'none'; }
+	// Fungsi khusus untuk perpindahan sub-tab Koleksi Literatur
+    function switchSubKoleksi(subId) {
+        // Sembunyikan semua konten sub-koleksi
+        document.querySelectorAll('.sub-koleksi').forEach(content => content.classList.remove('active-sub'));
+        // Tampilkan konten sub-koleksi yang dipilih
+        document.getElementById(subId).classList.add('active-sub');
+        
+        // Atur status aktif pada tombol tab
+        document.querySelectorAll('.tab-koleksi-btn').forEach(btn => btn.classList.remove('active-tab'));
+        event.currentTarget.classList.add('active-tab');
+    }
+	// Fungsi Interaktif Mengirim Catatan Co-Reading di Layanan Digital
+    function kirimKomentarCoRead() {
+        const input = document.getElementById('coread-input');
+        const area = document.getElementById('coread-chat-area');
+        const pesan = input.value.trim();
+        
+        if(pesan === "") return;
+        
+        // Tambah teks ke dalam kotak diskusi secara rapi
+        area.innerHTML += `<p style="margin: 5px 0;"><strong>Anda:</strong> ${pesan}</p>`;
+        
+        // Kosongkan kolom input dan scroll otomatis ke bawah
+        input.value = "";
+        area.scrollTop = area.scrollHeight;
+    }
+	// Fungsi Simulasi Layanan Sirkulasi Mandiri
+    function prosesSirkulasi() {
+        const nama = document.getElementById('sirkulasi-nama').value.trim();
+        const buku = document.getElementById('sirkulasi-buku').value;
+        const logArea = document.getElementById('sirkulasi-log-area');
+        
+        if(nama === "") {
+            alert('Tuliskan nama pemustaka terlebih dahulu, Ji!');
+            return;
+        }
+        
+        // Ambil tanggal hari ini secara otomatis
+        const hariIni = new Date();
+        const tglPinjam = hariIni.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+        
+        // Hitung tanggal kembali (otomatis +7 hari dari hari ini)
+        hariIni.setDate(hariIni.getDate() + 7);
+        const tglKembali = hariIni.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+        
+        // Cek jika ini transaksi pertama (hapus tulisan "Belum ada transaksi")
+        if(logArea.innerHTML.includes("Belum ada transaksi")) {
+            logArea.innerHTML = "";
+        }
+        
+        // Cetak riwayat sirkulasi baru di bagian atas log
+        const templateLog = `
+            <div style="background: #E8F5E9; border-left: 4px solid #2E7D32; padding: 8px; margin-bottom: 8px; border-radius: 4px; text-align: left;">
+                ✅ <strong>Peminjaman Berhasil!</strong><br>
+                👤 Peminjam: <strong>${nama}</strong><br>
+                📖 Koleksi: <i>${buku}</i><br>
+                📅 Pinjam: ${tglPinjam} | ⚠️ Batas Kembali: <strong>${tglKembali}</strong>
+            </div>
+        `;
+       
+    if(logArea.innerHTML.includes("Belum ada transaksi")) logArea.innerHTML = "";
+  logArea.innerHTML = `<div style="background: #E8F5E9; border-left: 4px solid #2E7D32; padding: 8px; margin-bottom: 8px; border-radius: 8px; color:#333;"><strong>Peminjaman Berhasil!</strong><br>Nama: ${nama}<br>Buku: ${buku}<br><small>Kembali: ${tglKembali}</small></div>` + logArea.innerHTML;
+}
+  
+    let ukuranFontDefault = 16; // Menyimpan ukuran font awal (16px)
+
+     // Fungsi untuk memperbesar / memperkecil ukuran teks buku
+       function ubahUkuranFont(aksi) {
+       const areaTeks = document.getElementById('modalBody');
+       if (aksi === 'tambah') {
+       if (ukuranFontDefault < 26) { // Batas maksimal perbesaran teks 26px
+            ukuranFontDefault += 2;
+        }
+    } else if (aksi === 'kurang') {
+        if (ukuranFontDefault > 12) { // Batas minimal perkecilan teks 12px
+            ukuranFontDefault -= 2;
+        }
+    }
+    areaTeks.style.fontSize = ukuranFontDefault + 'px';
+}
+
+     // Fungsi untuk mengganti skema warna latar belakang khusus area membaca buku
+        function gantiTemaBaca(tema) {
+        const boxModalContent = document.querySelector('.modal-content'); 
+        const areaTeksBuku = document.getElementById('modalBody');
+    if (!boxModalContent || !areaTeksBuku) return; // Mencegah error jika elemen belum terbaca
+    if (tema === 'sepia') {
+        boxModalContent.style.setProperty('background', '#F4ECD8', 'important');
+        boxModalContent.style.setProperty('color', '#5B4636', 'important');
+        areaTeksBuku.style.setProperty('background', '#FAF6EE', 'important');
+        areaTeksBuku.style.setProperty('color', '#5B4636', 'important');
+    } else if (tema === 'dark') {
+        boxModalContent.style.setProperty('background', '#231F20', 'important');
+        boxModalContent.style.setProperty('color', '#F5EBE0', 'important');
+        areaTeksBuku.style.setProperty('background', '#2D2724', 'important');
+        areaTeksBuku.style.setProperty('color', '#CBD5E1', 'important');
+    } else { 
+        // Mengembalikan ke mode Terang / Putih bawaan template awal
+        boxModalContent.style.setProperty('background', 'var(--card-bg)', 'important');
+        boxModalContent.style.setProperty('color', 'var(--text-dark)', 'important');
+        areaTeksBuku.style.setProperty('background', 'var(--input-bg)', 'important');
+        areaTeksBuku.style.setProperty('color', 'var(--text-dark)', 'important');
+    }
+}
+     // Modifikasi sedikit fungsi tutupBuku bawaan agar reset ke ukuran awal saat modal ditutup
+        function tutupBuku() {
+        document.getElementById('bookModal').style.display = 'none';
+    
+    // Reset setelan font dan tema bacaan ke semula supaya saat buka buku lain tidak berantakan
+    ukuranFontDefault = 16;
+    document.getElementById('modalBody').style.fontSize = '16px';
+    gantiTemaBaca('light');
+}
+
+</script>
+</body>
+</html>
