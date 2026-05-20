@@ -34,24 +34,30 @@
             background: linear-gradient(135deg, #EEDCC6 0%, #F5EBE0 100%);
             background-image: linear-gradient(rgba(141, 123, 109, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(141, 123, 109, 0.05) 1px, transparent 1px);
             background-size: 20px 20px;
-            margin: 0; display: flex; justify-content: center; align-items: center;
-            height: 100vh; overflow: hidden; color: var(--text-dark);
+            margin: 0; 
+			display: flex; 
+			justify-content: center; 
+			align-items: center;
+            height: 100vh; 
+			overflow: hidden;
+			color: var(--text-dark);
         }
         .container {
             width: 1200px; height: 780px;
             background: var(--bg-butter) url('bck.jpeg');
             border-radius: 40px;
-			display: none; /* Disembunyikan sebelum login */
+			display: none;
             box-shadow: 0 30px 70px rgba(0,0,0,0.15);
 			overflow: hidden;
             border: 1px solid var(--border-light);
             position: relative;
        }
-
         .auth-overlay {
-            width: 1200px; height: 780px;
+            width: 1200px; 
+			height: 780px;
             background: var(--bg-butter);
-            border-radius: 40px; display: flex;
+            border-radius: 40px; 
+			display: flex;
             box-shadow: 0 30px 70px rgba(0,0,0,0.15);
             overflow: hidden;
             border: 1px solid var(--border-light);
@@ -60,7 +66,7 @@
             flex: 1.2; 
             background: var(--gradient-accent), url('motif pinterest.jpeg');
             background-size: cover;
-            background-blend-mode: soft-light; /* Trik biar motifnya samar-samar estetik di atas warna pink-oranye */
+            background-blend-mode: soft-light;
             display: flex; 
             flex-direction: column; 
             justify-content: center;
@@ -68,26 +74,59 @@
             color: white; 
             position: relative;
        }
-
-        .auth-box { flex: 1; padding: 60px; display: flex; flex-direction: column; justify-content: center; background: var(--card-bg); }
-        .auth-form { display: none; animation: fadeIn 0.5s ease; }
-        .auth-form.active-form { display: block; }
+        .auth-box { 
+		flex: 1;
+		padding: 60px; 
+		display: flex; 
+		flex-direction: column;
+		justify-content: center; 
+		background: var(--card-bg);
+	   }
+        
+		.auth-form {
+		display: none; 
+		animation: fadeIn 0.5s ease; 
+		}
+       
+	   .auth-form.active-form { display: block;
+	   }
         .sidebar {
-            width: 290px; background: var(--sidebar-warm);
-            padding: 40px 20px; display: flex; flex-direction: column;
+            width: 290px; 
+			background: var(--sidebar-warm);
+            padding: 40px 20px; 
+			display: flex;
+			flex-direction: column;
             border-right: 1px solid rgba(141, 123, 109, 0.2);
         }
-        .logo-area { font-size: 28px; font-weight: 800; color: var(--primary-rose); margin-bottom: 35px; padding-left: 10px; letter-spacing: -0.5px; }
-        .logo-area span { color: #FF8A65; }
-        .nav-item {
-            padding: 14px 22px; margin-bottom: 6px; border-radius: 20px;
-            cursor: pointer; font-weight: 700; color: #7D6B5D;
-            display: flex; align-items: center; gap: 15px; font-size: 14px;
+        
+		.logo-area { 
+		font-size: 28px;
+		font-weight: 800; 
+		color: var(--primary-rose); 
+		margin-bottom: 35px;
+		padding-left: 10px;
+		letter-spacing: -0.5px; 
+		}
+        
+		.logo-area span {
+		color: #FF8A65; 
+		}
+       
+	   .nav-item {
+            padding: 14px 22px;
+			margin-bottom: 6px;
+			border-radius: 20px;
+            cursor: pointer;
+			font-weight: 700; 
+			color: #7D6B5D;
+            display: flex; 
+			align-items: center;
+			gap: 15px; 
+			font-size: 14px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        [data-theme="dark"] .nav-item { c
-		olor: #A39284;
-		}
+        
+		[data-theme="dark"] .nav-item { color: #A39284; }
 		
         .nav-item:hover, .nav-item.active {
             background: var(--card-bg) url('bck.jpeg'); 
@@ -102,91 +141,316 @@
             display: flex; align-items: center; justify-content: center; gap: 10px;
             font-size: 14px; color: var(--primary-rose); background: transparent;
         }
-        .content { flex: 1; padding: 45px; overflow-y: auto; scroll-behavior: smooth; }
-        .page { display: none; animation: slideUp 0.6s ease forwards; }
+        .content { flex: 1; 
+		padding: 45px; 
+		overflow-y: auto; scroll-behavior: smooth; 
+		}
+        .page { display: none; 
+		animation: slideUp 0.6s ease forwards; 
+		}
         .page.active { display: block; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .page-subtitle-badge {
-            display: inline-block; background: #FCE4EC; color: var(--primary-rose);
-            padding: 6px 16px; border-radius: 12px; font-size: 13px; font-weight: 700; margin-bottom: 30px;
+       
+	   @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+       
+	   .page-subtitle-badge {
+            display: inline-block;
+			background: #FCE4EC;
+			color: var(--primary-rose);
+            padding: 6px 16px; 
+			border-radius: 12px; 
+			font-size: 13px; 
+			font-weight: 700;
+			margin-bottom: 30px;
         }
-        [data-theme="dark"] .page-subtitle-badge { background: #4A1525; color: #FF8A65; }
-        .banner { background: var(--gradient-accent); padding: 35px; border-radius: 35px; color: white; margin-bottom: 30px; box-shadow: 0 15px 30px rgba(240, 98, 146, 0.3); }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
-        .card { background: var(--card-bg); padding: 25px; border-radius: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.02); margin-bottom: 25px; border: 1px solid rgba(141, 123, 109, 0.1); }
-        .btn-action { background: var(--gradient-accent); color: white; border: none; padding: 12px 24px; border-radius: 16px; cursor: pointer; font-weight: 700; transition: 0.3s; }
-        .btn-action:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(240, 98, 146, 0.4); }
-        .book-item { background: white; padding: 20px; border-radius: 25px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.02); transition: 0.3s; cursor: pointer; border: 1px solid rgba(141, 123, 109, 0.1); }
-        .book-item:hover { transform: translateY(-8px) scale(1.02); box-shadow: var(--shadow-premium); }
-        .book-cover { height: 130px; background: #f5f5f5; border-radius: 15px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; font-size: 40px; }
         
-        /* ===== MODAL BACA BUKU - VERSI BARU FULLSCREEN ===== */
+		[data-theme="dark"] .page-subtitle-badge { 
+		background: #4A1525;
+		color: #FF8A65;
+		}
+        
+		.banner { 
+		background: var(--gradient-accent); 
+		padding: 35px; 
+		border-radius: 35px; 
+		color: white;
+		margin-bottom: 30px; 
+		box-shadow: 0 15px 30px rgba(240, 98, 146, 0.3);
+		}
+        
+		.grid { 
+		display: grid; 
+		grid-template-columns: 1fr 1fr; gap: 25px; 
+		}
+        
+		.grid-3 { 
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 20px; 
+		}
+       
+	   .card { 
+	   background: var(--card-bg); 
+	   padding: 25px; 
+	   border-radius: 30px; 
+	   box-shadow: 0 10px 25px rgba(0,0,0,0.02); 
+	   margin-bottom: 25px;
+	   border: 1px solid rgba(141, 123, 109, 0.1);
+	   }
+        
+		.btn-action {
+		background: var(--gradient-accent); 
+		color: white;
+		border: none; 
+		padding: 12px 24px;
+		border-radius: 16px; 
+		cursor: pointer; 
+		font-weight: 700; 
+		transition: 0.3s; 
+		}
+       
+	   .btn-action:hover { 
+	   transform: scale(1.05);
+	   box-shadow: 0 8px 20px rgba(240, 98, 146, 0.4);
+	   }
+        
+		.book-item { 
+		background: white;
+		padding: 20px; 
+		border-radius: 25px; 
+		text-align: center; 
+		box-shadow: 0 8px 20px rgba(0,0,0,0.02); 
+		transition: 0.3s;
+		cursor: pointer;
+		border: 1px solid rgba(141, 123, 109, 0.1);
+		}
+       
+	   .book-item:hover { 
+	   transform: translateY(-8px) scale(1.02);
+	   box-shadow: var(--shadow-premium); 
+	   }
+        .book-cover { 
+		height: 130px;
+		background: #f5f5f5;
+		border-radius: 15px; 
+		margin-bottom: 15px; 
+		display: flex; 
+		align-items: center; 
+		justify-content: center; 
+		font-size: 40px; 
+		}
+
+        /* ===== MODAL BACA BUKU ===== */
         .modal {
-            display: none; position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5); backdrop-filter: blur(8px);
-            justify-content: center; align-items: center; z-index: 1000;
+            display: none;
+			position: absolute; 
+			top: 0; 
+			left: 0;
+            width: 100%;
+			height: 100%;
+            background: rgba(0,0,0,0.5); 
+			backdrop-filter: blur(8px);
+            justify-content: center;
+			align-items: center;
+			z-index: 1000;
         }
         .modal-content {
-            background: var(--card-bg); border-radius: 35px;
-            width: 750px; max-height: 85%;
-            display: flex; flex-direction: column;
-            box-shadow: var(--shadow-premium); color: var(--text-dark); overflow: hidden;
+            background: var(--card-bg); 
+			border-radius: 35px;
+            width: 750px; 
+			max-height: 85%;
+            display: flex; 
+			flex-direction: column;
+            box-shadow: var(--shadow-premium);
+			color: var(--text-dark); 
+			overflow: hidden;
         }
         .modal-header {
-            padding: 25px 35px 20px; border-bottom: 1px solid rgba(141,123,109,0.15);
-            display: flex; justify-content: space-between; align-items: flex-start; flex-shrink: 0;
+            padding: 25px 35px 20px;
+			border-bottom: 1px solid rgba(141,123,109,0.15);
+            display: flex; 
+			justify-content: space-between;
+			align-items: flex-start;
+			flex-shrink: 0;
         }
         .modal-toolbar {
-            padding: 12px 35px; background: rgba(141,123,109,0.06);
-            display: flex; gap: 8px; align-items: center; flex-wrap: wrap; flex-shrink: 0;
+            padding: 12px 35px; 
+			background: rgba(141,123,109,0.06);
+            display: flex; 
+			gap: 8px; 
+			align-items: center;
+			flex-wrap: wrap; 
+			flex-shrink: 0;
             border-bottom: 1px solid rgba(141,123,109,0.1);
         }
         .toolbar-btn {
-            padding: 6px 14px; border-radius: 10px; border: 1.5px solid rgba(141,123,109,0.3);
-            background: var(--card-bg); color: var(--text-dark); font-size: 12px; font-weight: 700;
-            cursor: pointer; transition: 0.2s;
+            padding: 6px 14px; 
+			border-radius: 10px;
+			border: 1.5px solid rgba(141,123,109,0.3);
+            background: var(--card-bg); 
+			color: var(--text-dark);
+			font-size: 12px;
+			font-weight: 700;
+            cursor: pointer; 
+			transition: 0.2s;
         }
-        .toolbar-btn:hover { background: var(--primary-rose); color: white; border-color: var(--primary-rose); }
-        .modal-body { padding: 25px 35px; overflow-y: auto; flex: 1; }
-        #modalBody {
-            font-size: 16px; line-height: 1.9; text-align: justify;
-            color: var(--text-dark); white-space: pre-wrap;
+        .toolbar-btn:hover { 
+		background: var(--primary-rose);
+		color: white; 
+		border-color: var(--primary-rose); 
+		}
+        .modal-body { 
+		padding: 25px 35px; 
+		overflow-y: auto; 
+		flex: 1;
+		}
+       
+	 #modalBody {
+            font-size: 16px; 
+			line-height: 1.9; 
+			text-align: justify;
+            color: var(--text-dark);
+			white-space: pre-wrap;
         }
-        .modal-footer { padding: 15px 35px 25px; flex-shrink: 0; text-align: center; border-top: 1px solid rgba(141,123,109,0.1); }
+        .modal-footer {
+		padding: 15px 35px 25px; 
+		flex-shrink: 0;
+		text-align: center; 
+		border-top: 1px solid rgba(141,123,109,0.1); 
+		}
 
         /* ===== CHAT LIA AI ===== */
-        #chat-area { background: #FFFDF5; height: 200px; overflow-y: auto; border-radius: 15px; padding: 12px; font-size: 14px; border: 1px dashed var(--primary-rose); margin-bottom: 10px; }
-        [data-theme="dark"] #chat-area { background: var(--input-bg); }
-        .lia-typing { color: var(--primary-rose); font-style: italic; animation: pulse 1s infinite; }
-        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+           #chat-area {
+		     background: #FFFDF5;
+			 height: 200px; 
+			 overflow-y: auto;
+			 border-radius: 15px;
+			 padding: 12px; 
+			 font-size: 14px; 
+			 border: 1px dashed var(--primary-rose); 
+			 margin-bottom: 10px;
+			 }
+           
+		   [data-theme="dark"] #chat-area { background: var(--input-bg); }
+            .lia-typing { 
+			color: var(--primary-rose); 
+			font-style: italic; 
+			animation: pulse 1s infinite;
+			}
+            @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
-        .tab-koleksi-btn { flex: 1; background: transparent; border: none; padding: 10px; border-radius: 12px; font-weight: 700; color: #7D6B5D; cursor: pointer; transition: 0.3s; font-size: 13px; }
-        .tab-koleksi-btn:hover, .tab-koleksi-btn.active-tab { background: white; color: var(--primary-rose); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .sub-koleksi { display: none; animation: fadeIn 0.4s ease; }
-        .sub-koleksi.active-sub { display: block; }
-        .title-highlight { display: inline-block; background-color: #FCE4EC; color: #C2185B; padding: 8px 20px; border-radius: 12px; margin-bottom: 20px; font-size: 22px; font-weight: 800; }
-        .subtitle-highlight { display: inline-block; background-color: #FFF3E0; color: #E65100; padding: 6px 15px; border-radius: 10px; margin-top: 15px; margin-bottom: 10px; }
-        [data-theme="dark"] .tab-koleksi-btn { color: #A39284; }
+          .tab-koleksi-btn { 
+		     flex: 1;
+		     background: transparent; 
+		     border: none; 
+		     padding: 10px; 
+		     border-radius: 12px;
+		     font-weight: 700;
+		     color: #7D6B5D; 
+		     cursor: pointer;
+		     transition: 0.3s; 
+		     font-size: 13px; 
+		   }
+          .tab-koleksi-btn:hover, .tab-koleksi-btn.active-tab {
+  		    background: white;
+		    color: var(--primary-rose);
+		    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+		  }
+           .sub-koleksi {
+		    display: none; 
+		    animation: fadeIn 0.4s ease; 
+		   }
+           .sub-koleksi.active-sub { 
+		    display: block; 
+		   }
+           .title-highlight { 
+		     display: inline-block;
+		     background-color: #FCE4EC;
+		     color: #C2185B;
+		     padding: 8px 20px; 
+		     border-radius: 12px; 
+		     margin-bottom: 20px; 
+		     font-size: 22px;
+		     font-weight: 800; 
+		   }
+           .subtitle-highlight { 
+		     display: inline-block; 
+		     background-color: #FFF3E0; 
+		     color: #E65100;
+		     padding: 6px 15px; 
+		     border-radius: 10px;
+		     margin-top: 15px;
+		     margin-bottom: 10px; 
+		   }
+        
+		[data-theme="dark"] .tab-koleksi-btn { color: #A39284; }
         [data-theme="dark"] .title-highlight { background-color: #4A1525; color: #FF8A65; }
         [data-theme="dark"] .subtitle-highlight { background-color: #4A3215; color: #FFB74D; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .faq-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        input, textarea, select { background: var(--input-bg); color: var(--text-dark); border: 2px solid #EEDCC6; outline: none; }
+       
+	   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+      
+	  .faq-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        input, textarea, select { 
+		background: var(--input-bg);
+		color: var(--text-dark); 
+		border: 2px solid #EEDCC6;
+		outline: none; 
+		}
         [data-theme="dark"] input, [data-theme="dark"] textarea, [data-theme="dark"] select { border-color: #4A3E36; }
 
-        /* Badge status baca */
-        .read-badge { display: inline-block; padding: 3px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; margin-top: 8px; }
+        .read-badge { 
+		display: inline-block; 
+		padding: 3px 10px;
+		border-radius: 8px; 
+		font-size: 11px; 
+		font-weight: 700;
+		margin-top: 8px;
+		}
         .read-badge.tersedia { background: #E8F5E9; color: #2E7D32; }
         .read-badge.terbatas { background: #FFF3E0; color: #E65100; }
         .read-badge.sinopsis { background: #EDE7F6; color: #4527A0; }
 
-        /* Tombol baca full/sinopsis */
-        .btn-read-full { background: linear-gradient(135deg, #66BB6A, #43A047); color: white; border: none; padding: 6px 12px; border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 12px; margin-top: 6px; display: block; width: 100%; transition: 0.3s; }
+        .btn-read-full {
+		background: linear-gradient(135deg, #66BB6A, #43A047);
+		color: white; 
+		border: none; 
+		padding: 6px 12px; 
+		border-radius: 10px;
+		cursor: pointer; 
+		font-weight: 700; 
+		font-size: 12px; 
+		margin-top: 6px; 
+		display: block; 
+		width: 100%; 
+		transition: 0.3s; 
+		}
         .btn-read-full:hover { transform: scale(1.03); }
-        .btn-read-synopsis { background: var(--gradient-accent); color: white; border: none; padding: 6px 12px; border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 12px; margin-top: 4px; display: block; width: 100%; transition: 0.3s; }
+        .btn-read-synopsis { 
+		background: var(--gradient-accent); 
+		color: white; 
+		border: none; 
+		padding: 6px 12px;
+		border-radius: 10px;
+		cursor: pointer; 
+		font-weight: 700; 
+		font-size: 12px;
+		margin-top: 4px; 
+		display: block;
+		width: 100%;
+		transition: 0.3s;
+		}
         .btn-read-synopsis:hover { transform: scale(1.03); }
+
+        /* Badge jumlah koleksi */
+        .koleksi-count-badge {
+            display: inline-block;
+            background: var(--gradient-accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
@@ -257,6 +521,13 @@
         <span style="color: white;">Hello,<span style="color: white;">Reader!</span></span>
     </div>
       	<p style="font-size: 16px; opacity: 0.9;">"Your Space, Your Literacies" — Temukan ruang membaca yang tak terbatas dalam ekosistem digital Litera Space.</p>
+        <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+            <div style="background: rgba(255,255,255,0.25); padding: 10px 20px; border-radius: 15px; font-weight: 700; font-size: 14px;">📖 15 Buku Fisik</div>
+            <div style="background: rgba(255,255,255,0.25); padding: 10px 20px; border-radius: 15px; font-weight: 700; font-size: 14px;">💻 8 E-Book</div>
+            <div style="background: rgba(255,255,255,0.25); padding: 10px 20px; border-radius: 15px; font-weight: 700; font-size: 14px;">🎧 6 Koleksi Digital</div>
+            <div style="background: rgba(255,255,255,0.25); padding: 10px 20px; border-radius: 15px; font-weight: 700; font-size: 14px;">📄 6 Jurnal Ilmiah</div>
+            <div style="background: rgba(255,255,255,0.25); padding: 10px 20px; border-radius: 15px; font-weight: 700; font-size: 14px;">📝 5 Skripsi/TA</div>
+        </div>
     </div>
 	
      <div class="grid">
@@ -309,7 +580,6 @@
         <div id="layanan" class="page">
             <h2 class="title-highlight">✨ Layanan Unggulan Masa Kini</h2>
             <div class="grid">
-                <!-- LIA AI - DIPERBAIKI DENGAN CLAUDE API -->
                 <div class="card">
                     <h3 class="subtitle-highlight">🤖 Lia AI Assistant</h3>
                     <div style="font-size: 11px; background: #E8F5E9; color: #2E7D32; padding: 4px 10px; border-radius: 8px; display: inline-block; margin-bottom: 8px; font-weight: 700;">● Aktif — Didukung Claude AI</div>
@@ -322,7 +592,6 @@
                     </div>
                 </div>
 
-                <!-- CO-READING SPACE -->
                 <div class="card">
                     <h3 class="subtitle-highlight">👥 Co-Reading Space</h3>
                     <p style="color: #666; font-size: 13px; margin-bottom: 20px;">Ruang membaca bersama dan diskusi kelompok aktif.</p>
@@ -357,7 +626,6 @@
                 </div>
             </div>
 
-            <!-- SIRKULASI MANDIRI -->
             <div class="card" style="margin-top: 5px;">
                 <h3 class="subtitle-highlight">🔄 Layanan Sirkulasi Mandiri</h3>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
@@ -369,9 +637,16 @@
                         <select id="sirkulasi-buku" style="width: 100%; padding: 8px; margin: 5px 0 15px; border-radius: 8px; border: 1px solid #ccc; font-size: 13px; box-sizing: border-box;">
                             <option>E-Book: Ronggeng Dukuh Paruk</option>
                             <option>E-Book: Re: dan perempuan</option>
-                            <option>Jurnal: Identitas Nasional (UUD 1945)</option>
-                            <option>Skripsi: Analisa Manual Handling REBA</option>
+                            <option>E-Book: Bumi (Tere Liye)</option>
+                            <option>E-Book: Perahu Kertas (Dee Lestari)</option>
+                            <option>E-Book: Negeri 5 Menara (A. Fuadi)</option>
                             <option>E-Book: As Long As the Lemon Trees Grow</option>
+                            <option>Jurnal: Identitas Nasional (UUD 1945)</option>
+                            <option>Jurnal: Literasi Digital Generasi Z</option>
+                            <option>Skripsi: Analisa Manual Handling REBA</option>
+                            <option>Buku Fisik: Laut Bercerita</option>
+                            <option>Buku Fisik: Sapiens (Yuval Noah Harari)</option>
+                            <option>Buku Fisik: Atomic Habits (James Clear)</option>
                         </select>
                         <button onclick="prosesSirkulasi()" style="width: 100%; background: #E65100; color: white; border: none; padding: 10px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: bold;">Ajukan Peminjaman</button>
                     </div>
@@ -391,16 +666,16 @@
             <p style="color: #888; font-size: 14px; margin-bottom: 20px;">Jelajahi berbagai format pustaka. Buku berlabel <strong>🟢 Bisa Dibaca</strong> tersedia teks penuh. Buku berlabel <strong>🟡 Ringkasan</strong> ditampilkan sinopsis dan rangkuman per bab.</p>
             
             <div style="display: flex; gap: 10px; margin-bottom: 30px; background: #EEDCC6; padding: 8px; border-radius: 15px;">
-                <button class="tab-koleksi-btn active-tab" onclick="switchSubKoleksi('koleksi-buku', this)">📖 Buku</button>
-                <button class="tab-koleksi-btn" onclick="switchSubKoleksi('koleksi-digital', this)">🎧 Digital</button>
-                <button class="tab-koleksi-btn" onclick="switchSubKoleksi('koleksi-ebook', this)">📊 E-Book</button>
-                <button class="tab-koleksi-btn" onclick="switchSubKoleksi('koleksi-jurnal', this)">💻 Jurnal</button>
-                <button class="tab-koleksi-btn" onclick="switchSubKoleksi('koleksi-skripsi', this)">📝 Skripsi</button>
+                <button class="tab-koleksi-btn active-tab" onclick="switchSubKoleksi('koleksi-buku', this)">📖 Buku <span class="koleksi-count-badge">15</span></button>
+                <button class="tab-koleksi-btn" onclick="switchSubKoleksi('koleksi-digital', this)">🎧 Digital <span class="koleksi-count-badge">6</span></button>
+                <button class="tab-koleksi-btn" onclick="switchSubKoleksi('koleksi-ebook', this)">📊 E-Book <span class="koleksi-count-badge">8</span></button>
+                <button class="tab-koleksi-btn" onclick="switchSubKoleksi('koleksi-jurnal', this)">💻 Jurnal <span class="koleksi-count-badge">6</span></button>
+                <button class="tab-koleksi-btn" onclick="switchSubKoleksi('koleksi-skripsi', this)">📝 Skripsi <span class="koleksi-count-badge">5</span></button>
             </div>
 
             <!-- TAB BUKU FISIK -->
             <div id="koleksi-buku" class="sub-koleksi active-sub">
-                <h3 style="color: var(--primary-rose);">Koleksi Buku Fisik (Teks)</h3>
+                <h3 style="color: var(--primary-rose);">Koleksi Buku Fisik (15 Judul)</h3>
                 <div class="grid-3">
                     <div class="book-item">
                         <img src="cover laut bercerita.jpeg" alt="Laut Bercerita" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
@@ -423,12 +698,119 @@
                         <span class="read-badge tersedia">🟢 Tersedia di Rak S-3</span>
                         <button class="btn-read-synopsis" onclick="bukaModal('Manajemen Sumber Informasi dan Perpustakaan', KONTEN_BUKU.manajemenInfo)">📖 Baca Ringkasan</button>
                     </div>
+                    <!-- BUKU BARU 1 -->
+                    <div class="book-item">
+                      
+                       <img src="cover sapiens.jpeg" alt="Sapiens" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					   <br>
+						<strong>Sapiens: Riwayat Singkat Umat Manusia</strong><br><small>Yuval Noah Harari</small><br>
+                        <span class="read-badge tersedia">🟢 Tersedia di Rak S-2</span>
+                        <button class="btn-read-synopsis" onclick="bukaModal('Sapiens: Riwayat Singkat Umat Manusia — Yuval Noah Harari', KONTEN_BUKU.sapiens)">📖 Baca Ringkasan</button>
+                    </div>
+                    <!-- BUKU BARU 2 -->
+                    <div class="book-item">
+                        
+                       <img src="cover automic.jpeg" alt="Atomic" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					   <br>
+						<strong>Atomic Habits</strong><br><small>James Clear</small><br>
+                        <span class="read-badge tersedia">🟢 Tersedia di Rak S-5</span>
+                        <button class="btn-read-synopsis" onclick="bukaModal('Atomic Habits — James Clear', KONTEN_BUKU.atomicHabits)">📖 Baca Ringkasan</button>
+                    </div>
+                    <!-- BUKU BARU 3 -->
+                    <div class="book-item">
+                        
+                       <img src="laskar.jpeg" alt="Laskar Pelangi" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					   <br>
+						<strong>Laskar Pelangi</strong><br><small>Andrea Hirata</small><br>
+                        <span class="read-badge tersedia">🟢 Tersedia di Rak S-1</span>
+                        <button class="btn-read-synopsis" onclick="bukaModal('Laskar Pelangi — Andrea Hirata', KONTEN_BUKU.laskarPelangi)">📖 Baca Ringkasan</button>
+                    </div>
+                    <!-- BUKU BARU 4 -->
+                    <div class="book-item">
+                        
+                        <img src="cover thinking.jpeg" alt="Thinking" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+						<br>
+						<strong>Thinking, Fast and Slow</strong><br><small>Daniel Kahneman</small><br>
+                        <span class="read-badge tersedia">🟢 Tersedia di Rak S-6</span>
+                        <button class="btn-read-synopsis" onclick="bukaModal('Thinking, Fast and Slow — Daniel Kahneman', KONTEN_BUKU.thinkingFastSlow)">📖 Baca Ringkasan</button>
+                    </div>
+                    <!-- BUKU BARU 5 -->
+                    <div class="book-item">
+                        
+                        <img src="cover pulang.jpeg" alt="Pulang" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+						<br>
+						<strong>Pulang</strong><br><small>Tere Liye</small><br>
+                        <span class="read-badge tersedia">🟢 Tersedia di Rak S-2</span>
+                        <button class="btn-read-synopsis" onclick="bukaModal('Pulang — Tere Liye', KONTEN_BUKU.pulang)">📖 Baca Ringkasan</button>
+                    </div>
+                    <!-- BUKU BARU 6 -->
+                    <div class="book-item">
+                        <div class="book-cover" style="background: linear-gradient(135deg,#f3e5f5,#e1bee7);">🔬</div>
+                        <br>
+						<strong>Pengantar Ilmu Perpustakaan</strong><br><small>Sulistyo-Basuki</small><br>
+                        <span class="read-badge tersedia">🟢 Tersedia di Rak S-3</span>
+                        <button class="btn-read-synopsis" onclick="bukaModal('Pengantar Ilmu Perpustakaan — Sulistyo-Basuki', KONTEN_BUKU.ilmuPerpustakaan)">📖 Baca Ringkasan</button>
+                    </div>
+                    <!-- BUKU BARU 7 -->
+                    <div class="book-item">
+                        
+                       <img src="cover alchemist.jpeg" alt="The Alchemist" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					   <br>
+						<strong>The Alchemist</strong><br><small>Paulo Coelho</small><br>
+                        <span class="read-badge terbatas">🟡 1 Eks Tersisa — Rak S-4</span>
+                        <button class="btn-read-synopsis" onclick="bukaModal('The Alchemist — Paulo Coelho', KONTEN_BUKU.alchemist)">📖 Baca Ringkasan</button>
+                    </div>
+                    <!-- BUKU BARU 8 -->
+                    <div class="book-item">
+                       
+                       <img src="cover rich dad.jpeg" alt="Rich Dad" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					   
+					   <br>
+						<strong>Rich Dad Poor Dad</strong><br><small>Robert T. Kiyosaki</small><br>
+                        <span class="read-badge tersedia">🟢 Tersedia di Rak S-7</span>
+                        <button class="btn-read-synopsis" onclick="bukaModal('Rich Dad Poor Dad — Robert T. Kiyosaki', KONTEN_BUKU.richDad)">📖 Baca Ringkasan</button>
+                    </div>
+                    <!-- BUKU BARU 9 -->
+                    <div class="book-item">
+                        <div class="book-cover" style="background: linear-gradient(135deg,#fff8e1,#ffecb3);">📐</div>
+                        <br>
+						<strong>Metodologi Penelitian Kualitatif</strong><br><small>Prof. Dr. Sugiyono</small><br>
+                        <span class="read-badge tersedia">🟢 Tersedia di Rak R-1</span>
+                        <button class="btn-read-synopsis" onclick="bukaModal('Metodologi Penelitian Kualitatif — Sugiyono', KONTEN_BUKU.metodologiPenelitian)">📖 Baca Ringkasan</button>
+                    </div>
+                    <!-- BUKU BARU 10 -->
+                    <div class="book-item">
+                       
+                        <img src="cover filosofi.jpeg" alt="Filosofi Teras" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					    <br>
+						<strong>Filosofi Teras</strong><br><small>Henry Manampiring</small><br>
+                        <span class="read-badge tersedia">🟢 Tersedia di Rak S-5</span>
+                        <button class="btn-read-synopsis" onclick="bukaModal('Filosofi Teras — Henry Manampiring', KONTEN_BUKU.filosofiTeras)">📖 Baca Ringkasan</button>
+                    </div>
+                    <!-- BUKU BARU 11 -->
+                    <div class="book-item">
+                        
+                        <img src="cover sikologi.jpeg" alt="The Psychology" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					   <br>
+						<strong>The Psychology of Money</strong><br><small>Morgan Housel</small><br>
+                        <span class="read-badge tersedia">🟢 Tersedia di Rak S-7</span>
+                        <button class="btn-read-synopsis" onclick="bukaModal('The Psychology of Money — Morgan Housel', KONTEN_BUKU.psychologyMoney)">📖 Baca Ringkasan</button>
+                    </div>
+                    <!-- BUKU BARU 12 -->
+                    <div class="book-item">
+                       
+                       <img src="cover bumi manusia.jpeg" alt="Bumi Manusia" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					   <br>
+						<strong>Bumi Manusia</strong><br><small>Pramoedya Ananta Toer</small><br>
+                        <span class="read-badge tersedia">🟢 Tersedia di Rak S-1</span>
+                        <button class="btn-read-synopsis" onclick="bukaModal('Bumi Manusia — Pramoedya Ananta Toer', KONTEN_BUKU.bumiManusia)">📖 Baca Ringkasan</button>
+                    </div>
                 </div>
             </div>
 
             <!-- TAB DIGITAL -->
             <div id="koleksi-digital" class="sub-koleksi">
-                <h3 style="color: var(--primary-rose);">Koleksi Digital (Audio & Video)</h3>
+                <h3 style="color: var(--primary-rose);">Koleksi Digital (Audio, Video & Manuskrip) — 6 Judul</h3>
                 <div class="grid-3">
                     <div class="book-item">
                         <div class="book-cover">📹</div>
@@ -444,12 +826,44 @@
                         <span class="read-badge tersedia">🟢 Domain Publik</span>
                         <button class="btn-read-full" onclick="bukaModal('Manuskrip Sureq Galigo — Epik Bugis Kuno', KONTEN_BUKU.sureqGaligo)">📜 Baca Manuskrip</button>
                     </div>
+                    <!-- DIGITAL BARU 1 -->
+                    <div class="book-item">
+                        <div class="book-cover" style="background: linear-gradient(135deg,#e8f5e9,#c8e6c9);">🎙️</div>
+                        <br>
+						<strong>Podcast Literasi: Membaca di Era Digital</strong><br><small>Tim Litera Space</small><br>
+                        <span class="read-badge tersedia">🟢 Streaming Tersedia</span>
+                        <button class="btn-read-full" onclick="bukaModal('Podcast: Membaca di Era Digital — Tim Litera Space', KONTEN_BUKU.podcastLiterasi)">🎧 Dengarkan & Baca Transkrip</button>
+                    </div>
+                    <!-- DIGITAL BARU 2 -->
+                    <div class="book-item">
+                        <div class="book-cover" style="background: linear-gradient(135deg,#fff3e0,#ffe0b2);">📽️</div>
+                        <br>
+						<strong>Webinar: Katalogisasi Bahan Pustaka Modern</strong><br><small>Perpustakaan Nasional RI</small><br>
+                        <span class="read-badge tersedia">🟢 Rekaman Tersedia</span>
+                        <button class="btn-read-full" onclick="bukaModal('Webinar: Katalogisasi Bahan Pustaka Modern — Perpusnas RI', KONTEN_BUKU.webinarKatalog)">▶ Tonton Rekaman</button>
+                    </div>
+                    <!-- DIGITAL BARU 3 -->
+                    <div class="book-item">
+                        <div class="book-cover" style="background: linear-gradient(135deg,#e1f5fe,#b3e5fc);">🗺️</div>
+                        <br>
+						<strong>Peta Aksara Nusantara Interaktif</strong><br><small>Pusat Bahasa Kemdikbud</small><br>
+                        <span class="read-badge tersedia">🟢 Interaktif Online</span>
+                        <button class="btn-read-full" onclick="bukaModal('Peta Aksara Nusantara Interaktif — Pusat Bahasa Kemdikbud', KONTEN_BUKU.aksaraNusantara)">🗺️ Jelajahi Aksara</button>
+                    </div>
+                    <!-- DIGITAL BARU 4 -->
+                    <div class="book-item">
+                        <div class="book-cover" style="background: linear-gradient(135deg,#f3e5f5,#e1bee7);">🎬</div>
+                        <br>
+						<strong>Dokumenter: Sejarah Percetakan di Indonesia</strong><br><small>Arsip Nasional RI</small><br>
+                        <span class="read-badge tersedia">🟢 Domain Publik</span>
+                        <button class="btn-read-full" onclick="bukaModal('Dokumenter: Sejarah Percetakan di Indonesia — ANRI', KONTEN_BUKU.sejarahPercetakan)">▶ Tonton Dokumenter</button>
+                    </div>
                 </div>
             </div>
 
             <!-- TAB EBOOK -->
             <div id="koleksi-ebook" class="sub-koleksi">
-                <h3 style="color: var(--primary-rose);">Koleksi Buku Elektronik (E-Book)</h3>
+                <h3 style="color: var(--primary-rose);">Koleksi Buku Elektronik (E-Book) — 8 Judul</h3>
                 <p style="font-size: 13px; background: #FFF8E1; padding: 10px 15px; border-radius: 10px; border-left: 4px solid #FFC107; color: #5D4037;">ℹ️ <strong>Catatan:</strong> Buku-buku berhak cipta ditampilkan sinopsis lengkap + panduan bab. Untuk membaca teks penuh, gunakan layanan resmi seperti iPusnas, Google Play Books, atau Gramedia Digital.</p>
                 <div class="grid-3" style="margin-top: 15px;">
                     <div class="book-item">
@@ -470,10 +884,60 @@
                     </div>
                     <div class="book-item">
                         <img src="cover as long as.jpg" alt="Lemon Trees" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-                        <br>
-						<strong>As Long As the Lemon Trees Grow</strong><br><small>Zoulfa Katouh</small><br>
+                       <br>
+					   <strong>As Long As the Lemon Trees Grow</strong><br><small>Zoulfa Katouh</small><br>
                         <span class="read-badge sinopsis">🟡 Sinopsis Lengkap</span>
                         <button class="btn-read-synopsis" onclick="bukaModal('As Long As the Lemon Trees Grow — Zoulfa Katouh', KONTEN_BUKU.lemonTrees)">📖 Baca Sinopsis Lengkap</button>
+                        <button class="btn-read-full" onclick="window.open('https://www.gramedia.com','_blank')" style="margin-top:4px;">🔗 Baca Teks Penuh (Gramedia)</button>
+                    </div>
+                    <!-- EBOOK BARU 1 -->
+                    <div class="book-item">
+                        
+                        <img src="cover bumi.jpeg" alt="Bumi" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					   <br>
+						<strong>Bumi</strong><br><small>Tere Liye</small><br>
+                        <span class="read-badge sinopsis">🟡 Sinopsis Lengkap</span>
+                        <button class="btn-read-synopsis" onclick="bukaModal('Bumi — Tere Liye', KONTEN_BUKU.bumiTereLiye)">📖 Baca Sinopsis Lengkap</button>
+                        <button class="btn-read-full" onclick="window.open('https://www.gramedia.com','_blank')" style="margin-top:4px;">🔗 Baca Teks Penuh (Gramedia)</button>
+                    </div>
+                    <!-- EBOOK BARU 2 -->
+                    <div class="book-item">
+                       
+                       <img src="perahu.jpeg" alt="Perahu Kertas" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					   <br>
+					   <strong>Perahu Kertas</strong><br><small>Dee Lestari</small><br>
+                        <span class="read-badge sinopsis">🟡 Sinopsis Lengkap</span>
+                        <button class="btn-read-synopsis" onclick="bukaModal('Perahu Kertas — Dee Lestari', KONTEN_BUKU.perahuKertas)">📖 Baca Sinopsis Lengkap</button>
+                        <button class="btn-read-full" onclick="window.open('https://www.gramedia.com','_blank')" style="margin-top:4px;">🔗 Baca Teks Penuh (Gramedia)</button>
+                    </div>
+                    <!-- EBOOK BARU 3 -->
+                    <div class="book-item">
+                        
+                       <img src="negeri.jpeg" alt="Negeri 5 Menara" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					   <br>
+						<strong>Negeri 5 Menara</strong><br><small>Ahmad Fuadi</small><br>
+                        <span class="read-badge sinopsis">🟡 Sinopsis Lengkap</span>
+                        <button class="btn-read-synopsis" onclick="bukaModal('Negeri 5 Menara — Ahmad Fuadi', KONTEN_BUKU.negeri5Menara)">📖 Baca Sinopsis Lengkap</button>
+                        <button class="btn-read-full" onclick="window.open('https://ipusnas.id','_blank')" style="margin-top:4px;">🔗 Baca di iPusnas (Gratis)</button>
+                    </div>
+                    <!-- EBOOK BARU 4 -->
+                    <div class="book-item">
+                        
+                        <img src="cover kite.jpeg" alt="The Kite Runner" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					   <br>
+						<strong>The Kite Runner</strong><br><small>Khaled Hosseini</small><br>
+                        <span class="read-badge sinopsis">🟡 Sinopsis Lengkap</span>
+                        <button class="btn-read-synopsis" onclick="bukaModal('The Kite Runner — Khaled Hosseini', KONTEN_BUKU.kiteRunner)">📖 Baca Sinopsis Lengkap</button>
+                        <button class="btn-read-full" onclick="window.open('https://books.google.com','_blank')" style="margin-top:4px;">🔗 Baca Teks Penuh (Eksternal)</button>
+                    </div>
+                    <!-- EBOOK BARU 5 -->
+                    <div class="book-item">
+                       
+                       <img src="cover cantik.jpeg" alt="Cantik Itu Luka" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					   <br>
+						<strong>Cantik Itu Luka</strong><br><small>Eka Kurniawan</small><br>
+                        <span class="read-badge sinopsis">🟡 Sinopsis Lengkap</span>
+                        <button class="btn-read-synopsis" onclick="bukaModal('Cantik Itu Luka — Eka Kurniawan', KONTEN_BUKU.cantikItuLuka)">📖 Baca Sinopsis Lengkap</button>
                         <button class="btn-read-full" onclick="window.open('https://www.gramedia.com','_blank')" style="margin-top:4px;">🔗 Baca Teks Penuh (Gramedia)</button>
                     </div>
                 </div>
@@ -481,30 +945,111 @@
 
             <!-- TAB JURNAL -->
             <div id="koleksi-jurnal" class="sub-koleksi">
-                <h3 style="color: var(--primary-rose);">Jurnal Ilmiah Berkala</h3>
+                <h3 style="color: var(--primary-rose);">Jurnal Ilmiah Berkala — 6 Judul</h3>
                 <div class="grid-3">
                     <div class="book-item">
                         <img src="cover-jurnal.jpg" alt="Jurnal" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
                         <br>
-						<strong>Identitas Nasional ditinjau dari UUD 1945 dan UU No. 24 Tahun 2009</strong><br>
-                        <small>Tatu Afifah — Ajudikasi: Jurnal Ilmu Hukum</small><br>
+						<strong>Identitas Nasional ditinjau dari UUD 1945 dan UU No. 24 Tahun 2009</strong>
+                        <br><small>Tatu Afifah — Ajudikasi: Jurnal Ilmu Hukum</small><br>
                         <span class="read-badge tersedia">🟢 Open Access</span>
-                        <button class="btn-read-full" onclick="bukaModal('Jurnal: Identitas Nasional ditinjau dari UUD 1945 dan UU No. 24/2009 — Tatu Afifah', KONTEN_BUKU.jurnalIdentitas)">📄 Baca Jurnal Lengkap</button>
+                        <button class="btn-read-full" onclick="bukaModal('Jurnal: Identitas Nasional — Tatu Afifah', KONTEN_BUKU.jurnalIdentitas)">📄 Baca Jurnal Lengkap</button>
+                    </div>
+                    <!-- JURNAL BARU 1 -->
+                    <div class="book-item">
+                        <div class="book-cover" style="background: linear-gradient(135deg,#e3f2fd,#bbdefb);">📱</div>
+                        <br>
+						<strong>Literasi Digital Generasi Z di Era Post-Pandemi</strong>
+                        <br><small>Dewi Rahmawati — Jurnal Ilmu Perpustakaan dan Informasi</small><br>
+                        <span class="read-badge tersedia">🟢 Open Access</span>
+                        <button class="btn-read-full" onclick="bukaModal('Jurnal: Literasi Digital Generasi Z — Dewi Rahmawati', KONTEN_BUKU.jurnalLiterasiDigital)">📄 Baca Jurnal Lengkap</button>
+                    </div>
+                    <!-- JURNAL BARU 2 -->
+                    <div class="book-item">
+                        <div class="book-cover" style="background: linear-gradient(135deg,#f3e5f5,#e1bee7);">🤖</div>
+                        <br>
+						<strong>Pemanfaatan Kecerdasan Buatan dalam Pengelolaan Perpustakaan Digital</strong>
+                        <br><small>Budi Santoso — Berkala Ilmu Perpustakaan dan Informasi</small><br>
+                        <span class="read-badge tersedia">🟢 Open Access</span>
+                        <button class="btn-read-full" onclick="bukaModal('Jurnal: AI dalam Perpustakaan Digital — Budi Santoso', KONTEN_BUKU.jurnalAIPerpustakaan)">📄 Baca Jurnal Lengkap</button>
+                    </div>
+                    <!-- JURNAL BARU 3 -->
+                    <div class="book-item">
+                        <div class="book-cover" style="background: linear-gradient(135deg,#e8f5e9,#c8e6c9);">🌿</div>
+                        <br>
+						<strong>Green Library: Konsep Perpustakaan Berkelanjutan di Indonesia</strong>
+                        <br><small>Rini Kurniasih — Jurnal Pustaka Ilmu</small><br>
+                        <span class="read-badge tersedia">🟢 Open Access</span>
+                        <button class="btn-read-full" onclick="bukaModal('Jurnal: Green Library — Rini Kurniasih', KONTEN_BUKU.jurnalGreenLibrary)">📄 Baca Jurnal Lengkap</button>
+                    </div>
+                    <!-- JURNAL BARU 4 -->
+                    <div class="book-item">
+                        <div class="book-cover" style="background: linear-gradient(135deg,#fff3e0,#ffe0b2);">📊</div>
+                        <br>
+						<strong>Analisis Kebutuhan Informasi Mahasiswa Tingkat Akhir</strong>
+                        <br><small>Hendra Wijaya — Jurnal Akses: Pengabdian Masyarakat</small><br>
+                        <span class="read-badge tersedia">🟢 Open Access</span>
+                        <button class="btn-read-full" onclick="bukaModal('Jurnal: Kebutuhan Informasi Mahasiswa — Hendra Wijaya', KONTEN_BUKU.jurnalKebutuhanInfo)">📄 Baca Jurnal Lengkap</button>
+                    </div>
+                    <!-- JURNAL BARU 5 -->
+                    <div class="book-item">
+                        <div class="book-cover" style="background: linear-gradient(135deg,#fce4ec,#f8bbd0);">📖</div>
+                        <br>
+						<strong>Minat Baca Masyarakat Indonesia: Studi Komparatif 2015–2025</strong>
+                        <br><small>Sri Wahyuni — Jurnal Perpustakaan Indonesia</small><br>
+                        <span class="read-badge tersedia">🟢 Open Access</span>
+                        <button class="btn-read-full" onclick="bukaModal('Jurnal: Minat Baca Masyarakat Indonesia — Sri Wahyuni', KONTEN_BUKU.jurnalMinatBaca)">📄 Baca Jurnal Lengkap</button>
                     </div>
                 </div>
             </div>
 
             <!-- TAB SKRIPSI -->
             <div id="koleksi-skripsi" class="sub-koleksi">
-                <h3 style="color: var(--primary-rose);">Repositori Skripsi & Tugas Akhir</h3>
+                <h3 style="color: var(--primary-rose);">Repositori Skripsi & Tugas Akhir — 5 Judul</h3>
                 <div class="grid-3">
                     <div class="book-item">
                         <img src="cover-skripsi.jpg" alt="Skripsi" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
                         <br>
-						<strong>Analisa Manual Handling dengan Metode REBA di PT Arnott's Indonesia</strong><br>
-                        <small>Eko Sarwiyadi — Fakultas Teknik Industri</small><br>
+						<strong>Analisa Manual Handling dengan Metode REBA di PT Arnott's Indonesia</strong>
+                        <br><small>Eko Sarwiyadi — Teknik Industri</small><br>
                         <span class="read-badge tersedia">🟢 Repositori Terbuka</span>
-                        <button class="btn-read-full" onclick="bukaModal('Skripsi: Analisa Manual Handling dengan Metode REBA — Eko Sarwiyadi', KONTEN_BUKU.skripsiREBA)">📋 Baca Skripsi Lengkap</button>
+                        <button class="btn-read-full" onclick="bukaModal('Skripsi: Analisa Manual Handling (REBA) — Eko Sarwiyadi', KONTEN_BUKU.skripsiREBA)">📋 Baca Skripsi Lengkap</button>
+                    </div>
+                    <!-- SKRIPSI BARU 1 -->
+                    <div class="book-item">
+                        <div class="book-cover" style="background: linear-gradient(135deg,#e3f2fd,#bbdefb);">💻</div>
+                        <br>
+						<strong>Implementasi Sistem Informasi Perpustakaan Berbasis Web di SMA Negeri 1 Semarang</strong>
+                        <br><small>Anisa Putri Rahayu — Ilmu Perpustakaan</small><br>
+                        <span class="read-badge tersedia">🟢 Repositori Terbuka</span>
+                        <button class="btn-read-full" onclick="bukaModal('Skripsi: Sistem Informasi Perpustakaan Berbasis Web — Anisa Putri Rahayu', KONTEN_BUKU.skripsiSIPerpustakaan)">📋 Baca Skripsi Lengkap</button>
+                    </div>
+                    <!-- SKRIPSI BARU 2 -->
+                    <div class="book-item">
+                        <div class="book-cover" style="background: linear-gradient(135deg,#f3e5f5,#e1bee7);">📚</div>
+                        <br>
+						<strong>Pengaruh Promosi Perpustakaan melalui Media Sosial terhadap Kunjungan Pemustaka</strong>
+                        <br><small>Muhammad Fajar — Ilmu Perpustakaan dan Informasi</small><br>
+                        <span class="read-badge tersedia">🟢 Repositori Terbuka</span>
+                        <button class="btn-read-full" onclick="bukaModal('Skripsi: Promosi Perpustakaan via Media Sosial — Muhammad Fajar', KONTEN_BUKU.skripsiPromosiPerpus)">📋 Baca Skripsi Lengkap</button>
+                    </div>
+                    <!-- SKRIPSI BARU 3 -->
+                    <div class="book-item">
+                        <div class="book-cover" style="background: linear-gradient(135deg,#e8f5e9,#c8e6c9);">♻️</div>
+                        <br>
+						<strong>Analisis Efisiensi Energi pada Gedung Perpustakaan Universitas dengan Pendekatan Green Building</strong>
+                        <br><small>Diah Kusumawati — Teknik Arsitektur</small><br>
+                        <span class="read-badge tersedia">🟢 Repositori Terbuka</span>
+                        <button class="btn-read-full" onclick="bukaModal('Skripsi: Efisiensi Energi Gedung Perpustakaan — Diah Kusumawati', KONTEN_BUKU.skripsiGreenBuilding)">📋 Baca Skripsi Lengkap</button>
+                    </div>
+                    <!-- SKRIPSI BARU 4 -->
+                    <div class="book-item">
+                        <div class="book-cover" style="background: linear-gradient(135deg,#fff9c4,#fff59d);">🔍</div>
+                        <br>
+						<strong>Perilaku Pencarian Informasi Mahasiswa Program Studi Ilmu Perpustakaan Undip</strong>
+                        <br><small>Rizky Amalia — Ilmu Perpustakaan</small><br>
+                        <span class="read-badge tersedia">🟢 Repositori Terbuka</span>
+                        <button class="btn-read-full" onclick="bukaModal('Skripsi: Perilaku Pencarian Informasi Mahasiswa Undip — Rizky Amalia', KONTEN_BUKU.skripsiPerilakuPencarian)">📋 Baca Skripsi Lengkap</button>
                     </div>
                 </div>
             </div>
@@ -574,7 +1119,7 @@
     </div>
 </div>
 
-<!-- ===== MODAL BACA BUKU - VERSI BARU ===== -->
+<!-- ===== MODAL BACA BUKU ===== -->
 <div id="bookModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
@@ -602,34 +1147,28 @@
 </div>
 
 <script>
-// =====================================================
-// DATA KONTEN KOLEKSI
-// =====================================================
 const KONTEN_BUKU = {
 
+    // ============================================
+    // KOLEKSI LAMA (TETAP DIPERTAHANKAN)
+    // ============================================
     lautBercerita: `SINOPSIS LENGKAP — LAUT BERCERITA
 Penulis: Leila S. Chudori | Penerbit: KPG (Kepustakaan Populer Gramedia)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 GAMBARAN UMUM
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-"Laut Bercerita" adalah novel yang mengangkat salah satu peristiwa paling kelam dalam sejarah Indonesia: penghilangan paksa aktivis mahasiswa di era Orde Baru, terutama menjelang Reformasi 1998. Novel ini merangkai kisah dari dua sisi waktu: masa lalu melalui sudut pandang Biru Laut, dan masa kini melalui adiknya, Asmara Jati.
+"Laut Bercerita" mengangkat peristiwa penghilangan paksa aktivis mahasiswa di era Orde Baru, menjelang Reformasi 1998. Novel ini merangkai kisah dari dua sisi waktu: masa lalu melalui sudut pandang Biru Laut, dan masa kini melalui adiknya, Asmara Jati.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SINOPSIS BAGIAN 1: BIRU LAUT (1991–1998)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Biru Laut adalah mahasiswa Sastra Universitas Gadjah Mada, Yogyakarta, yang terlibat dalam gerakan mahasiswa perlawanan rezim Orde Baru. Bersama teman-temannya — Daniel Tumbuan, Sunu Dyantoro, Alex Perazon, dan kawan-kawan aktivis lainnya — ia bergerak di bawah tanah, mendistribusikan pamflet, mengorganisir diskusi, dan membangun jaringan perlawanan.
-
-Laut dan kelompoknya berulang kali berhadapan dengan aparat negara. Rumah aman mereka digerebek, identitas mereka terancam bocor. Ketegangan meningkat seiring semakin kuatnya tekanan rezim terhadap gerakan mahasiswa.
-
-Pada akhirnya, Laut ditangkap, disekap, disiksa, dan kemudian menghilang bersama teman-temannya. Ia tidak pernah kembali.
+Biru Laut adalah mahasiswa Sastra UGM yang terlibat gerakan mahasiswa bawah tanah. Bersama teman-temannya — Daniel Tumbuan, Sunu Dyantoro, Alex Perazon — ia mendistribusikan pamflet dan mengorganisir perlawanan. Hingga akhirnya Laut ditangkap, disiksa, dan menghilang tanpa jejak.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SINOPSIS BAGIAN 2: ASMARA JATI (2000-an)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Asmara Jati, adik perempuan Laut, hidup dalam ketidakpastian yang menyiksa. Bersama keluarganya dan orang tua para aktivis yang menghilang lainnya, Asmara berjuang untuk mendapatkan kebenaran dan keadilan. Ia bergabung dengan komunitas keluarga korban penghilangan paksa.
-
-Lewat perjuangan Asmara, novel ini menampilkan wajah duka yang tak berkesudahan: bagaimana sebuah keluarga belajar hidup tanpa kepastian — tak tahu apakah orang yang mereka cintai masih hidup atau sudah tiada.
+Asmara Jati hidup dalam ketidakpastian yang menyiksa. Bergabung dengan komunitas keluarga korban, ia berjuang mendapat kebenaran dan keadilan. Novel ini menampilkan wajah duka kolektif yang tak berkesudahan.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 TEMA UTAMA
@@ -638,16 +1177,8 @@ TEMA UTAMA
 • Ketahanan dan perlawanan generasi muda
 • Cinta, persahabatan, dan pengkhianatan
 • Duka kolektif dan perjuangan mendapatkan keadilan
-• Memori sejarah yang terus hidup
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-KUTIPAN INSPIRATIF (PARAFRASE)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Novel ini menggambarkan bagaimana "laut tak pernah mati" — sebuah metafora bahwa jiwa para pejuang terus bersuara meskipun raga mereka telah tiada.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📚 Buku fisik tersedia di Rak S-1 Litera Space.
-Untuk membaca teks penuh, kunjungi perpustakaan kami secara langsung.`,
+📚 Buku fisik tersedia di Rak S-1 Litera Space.`,
 
     rumahAlie: `SINOPSIS LENGKAP — RUMAH UNTUK ALIE
 Penulis: Lenn Liu
@@ -655,12 +1186,7 @@ Penulis: Lenn Liu
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 GAMBARAN UMUM
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-"Rumah Untuk Alie" adalah sebuah karya fiksi yang mengangkat tema pencarian identitas, konsep rumah sebagai ruang emosional (bukan sekadar tempat tinggal fisik), dan perjalanan seorang individu menemukan jati dirinya di tengah kompleksitas hubungan antarmanusia.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-TENTANG TOKOH ALIE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Alie adalah tokoh sentral yang menjalani kehidupan dengan perasaan tidak pernah benar-benar "sampai di rumah". Ia berpindah-pindah, mencari tempat dan orang yang membuatnya merasa utuh. Perjalanannya bukan sekadar geografis, melainkan perjalanan batin yang dalam.
+"Rumah Untuk Alie" mengangkat tema pencarian identitas dan konsep rumah sebagai ruang emosional, bukan sekadar tempat tinggal fisik. Alie menjalani perjalanan batin yang dalam untuk menemukan jati dirinya.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 TEMA UTAMA
@@ -670,46 +1196,36 @@ TEMA UTAMA
 • Identitas dan transformasi diri
 • Keberanian untuk pulang dan memaafkan
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📚 Buku fisik tersedia di Rak S-4 Litera Space.`,
 
     manajemenInfo: `RINGKASAN BUKU — MANAJEMEN SUMBER INFORMASI DAN PERPUSTAKAAN
 Penulis: Drs. Hartono, S.S., M.Hum.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DESKRIPSI BUKU
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Buku ini merupakan referensi akademis komprehensif dalam bidang ilmu perpustakaan dan informasi. Ditulis oleh seorang praktisi dan akademisi berpengalaman, buku ini membahas secara mendalam tentang pengelolaan sumber informasi di era digital.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-RINGKASAN PER BAB
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 BAB 1 — KONSEP DASAR MANAJEMEN INFORMASI
-Membahas definisi manajemen informasi, sejarah perkembangannya, serta pentingnya pengelolaan informasi di era digital. Dibahas pula perbedaan antara data, informasi, dan pengetahuan (knowledge).
+Definisi, sejarah, dan pentingnya pengelolaan informasi. Perbedaan antara data, informasi, dan pengetahuan.
 
 BAB 2 — PERPUSTAKAAN SEBAGAI LEMBAGA INFORMASI
-Mengulas fungsi, peran, dan jenis perpustakaan (umum, perguruan tinggi, sekolah, khusus). Membahas bagaimana perpustakaan bertransformasi dari model konvensional ke digital.
+Fungsi, peran, jenis perpustakaan, dan transformasi dari konvensional ke digital.
 
 BAB 3 — PENGEMBANGAN KOLEKSI
-Prinsip-prinsip seleksi dan pengadaan bahan pustaka. Mencakup kebijakan pengembangan koleksi, evaluasi koleksi, dan penyiangan (weeding).
+Prinsip seleksi, pengadaan, evaluasi koleksi, dan penyiangan (weeding).
 
 BAB 4 — PENGOLAHAN BAHAN PUSTAKA
-Katalogisasi, klasifikasi menggunakan DDC (Dewey Decimal Classification) dan UDC, serta pengindeksan. Membahas standar metadata MARC dan Dublin Core.
+Katalogisasi, klasifikasi DDC/UDC, pengindeksan, metadata MARC dan Dublin Core.
 
 BAB 5 — LAYANAN PERPUSTAKAAN
-Layanan sirkulasi, referensi, penelusuran informasi, dan layanan berbasis teknologi. Termasuk pengembangan layanan digital dan literasi informasi.
+Layanan sirkulasi, referensi, penelusuran informasi, dan layanan digital.
 
 BAB 6 — MANAJEMEN PERPUSTAKAAN DIGITAL
-Infrastruktur perpustakaan digital, manajemen konten digital, hak cipta digital, dan preservasi digital.
+Infrastruktur digital, manajemen konten, hak cipta digital, dan preservasi.
 
 BAB 7 — TEMU KEMBALI INFORMASI
-Sistem temu kembali informasi, OPAC, database online, dan strategi penelusuran yang efektif.
+Sistem TKI, OPAC, database online, dan strategi penelusuran efektif.
 
 BAB 8 — SUMBER DAYA MANUSIA PERPUSTAKAAN
 Kompetensi pustakawan, pengembangan profesi, dan etika kepustakawanan.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📚 Tersedia di Rak S-3 Litera Space.`,
 
     arsipAktif: `PANDUAN VIDEO — PENATAAN ARSIP AKTIF
@@ -717,442 +1233,1510 @@ Sumber: Biro Umum ATR/BPN
 🔗 Link Video: https://youtu.be/ey1QxOf-rkg
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-RINGKASAN ISI VIDEO TUTORIAL
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Video ini menjelaskan panduan taktis penyimpanan arsip aktif secara efisien, efektif, dan aman di dalam Central File sesuai standar ATR/BPN.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 MATERI YANG DIBAHAS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 1. PENGERTIAN ARSIP AKTIF
-   Arsip aktif adalah arsip yang masih digunakan secara langsung dalam kegiatan administrasi sehari-hari. Berbeda dengan arsip inaktif yang sudah jarang digunakan.
+Arsip aktif adalah arsip yang masih digunakan secara langsung dalam kegiatan administrasi sehari-hari.
 
 2. MEDIA PENYIMPANAN ARSIP
-   • Map Arsip (Folder) — menyimpan satu berkas dengan kegiatan yang sama
-   • Guide Arsip (Penyekat) — memisahkan berkas berdasarkan kode klasifikasi berbeda
-   • Filing Cabinet — lemari penyimpanan tegak yang terkunci
-   • Box Arsip — penyimpanan tambahan untuk berkas volume besar
+• Map Arsip (Folder) — menyimpan satu berkas kegiatan yang sama
+• Guide Arsip (Penyekat) — memisahkan berkas berdasarkan kode klasifikasi
+• Filing Cabinet — lemari penyimpanan tegak yang terkunci
+• Box Arsip — penyimpanan tambahan untuk berkas volume besar
 
 3. PRINSIP PENYIMPANAN
-   • Satu folder = satu kegiatan/subjek yang sama
-   • Berkas disusun tegak (vertikal) di dalam filing cabinet
-   • Pemisahan menggunakan guide berdasarkan kode klasifikasi
-   • Semua berkas dicatat dalam Daftar Berkas
+• Satu folder = satu kegiatan/subjek yang sama
+• Berkas disusun tegak (vertikal)
+• Pemisahan menggunakan guide berdasarkan kode klasifikasi
+• Semua berkas dicatat dalam Daftar Berkas
 
 4. DAFTAR BERKAS DAN DAFTAR ISI BERKAS
-   • Daftar Berkas: dokumen pencatatan seluruh folder arsip
-   • Daftar Isi Berkas: rincian isi tiap folder (indeks: nomor, nama, atau subjek)
-   • Susunan kronologis dari yang terlama ke terbaru
-   • Memudahkan proses Temu Kembali Informasi (TKI)
+• Daftar Berkas: pencatatan seluruh folder arsip
+• Susunan kronologis dari yang terlama ke terbaru
+• Memudahkan Temu Kembali Informasi (TKI)
 
 5. SISTEM KLASIFIKASI
-   Penggunaan kode klasifikasi arsip berdasarkan fungsi dan kegiatan organisasi. Kode ini menjadi dasar pengelompokan dan penataan arsip.
+Kode klasifikasi berdasarkan fungsi dan kegiatan organisasi.
 
-6. PROSEDUR TEMU KEMBALI
-   • Identifikasi kebutuhan dokumen
-   • Cari di Daftar Berkas berdasarkan kode/subjek
-   • Lokasi filing cabinet yang tepat
-   • Pengembalian dokumen wajib tepat waktu dan pada tempat yang benar
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-▶ Untuk menonton video lengkap, akses: https://youtu.be/ey1QxOf-rkg`,
+▶ Untuk menonton video lengkap: https://youtu.be/ey1QxOf-rkg`,
 
     sureqGaligo: `MANUSKRIP SUREQ GALIGO
-Epik Penciptaan Bugis Kuno — Disalin oleh Colliq Pujie (Abad ke-19)
-Status: Domain Publik / Warisan Budaya Dunia (UNESCO Memory of the World, 2011)
+Epik Penciptaan Bugis Kuno — Colliq Pujie (Abad ke-19)
+Status: Domain Publik / UNESCO Memory of the World (2011)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 TENTANG KARYA AGUNG INI
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Sureq Galigo, atau I La Galigo, adalah epik mitos penciptaan terpanjang di dunia dari peradaban Bugis, Sulawesi Selatan. Karya ini ditulis dalam bahasa Bugis kuno menggunakan aksara Lontara dan terdiri dari ribuan halaman naskah.
+Sureq Galigo adalah epik mitos penciptaan terpanjang di dunia dari peradaban Bugis, Sulawesi Selatan. Ditulis dalam bahasa Bugis kuno menggunakan aksara Lontara, terdiri dari ribuan halaman naskah.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-KISAH PENCIPTAAN DUNIA
+KOSMOLOGI BUGIS — TIGA LAPISAN DUNIA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Dalam kosmologi Bugis, alam semesta terdiri dari tiga lapisan:
 • Botting Langi' — Dunia Atas (langit), tempat para dewa
 • Ale Lino — Dunia Tengah (bumi), tempat manusia
 • Buri' Liu — Dunia Bawah (laut/underworld)
 
-TOKOH UTAMA: LA GALIGO
-La Galigo (I La Galigo atau Sawerigading) adalah putra mahkota dari Dunia Atas yang diturunkan ke bumi. Ia adalah pahlawan legendaris Bugis — seorang pelaut ulung, panglima perang, sekaligus tokoh yang penuh konflik batin.
-
-KISAH SAWERIGADING DAN WE CUDAI
-Salah satu episode paling terkenal adalah kisah cinta Sawerigading dengan We Tenriyabeng, kembarannya sendiri — yang dilarang oleh adat. Akhirnya Sawerigading berlayar ke Tiongkok dan menikahi We Cudai, seorang putri yang kecantikannya menyerupai kembarannya.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-STRUKTUR PUISI LONTARA
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Puisi Galigo disusun dalam sajak bersuku lima (lima suku kata per baris) — sebuah ciri khas yang membuat ritmenya unik dan sakral. Teks ini bukan sekadar sastra, tetapi juga berfungsi sebagai:
-• Panduan kosmologi dan kepercayaan Bugis
-• Pedoman tata cara upacara adat
-• Rekaman sejarah dan silsilah raja-raja Bugis
-• Almanak praktis kehidupan sehari-hari
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PERAN BISSU
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Bissu adalah pendeta/rohaniwan hermafrodit dalam kepercayaan Bugis yang berperan sebagai penjaga dan pembaca Sureq Galigo dalam upacara-upacara adat. Mereka dianggap sebagai penghubung antara dunia manusia dan dunia para dewa.
+TOKOH UTAMA: SAWERIGADING
+Putra mahkota dari Dunia Atas yang diturunkan ke bumi. Seorang pelaut ulung, panglima perang, sekaligus tokoh penuh konflik batin. Kisah cintanya dengan We Tenriyabeng (kembarannya sendiri) menjadi salah satu episode paling menggetarkan dalam sastra dunia.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 PELESTARIAN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Naskah asli Sureq Galigo sebagian besar tersimpan di:
+Naskah asli tersimpan di:
 • Universitas Leiden, Belanda (koleksi terbesar)
 • Museum La Galigo, Makassar
-• Perpustakaan Nasional Republik Indonesia
+• Perpustakaan Nasional RI
 
-UNESCO mendaftarkan Sureq Galigo dalam Memory of the World Register pada tahun 2011 sebagai warisan dokumenter dunia yang tak ternilai.`,
+UNESCO mendaftarkan Sureq Galigo dalam Memory of the World Register 2011.`,
 
     reDanPerempuan: `SINOPSIS LENGKAP — RE: DAN PEREMPUAN
-Penulis: Maman Suherman | Genre: Fiksi Sosial / Sastra Indonesia
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-TENTANG BUKU INI
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-"Re: dan perempuan" adalah karya penting dari jurnalis dan penulis senior Maman Suherman yang mengangkat kisah nyata (dengan nama samaran) tentang seorang perempuan bernama Re — yang harus bertahan hidup dalam kondisi yang sangat tidak menguntungkan dan kerap diabaikan oleh masyarakat.
+Penulis: Maman Suherman | Genre: Fiksi Sosial
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SINOPSIS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Re adalah simbol dari ribuan perempuan yang terjebak dalam sistem sosial yang tidak berpihak pada mereka. Melalui narasi yang mendalam dan berani, Maman Suherman membawa pembaca masuk ke dalam labirin kehidupan Re — penuh luka, namun juga penuh dengan daya hidup yang luar biasa.
+Re adalah simbol dari ribuan perempuan yang terjebak dalam sistem sosial yang tidak berpihak. Maman Suherman membawa pembaca masuk ke dalam labirin kehidupan Re — penuh luka, namun penuh daya hidup yang luar biasa.
 
-Buku ini bukan sekadar kisah seorang perempuan, melainkan cerminan dari realitas sosial Indonesia yang lebih luas: tentang kemiskinan struktural, marginalisasi gender, dan bagaimana masyarakat seringkali menutup mata terhadap penderitaan yang ada di hadapan mereka.
+Buku ini mencerminkan realitas sosial Indonesia: kemiskinan struktural, marginalisasi gender, dan kebutaan masyarakat terhadap penderitaan di hadapan mereka.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-TEMA-TEMA UTAMA
+TEMA UTAMA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 • Kekerasan dan eksploitasi terhadap perempuan
 • Ketangguhan dan resiliensi perempuan Indonesia
 • Kritik terhadap sistem sosial yang tidak adil
 • Hak, martabat, dan ruang hidup perempuan
-• Empati dan tanggung jawab sosial pembaca
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-TENTANG PENULIS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Maman Suherman adalah jurnalis, penulis, dan aktivis literasi yang dikenal melalui berbagai programnya yang mendorong minat baca masyarakat Indonesia. Karyanya selalu berakar pada realitas sosial yang kuat.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📌 INFORMASI AKSES
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Buku ini dilindungi hak cipta. Untuk membaca teks penuh:
-• iPusnas (aplikasi perpustakaan nasional — GRATIS)
-• Gramedia Digital
-• Google Play Books`,
+📌 Untuk membaca teks penuh: iPusnas | Gramedia Digital`,
 
     ronggeng: `SINOPSIS LENGKAP — RONGGENG DUKUH PARUK
-Penulis: Ahmad Tohari | Penerbit: Gramedia Pustaka Utama
-Trilogi: Ronggeng Dukuh Paruk | Lintang Kemukus Dini Hari | Jantera Bianglala
+Penulis: Ahmad Tohari | Trilogi: Ronggeng Dukuh Paruk | Lintang Kemukus | Jantera Bianglala
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-LATAR BELAKANG
+BUKU 1 — SRINTIL DAN RASUS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Novel ini berlatar di Dukuh Paruk, sebuah dusun terpencil di pedesaan Jawa Tengah pada era 1950-an hingga pasca-tragedi 1965. Dukuh Paruk digambarkan sebagai komunitas kecil yang miskin, terpencil, namun memiliki tradisi kesenian ronggeng yang sangat kuat sebagai identitas kulturalnya.
+Srintil (11 tahun) menunjukkan bakat menari ronggeng dan diyakini dipilih roh Indang. Sahabatnya Rasus mencintainya diam-diam, namun tak kuasa menerima nasib Srintil sebagai ronggeng yang harus melewati ritual brutal Bukak Klambu — melelang keperawanannya.
+
+Srintil menjadi ronggeng pujaan Dukuh Paruk: kaya, dipuja, namun kehilangan kebebasannya sebagai perempuan.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SINOPSIS BUKU 1: RONGGENG DUKUH PARUK
+BUKU 2 & 3 — TRAGEDI 1965
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SRINTIL — Sejak kecil, Srintil (11 tahun) menunjukkan bakat alamiah menari ronggeng. Seluruh warga Dukuh Paruk meyakini ia telah dipilih oleh roh Indang — roh pelindung ronggeng dukuh.
-
-RASUS — Sahabat masa kecil Srintil yang diam-diam mencintainya. Rasus adalah pemuda miskin yang merasakan konflik batin mendalam antara cintanya pada Srintil dan ketidakmampuannya menerima nasib Srintil sebagai ronggeng — seorang penari yang juga harus "melayani" laki-laki yang mampu membayar.
-
-RITUAL BUKAK KLAMBU — Srintil harus melewati ritual inisiasi brutal: seorang gadis yang ingin dinobatkan sebagai ronggeng harus melelang keperawanannya kepada penawar tertinggi. Ritual ini bagi warga Dukuh Paruk adalah hal sakral dan lumrah, namun bagi Rasus — dan bagi pembaca — ini adalah luka yang dalam.
-
-Setelah ritual itu, Srintil menjadi ronggeng pujaan Dukuh Paruk. Ia kaya, dipuja, dan menjadi kebanggaan dusun. Namun di balik semua itu, ia telah kehilangan satu hal: kebebasannya sebagai perempuan.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SINOPSIS BUKU 2: LINTANG KEMUKUS DINI HARI
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Rasus bergabung dengan tentara untuk melarikan diri dari kenyataan pahit tentang Srintil. Sementara itu, Dukuh Paruk mulai terseret arus politik — tokoh-tokoh dusun bergabung dengan PKI (Partai Komunis Indonesia) tanpa benar-benar memahami konsekuensinya.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SINOPSIS BUKU 3: JANTERA BIANGLALA
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Tragedi 1965 menghancurkan Dukuh Paruk. Srintil dipenjara karena dianggap simpatisan PKI. Ketika bebas, ia berusaha membangun hidup baru, bahkan mencoba melepas identitas ronggeng. Namun dunia tidak memberinya ruang untuk berubah.
-
-Rasus kembali, tapi terlambat. Srintil tidak lagi utuh jiwa raganya.
+Rasus bergabung tentara. Dukuh Paruk terseret arus PKI tanpa memahami konsekuensinya. Tragedi 1965 menghancurkan segalanya: Srintil dipenjara. Ketika bebas, ia berusaha membangun hidup baru — namun dunia tidak memberi ruang.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 TEMA UTAMA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 • Tradisi vs martabat perempuan
-• Kemiskinan dan bagaimana ia membentuk takdir
-• Trauma sejarah dan politik 1965
-• Cinta yang tidak kuasa melawan sistem
-• Identitas budaya lokal Jawa
+• Kemiskinan dan takdir
+• Trauma sejarah 1965
+• Identitas budaya Jawa
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📌 Untuk membaca teks penuh:
-• Gramedia Digital | iPusnas | Perpustakaan Litera Space (Rak S-2)`,
+📌 Gramedia Digital | iPusnas | Rak S-2 Litera Space`,
 
     lemonTrees: `SINOPSIS LENGKAP — AS LONG AS THE LEMON TREES GROW
-Penulis: Zoulfa Katouh | Penerjemah: Nunung Wahyuningsih (edisi Indonesia)
-Genre: Young Adult / Historical Fiction / Romance
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-LATAR BELAKANG
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Novel ini berlatar di Homs, Suriah, di tengah berkecamuknya revolusi Suriah (2011-2013). Ditulis oleh Zoulfa Katouh, seorang penulis keturunan Suriah-Kanada, novel ini menjadi salah satu karya paling berkesan tentang konflik Suriah yang ditulis dari perspektif orang dalam.
+Penulis: Zoulfa Katouh | Setting: Suriah, 2011-2013
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 TOKOH UTAMA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SALAMA KASSAB (18 tahun)
-Seorang mahasiswi farmasi yang terpaksa menjadi dokter bedah di rumah sakit darurat akibat kekurangan tenaga medis. Ia telah kehilangan seluruh keluarganya dalam perang. Salama dihantui oleh trauma dan bayangan kematian, namun ia terus bertahan demi janin yang dikandung kakak iparnya, Layla.
+SALAMA KASSAB (18 tahun) — Mahasiswi farmasi yang menjadi dokter darurat akibat perang. Telah kehilangan seluruh keluarga. Dihantui trauma namun terus bertahan.
 
-Salama kerap berbicara dengan bayangan imajiner dari kakaknya yang telah meninggal — sebuah simbol dari mekanisme pertahanan psikologisnya menghadapi trauma.
-
-KENAN (19 tahun)
-Seorang pemuda yang mendokumentasikan revolusi Suriah melalui video dan foto. Kenan percaya bahwa dunia harus tahu apa yang terjadi di Suriah. Ia adalah simbol harapan — seseorang yang memilih untuk terus bersuara di tengah kehancuran.
+KENAN (19 tahun) — Mendokumentasikan revolusi Suriah melalui kamera. Simbol harapan yang terus bersuara di tengah kehancuran.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SINOPSIS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Salama terjebak dalam dilema besar: apakah ia harus tetap tinggal di Suriah dan terus merawat pasien-pasiennya, atau melarikan diri ke Eropa demi keselamatan Layla dan bayinya?
-
-Di saat yang sama, ia bertemu Kenan — pemuda yang dengan kamera sederhana mendokumentasikan demonstrasi rakyat. Kenan memperlihatkan Salama bahwa di tengah reruntuhan dan tangisan, masih ada keindahan, cinta, dan alasan untuk terus hidup.
-
-Hubungan antara Salama dan Kenan berkembang perlahan — bukan sekadar romansa, melainkan dua jiwa yang saling menopang di tengah kehancuran yang nyata.
+Salama dihadapkan pada dilema besar: tetap tinggal merawat pasien, atau melarikan diri ke Eropa demi keselamatan Layla (kakak ipar yang hamil). Pertemuannya dengan Kenan memperlihatkan bahwa di tengah reruntuhan, masih ada alasan untuk hidup.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 MAKNA POHON LEMON
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Pohon lemon dalam novel ini adalah simbol ketahanan dan harapan. Meski perang menghancurkan segalanya, pohon lemon tetap tumbuh. Seperti harapan yang tidak pernah benar-benar mati selama masih ada yang mau merawatnya.
+Pohon lemon adalah simbol ketahanan: meski perang menghancurkan segalanya, harapan tetap tumbuh selama ada yang mau merawatnya.
+
+📌 Gramedia Digital | Toko buku terdekat`,
+
+    jurnalIdentitas: `JURNAL ILMIAH — IDENTITAS NASIONAL DITINJAU DARI UUD 1945 DAN UU NO. 24 TAHUN 2009
+Penulis: Tatu Afifah | Ajudikasi: Jurnal Ilmu Hukum | Open Access
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ABSTRAK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Identitas nasional Indonesia dirumuskan dalam tiga bidang:
+(1) Identitas fundamental: Pancasila
+(2) Identitas instrumental: UUD 1945, Bahasa Indonesia, Garuda Pancasila, Merah Putih, Bhineka Tunggal Ika, Indonesia Raya
+(3) Identitas alamiah: kepulauan, keragaman suku, budaya, agama
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PENGATURAN DALAM UUD 1945 (BAB XV)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Pasal 35: Bendera Negara — Sang Merah Putih
+• Pasal 36: Bahasa Negara — Bahasa Indonesia
+• Pasal 36A: Lambang Negara — Garuda Pancasila / Bhineka Tunggal Ika
+• Pasal 36B: Lagu Kebangsaan — Indonesia Raya
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PENGATURAN DALAM UU NO. 24/2009
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Memberikan landasan teknis dan operasional: tata cara penggunaan bendera, kewajiban penggunaan Bahasa Indonesia dalam dokumen resmi, deskripsi teknis Garuda Pancasila, dan prosedur lagu kebangsaan.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KESIMPULAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Identitas nasional Indonesia adalah konstruksi kokoh yang berakar pada keberagaman. Tantangan ke depan adalah menjaga keseimbangan antara identitas nasional dan identitas lokal yang kaya.`,
+
+    skripsiREBA: `SKRIPSI — ANALISA MANUAL HANDLING DENGAN METODE REBA
+DI PT ARNOTT'S INDONESIA
+Penulis: Eko Sarwiyadi | Teknik Industri
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+METODE REBA (Rapid Entire Body Assessment)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Dikembangkan Sue Hignett & Lynn McAtamney (2000). Mengevaluasi seluruh tubuh melalui:
+• Kelompok A: Batang tubuh, leher, kaki + faktor beban
+• Kelompok B: Lengan atas, lengan bawah, pergelangan + faktor genggaman
+
+SKOR REBA:
+1 = Risiko diabaikan | 2-3 = Rendah | 4-7 = Sedang | 8-10 = Tinggi | 11-15 = Sangat Tinggi
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HASIL PENELITIAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Stasiun Pemindahan WIP ke Feeder: Skor REBA 8 (RISIKO TINGGI)
+  — Membungkuk berulang dengan beban >10 kg, 200+ kali/shift
+• Stasiun Pengolahan Adonan Cream: Skor REBA 7 (SEDANG-TINGGI)
+  — Postur lengan tinggi, gerakan repetitif
+
+Keluhan terbanyak (Nordic Body Map):
+1. Punggung bawah (85% pekerja)
+2. Bahu (70%)
+3. Leher (60%)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+REKOMENDASI PERBAIKAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Pengadaan Truck Lifter/Trolley Hidrolik
+• Penyesuaian ketinggian meja kerja
+• Rotasi kerja setiap 2 jam
+• Back support belt & anti-fatigue mat`,
+
+    // ============================================
+    // KOLEKSI BARU — BUKU FISIK
+    // ============================================
+    sapiens: `RINGKASAN BUKU — SAPIENS: RIWAYAT SINGKAT UMAT MANUSIA
+Penulis: Yuval Noah Harari | Genre: Sejarah / Non-Fiksi | Tersedia: Rak S-2
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GAMBARAN UMUM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+"Sapiens" adalah buku non-fiksi fenomenal yang menjelajahi perjalanan Homo sapiens dari makhluk yang tidak terlalu istimewa di padang savana Afrika, hingga menjadi penguasa bumi yang bahkan mampu menciptakan dunia digital. Harari menulis dengan gaya yang memikat — memadukan sains, sejarah, filsafat, dan humor.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RINGKASAN PER BAB UTAMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+BAGIAN 1 — REVOLUSI KOGNITIF (70.000 tahun lalu)
+Harari berargumen bahwa kunci keberhasilan Homo sapiens adalah kemampuan unik untuk menciptakan dan mempercayai "fiksi kolektif" — mitos, agama, hukum, uang, negara. Tidak ada singa yang percaya pada hak asasi manusia, namun jutaan manusia bersedia mati untuknya. Inilah kekuatan Sapiens.
+
+BAGIAN 2 — REVOLUSI PERTANIAN (12.000 tahun lalu)
+Harari menyebut pertanian sebagai "penipuan terbesar dalam sejarah" — manusia berpikir telah menjinakkan gandum, padahal gandumlah yang "menjinakkan" manusia. Manusia yang tadinya bebas nomaden menjadi terikat pada ladang, bekerja lebih keras, dan paradoksnya: hidup lebih buruk.
+
+BAGIAN 3 — PENYATUAN UMAT MANUSIA
+Bagaimana uang, kerajaan, dan agama menjadi "agen pemersatu" yang menyatukan miliaran manusia yang tidak saling mengenal dalam satu tatanan global.
+
+BAGIAN 4 — REVOLUSI ILMIAH (500 tahun lalu)
+Revolusi ilmiah dimulai bukan dari jawaban, melainkan dari pengakuan kebodohan. Dengan berkata "kami tidak tahu," sains membuka pintu eksplorasi tak terbatas. Kapitalisme dan imperialisme menjadi mesin finansial revolusi ini.
+
+BAGIAN 5 — AKHIR SAPIENS?
+Harari mengakhiri dengan pertanyaan menggelisahkan: apakah Homo sapiens sedang berada di ambang mengupgrade dirinya sendiri menjadi Homo Deus — makhluk yang mampu memanipulasi hidup, mati, dan kebahagiaan?
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KUTIPAN TERKENAL (PARAFRASE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Buku ini mengingatkan bahwa uang hanyalah kepercayaan kolektif — tidak lebih nyata dari dolar kertas sebelum ada yang mempercayainya. Namun kepercayaan itulah yang menggerakkan ekonomi dunia.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MENGAPA PERLU DIBACA?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sapiens mengubah cara pandang tentang sejarah, agama, uang, dan identitas manusia. Buku yang akan membuat Anda mempertanyakan segala sesuatu yang dianggap "nyata" di dunia ini.
+
+📚 Tersedia di Rak S-2 Litera Space`,
+
+    atomicHabits: `RINGKASAN BUKU — ATOMIC HABITS
+Penulis: James Clear | Genre: Pengembangan Diri | Tersedia: Rak S-5
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KONSEP INTI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Atomic Habits berpijak pada satu ide revolusioner: perubahan besar tidak datang dari satu keputusan dramatis, melainkan dari perbaikan kecil sebesar 1% setiap hari. Jika kamu menjadi 1% lebih baik setiap hari selama setahun, hasilnya bukan 365% lebih baik — melainkan 37 kali lebih baik (efek compounding).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HUKUM KE-1 — JADIKAN KEBIASAAN TERLIHAT JELAS (Make it Obvious)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Gunakan "implementation intention": "Saya akan [PERILAKU] pada [WAKTU] di [TEMPAT]"
+• Redesain lingkunganmu: taruh buku di meja makan agar lebih mudah diraih
+• Gunakan habit stacking: "Setelah saya [KEBIASAAN LAMA], saya akan [KEBIASAAN BARU]"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HUKUM KE-2 — JADIKAN KEBIASAAN MENARIK (Make it Attractive)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Temptation bundling: gabungkan hal yang perlu dilakukan dengan hal yang ingin dilakukan
+• Bergabunglah dengan komunitas di mana perilaku yang diinginkan adalah norma
+• Ciptakan "motivasi ritual" sebelum memulai kebiasaan sulit
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HUKUM KE-3 — JADIKAN KEBIASAAN MUDAH (Make it Easy)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Aturan 2 Menit: skalakan kebiasaan baru hingga bisa dilakukan dalam 2 menit
+• Kurangi hambatan: siapkan perlengkapan olahraga malam sebelumnya
+• Gunakan teknologi dan otomasi untuk kebiasaan positif
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HUKUM KE-4 — JADIKAN KEBIASAAN MEMUASKAN (Make it Satisfying)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Beri reward langsung setelah selesai melakukan kebiasaan
+• Gunakan habit tracker: mencentang kalender memberi kepuasan visual
+• Jangan pernah melewatkan dua kali berturut-turut
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IDENTITAS vs HASIL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Pendekatan terbaik bukan "Saya mau lari 5 km" (berorientasi hasil), melainkan "Saya adalah seorang pelari" (berorientasi identitas). Setiap tindakan adalah suara dalam pemilihan jati diri. Semakin banyak kamu memilih hal yang konsisten dengan identitasmu, semakin kuat keyakinan itu.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MENGAPA PERLU DIBACA?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Buku ini adalah panduan praktis, bukan sekadar motivasi. Clear memberikan sistem yang bisa langsung diterapkan — bukan inspirasi sesaat yang menguap setelah seminggu.
+
+📚 Tersedia di Rak S-5 Litera Space`,
+
+    laskarPelangi: `SINOPSIS LENGKAP — LASKAR PELANGI
+Penulis: Andrea Hirata | Penerbit: Bentang Pustaka
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LATAR BELAKANG
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Berlatar di Belitung tahun 1970-an, sebuah pulau kaya timah yang paradoksnya dihuni oleh kemiskinan. Di sini berdiri SD Muhammadiyah yang nyaris roboh, dengan guru-guru yang luar biasa, dan sepuluh murid yang menjadi anggota "Laskar Pelangi" — kelompok anak-anak penuh semangat yang menolak menyerah pada keterbatasan.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TOKOH-TOKOH
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IKAL (narator) — Alter ego Andrea Hirata. Anak pemalu yang jatuh cinta pada A Ling dan akhirnya meraih impiannya ke Eropa.
+
+LINTANG — Murid paling jenius yang pernah ada. Anak nelayan yang harus menempuh 80 km pulang-pergi setiap hari untuk sekolah. Otak luar biasa, nasib yang menyayat hati.
+
+MAHAR — Seniman jiwa bebas yang berbeda dari anak-anak lain. Kreatif, nyentrik, dan penuh inspirasi.
+
+HARUN — Teman yang selalu bahagia dengan dunianya sendiri. Simbol kepolosan dan ketulusan.
+
+BU MUS (Ibu Muslimah) — Guru muda yang rela mengajar dengan gaji seadanya karena cinta pada pendidikan. Pahlawan sejati cerita ini.
+
+PAK HARFAN — Kepala sekolah tua yang memegang teguh keyakinan bahwa pendidikan adalah hak semua anak.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SINOPSIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Cerita dimulai ketika SD Muhammadiyah hampir ditutup karena kekurangan murid. Beruntung, tepat sebelum batas waktu, murid ke-10 hadir: Harun, seorang anak berkebutuhan khusus.
+
+Kisah berkembang melalui berbagai petualangan Laskar Pelangi: kompetisi karnaval, persaingan dengan SD PN (sekolah anak-anak kaya), cinta pertama Ikal pada A Ling, dan tragedi yang menimpa Lintang.
+
+Novel ini adalah surat cinta Andrea Hirata untuk Bu Mus, Pak Harfan, dan semua guru di pelosok Indonesia yang mengajar tanpa pamrih.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 TEMA UTAMA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Trauma, kehilangan, dan pemulihan
-• Dilema moral: bertahan vs melarikan diri
-• Cinta di tengah perang
-• Harapan sebagai bentuk perlawanan
-• Dokumentasi sejarah dan kebenaran
+• Kekuatan pendidikan dan mimpi
+• Ketimpangan sosial dan ekonomi
+• Kesetiaan persahabatan
+• Dedikasi guru dan pengorbanan
+• Semangat pantang menyerah
+
+📚 Tersedia di Rak S-1 Litera Space`,
+
+    thinkingFastSlow: `RINGKASAN BUKU — THINKING, FAST AND SLOW
+Penulis: Daniel Kahneman | Genre: Psikologi / Kognitif
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📌 Untuk membaca teks penuh:
-• Gramedia Digital | Toko buku terdekat`,
+DUA SISTEM BERPIKIR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Kahneman, pemenang Nobel Ekonomi, memperkenalkan dua sistem dalam pikiran manusia:
 
-    jurnalIdentitas: `JURNAL ILMIAH LENGKAP
-IDENTITAS NASIONAL DITINJAU DARI UUD 1945 DAN UU NO. 24 TAHUN 2009
+SISTEM 1 — BERPIKIR CEPAT
+Otomatis, intuitif, emosional, tidak sadar. Beroperasi tanpa usaha, selalu aktif. Contoh: melihat 2+2 langsung tahu jawabannya 4; membaca ekspresi wajah marah; mengemudi di jalan yang familiar.
 
-Penulis: Tatu Afifah
-Jurnal: Ajudikasi — Jurnal Ilmu Hukum
-ISSN: (tertera di jurnal asli)
-Status: Open Access — Dapat dibaca dan disebarluaskan
+SISTEM 2 — BERPIKIR LAMBAT
+Lambat, disengaja, logis, memerlukan konsentrasi. Contoh: menghitung 17×24; memilih asuransi terbaik; memeriksa argumen yang kompleks.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BIAS KOGNITIF YANG DIBAHAS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+HEURISTIK KETERSEDIAAN
+Kita menilai probabilitas berdasarkan seberapa mudah contoh terbayang. Mengapa takut pesawat tapi tidak takut mobil? Kecelakaan pesawat lebih dramatis dan mudah diingat.
+
+ANCHORING EFFECT
+Angka pertama yang kita dengar mempengaruhi estimasi berikutnya. Negosiasi yang dimulai dari angka tinggi cenderung berakhir lebih tinggi.
+
+LOSS AVERSION
+Rasa sakit kehilangan Rp100.000 lebih besar dari kesenangan mendapat Rp100.000. Inilah mengapa orang sulit menjual saham yang rugi.
+
+HALO EFFECT
+Kesan pertama yang baik membuat kita menganggap semua hal tentang seseorang baik.
+
+SUNK COST FALLACY
+Kita terus melanjutkan proyek gagal karena sudah banyak menginvestasikan waktu/uang, padahal seharusnya evaluasi dari kondisi saat ini.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MENGAPA PERLU DIBACA?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Buku ini adalah salah satu karya psikologi paling penting abad ini — membantu kita memahami mengapa manusia sering membuat keputusan yang irasional, dan bagaimana mengenali bias dalam diri sendiri.
+
+📚 Tersedia di Rak S-6 Litera Space`,
+
+    pulang: `SINOPSIS LENGKAP — PULANG
+Penulis: Tere Liye | Genre: Thriller / Aksi / Petualangan
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GAMBARAN UMUM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+"Pulang" adalah novel Tere Liye yang paling berbeda dari karya-karyanya yang lain. Bukan tentang cinta romantis, melainkan tentang petualangan gelap, organisasi bayangan, loyalitas, dan makna pulang yang sesungguhnya.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TOKOH DAN CERITA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BUJANG — Seorang pemuda dari pedalaman Sumatra yang diangkat oleh Tauke Muda, pemimpin sebuah organisasi gelap dan kuat. Bujang tumbuh menjadi "penagih utang" dan orang kepercayaan organisasi — seseorang yang hidup dalam dunia kekerasan dan bayangan.
+
+TAUKE MUDA — Figur ayah pengganti bagi Bujang. Seorang pemimpin yang kompleks: keras namun punya kode etiknya sendiri.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ALUR CERITA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Kehidupan Bujang berjalan di antara dua dunia: dunia gelap organisasi dan kenangan akan kampung halamannya di Sumatra. Ketika krisis besar mengancam organisasi, Bujang harus menghadapi pilihan-pilihan yang akan menguji segalanya — termasuk definisinya tentang "pulang".
+
+Novel ini penuh aksi, namun di baliknya tersimpan pertanyaan filosofis: apakah seseorang bisa benar-benar pulang setelah sejauh itu pergi?
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TEMA UTAMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Loyalitas dan pengkhianatan
+• Makna "rumah" dan "pulang"
+• Dosa masa lalu dan penebusan
+• Dunia bawah dan moralitas yang abu-abu
+
+📚 Tersedia di Rak S-2 Litera Space`,
+
+    ilmuPerpustakaan: `RINGKASAN BUKU — PENGANTAR ILMU PERPUSTAKAAN
+Penulis: Sulistyo-Basuki | Genre: Buku Teks Akademis
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TENTANG BUKU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Karya monumental Sulistyo-Basuki ini merupakan referensi fundamental bagi mahasiswa dan praktisi ilmu perpustakaan di Indonesia. Buku ini menjadi fondasi pemahaman tentang perpustakaan sebagai institusi sosial.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RINGKASAN PER BAB
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+BAB 1 — DEFINISI DAN RUANG LINGKUP ILMU PERPUSTAKAAN
+Definisi perpustakaan menurut berbagai perspektif: hukum, sosial, dan fungsi. Pembedaan antara perpustakaan, arsip, dan dokumentasi.
+
+BAB 2 — SEJARAH PERPUSTAKAAN DUNIA DAN INDONESIA
+Dari perpustakaan Alexandria kuno, perpustakaan biarawan abad pertengahan, hingga era perpustakaan modern. Sejarah perpustakaan Indonesia dari era kolonial hingga pasca-kemerdekaan.
+
+BAB 3 — JENIS-JENIS PERPUSTAKAAN
+• Perpustakaan Nasional
+• Perpustakaan Umum
+• Perpustakaan Perguruan Tinggi
+• Perpustakaan Sekolah
+• Perpustakaan Khusus
+Masing-masing memiliki misi, koleksi, dan komunitas pengguna yang berbeda.
+
+BAB 4 — FUNGSI SOSIAL PERPUSTAKAAN
+Perpustakaan sebagai pusat pembelajaran, penyimpanan warisan budaya, ruang demokrasi informasi, dan katalis pembangunan masyarakat.
+
+BAB 5 — PROFESI PUSTAKAWAN
+Kompetensi, etika, dan tanggung jawab profesional pustakawan. Perkembangan profesi dari "penjaga buku" menjadi "manajer pengetahuan".
+
+BAB 6 — SISTEM KLASIFIKASI DAN KATALOGISASI
+DDC (Dewey Decimal Classification), UDC, dan Library of Congress. Prinsip-prinsip katalogisasi deskriptif dan subjek.
+
+BAB 7 — LAYANAN REFERENSI DAN PENELUSURAN INFORMASI
+Jenis layanan referensi, wawancara referensi, strategi penelusuran, dan evaluasi sumber informasi.
+
+BAB 8 — PERPUSTAKAAN DAN TEKNOLOGI INFORMASI
+Dampak internet pada perpustakaan, OPAC, perpustakaan digital, dan masa depan profesi.
+
+📚 Tersedia di Rak S-3 Litera Space (Referensi)`,
+
+    alchemist: `SINOPSIS LENGKAP — THE ALCHEMIST (SANG ALKEMIS)
+Penulis: Paulo Coelho | Diterjemahkan ke 80+ bahasa
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SINOPSIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Santiago adalah seorang gembala muda dari Spanyol yang bermimpi tentang harta karun di dekat Piramida Mesir. Didorong oleh seorang raja tua yang misterius, ia memulai perjalanan melintasi Selat Gibraltar, padang pasir Sahara, dan berbagai rintangan untuk mengejar "Legenda Pribadinya" (Personal Legend).
+
+Dalam perjalanan itu, Santiago bertemu:
+• SANG PEDAGANG KRISTAL — Yang mengajarkan tentang takdir yang ditunda karena rasa takut
+• INGGRIS YANG MENCARI ALKEMIS — Simbol pencarian intelektual yang belum selesai
+• FATIMA — Perempuan gurun yang mengajarkan bahwa cinta sejati tidak menghalangi mimpi
+• SANG ALKEMIS — Orang bijaksana yang mengajarkan bahwa "harta karun" sesungguhnya ada dalam diri kita
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FILOSOFI INTI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Novel ini memperkenalkan konsep "Jiwa Semesta" — keyakinan bahwa ketika seseorang benar-benar menginginkan sesuatu, seluruh alam semesta akan bersekongkol untuk membantu mencapainya. Namun syaratnya: harus berani memulai perjalanan itu sendiri.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TEMA UTAMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Keberanian mengikuti mimpi
+• "Tanda-tanda" kehidupan dan intuisi
+• Perjalanan sebagai tujuan itu sendiri
+• Makna "harta" yang sesungguhnya
+
+📚 Tersedia di Rak S-4 Litera Space (1 Eks Tersisa)`,
+
+    richDad: `RINGKASAN BUKU — RICH DAD POOR DAD
+Penulis: Robert T. Kiyosaki | Genre: Keuangan Pribadi
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KONSEP SENTRAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Kiyosaki dibesarkan dengan dua "ayah": Ayah Kandung (Miskin) yang berpendidikan tinggi namun selalu kekurangan uang, dan "Ayah Kaya" (ayah sahabatnya) yang putus sekolah namun menjadi salah satu orang terkaya di Hawaii. Perbedaan keduanya bukan pada pendapatan, melainkan pada POLA PIKIR tentang uang.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PELAJARAN 1 — ORANG KAYA TIDAK BEKERJA UNTUK UANG
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Orang kaya membuat uang bekerja untuk mereka. Orang miskin dan kelas menengah bekerja untuk uang. Jebakan terbesar adalah "rat race": bekerja → mendapat uang → habis untuk cicilan → bekerja lagi.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PELAJARAN 2 — ASET vs LIABILITAS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Definisi sederhana namun revolusioner:
+• ASET: memasukkan uang ke kantong kamu (saham, properti sewa, bisnis)
+• LIABILITAS: mengeluarkan uang dari kantong kamu (cicilan mobil mewah, KPR rumah untuk ditinggali)
+
+Banyak orang mengira rumah yang ditinggali adalah aset — padahal jika rumah itu membuat kamu terus mengeluarkan uang (cicilan, pajak, perawatan), itu adalah liabilitas.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PELAJARAN 3 — LITERASI KEUANGAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sekolah mengajarkan cara mendapat pekerjaan, bukan cara mengelola uang. Kiyosaki berargumen bahwa literasi keuangan — membaca laporan keuangan, memahami pajak, dan investasi — adalah skill paling penting yang tidak diajarkan di sekolah.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PELAJARAN 4 — PAJAK DAN KORPORASI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Orang kaya menggunakan struktur korporasi untuk melindungi dan mengembangkan kekayaan secara legal. Memahami hukum pajak adalah kunci kebebasan finansial.
+
+📚 Tersedia di Rak S-7 Litera Space`,
+
+    metodologiPenelitian: `RINGKASAN BUKU — METODOLOGI PENELITIAN KUALITATIF
+Penulis: Prof. Dr. Sugiyono | Genre: Buku Teks Akademis
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TENTANG BUKU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Buku karya Prof. Sugiyono ini merupakan referensi wajib bagi mahasiswa S1, S2, dan S3 di seluruh Indonesia yang sedang menyusun karya ilmiah. Ditulis dengan bahasa yang lugas dan sistematis.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RINGKASAN BAB-BAB UTAMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+BAB 1 — METODE PENELITIAN KUALITATIF
+Definisi, karakteristik, dan kapan menggunakan metode kualitatif vs kuantitatif. Penelitian kualitatif untuk memahami makna, proses, dan konteks — bukan sekadar angka.
+
+BAB 2 — DESAIN PENELITIAN
+• Phenomenology — mempelajari pengalaman hidup
+• Grounded Theory — membangun teori dari data
+• Ethnography — mempelajari budaya kelompok
+• Case Study — analisis mendalam kasus spesifik
+• Narrative Research — kisah hidup informan
+
+BAB 3 — PENENTUAN SUMBER DATA
+Purposive sampling dan snowball sampling. Informan dipilih berdasarkan relevansi, bukan jumlah. Konsep saturasi data.
+
+BAB 4 — TEKNIK PENGUMPULAN DATA
+• Observasi (partisipan vs non-partisipan)
+• Wawancara mendalam (in-depth interview)
+• Dokumentasi
+• Focus Group Discussion (FGD)
+
+BAB 5 — ANALISIS DATA
+Analisis data berlangsung sejak di lapangan:
+• Reduksi data
+• Penyajian data (display)
+• Penarikan kesimpulan/verifikasi
+(Model Miles & Huberman)
+
+BAB 6 — UJI KEABSAHAN DATA
+• Uji Kredibilitas: triangulasi sumber, teknik, waktu; member check
+• Uji Transferabilitas
+• Uji Dependabilitas
+• Uji Konfirmabilitas
+
+BAB 7 — PENULISAN LAPORAN
+Sistematika penulisan skripsi/tesis kualitatif: pendahuluan, kajian pustaka, metodologi, temuan & pembahasan, kesimpulan.
+
+📚 Tersedia di Rak R-1 Litera Space (Referensi)`,
+
+    filosofiTeras: `RINGKASAN BUKU — FILOSOFI TERAS
+Penulis: Henry Manampiring | Genre: Filsafat Populer / Self-Help
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TENTANG STOIKISME
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Stoikisme adalah filsafat Yunani-Romawi kuno yang mengajarkan bagaimana hidup dengan bijak, tenang, dan bermakna. Bukan filsafat pasif "menerima saja nasib", melainkan aktif memilih respons terhadap hal-hal di luar kendali kita. Tokoh-tokoh besarnya: Epiktetos, Marcus Aurelius, dan Seneca.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DIKOTOMI KENDALI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Prinsip paling fundamental Stoikisme — dan paling relevan untuk kehidupan modern:
+
+DALAM KENDALI KITA:
+• Pikiran, pendapat, nilai
+• Respons dan tindakan kita
+• Apa yang kita inginkan atau tidak kita inginkan
+
+TIDAK DALAM KENDALI KITA:
+• Tubuh dan kesehatan
+• Reputasi dan pendapat orang lain
+• Kekayaan, jabatan, cuaca
+• Apa yang dilakukan orang lain
+
+Kunci: fokuskan energi pada yang dalam kendali, dan latih "amor fati" (cinta akan nasib) untuk yang di luar kendali.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RELEVANSI UNTUK GENERASI MUDA INDONESIA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Manampiring menerjemahkan Stoikisme ke konteks Indonesia yang sangat relevan:
+• Overthinking dan kecemasan media sosial
+• Ketakutan akan penilaian orang lain (fomo, insecure)
+• Tekanan akademis dan karir
+• Toxic relationship dan cara meresponsnya
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PRAKTIK STOIK HARIAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Morning reflection: rencanakan hari dengan mempertimbangkan hambatan
+• Evening review: evaluasi tindakan, bukan hasil
+• Negative visualization: bayangkan kehilangan untuk mensyukuri yang ada
+• Memento mori: ingat kematian untuk hidup lebih bermakna
+
+📚 Tersedia di Rak S-5 Litera Space`,
+
+    psychologyMoney: `RINGKASAN BUKU — THE PSYCHOLOGY OF MONEY
+Penulis: Morgan Housel | Genre: Keuangan / Psikologi
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GAGASAN UTAMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Keputusan keuangan bukan soal matematika — melainkan soal psikologi. Housel mengajukan argumen bahwa cara kita berpikir dan merasakan tentang uang jauh lebih menentukan nasib finansial kita daripada seberapa cerdas kita secara analitis.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BAB-BAB PILIHAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TIDAK ADA YANG GILA
+Setiap orang membuat keputusan keuangan berdasarkan pengalaman unik mereka. Seseorang yang tumbuh dalam kemiskinan akan melihat uang secara berbeda dari seseorang yang selalu berkecukupan. Tidak ada yang "salah" — hanya berbeda konteks.
+
+LUCK & RISK (Keberuntungan dan Risiko)
+Hasil keuangan seseorang tidak hanya ditentukan oleh kerja keras. Keberuntungan (lahir di keluarga yang tepat, di negara yang tepat, di waktu yang tepat) memainkan peran besar yang sering diabaikan.
+
+CUKUP (ENOUGH)
+Salah satu penyakit keuangan terbesar adalah tidak pernah merasa "cukup". Housel mengangkat kasus investor legendaris yang kehilangan segalanya karena terus menginginkan lebih.
+
+KEKUATAN COMPOUNDING
+Warren Buffett memperoleh 97% dari kekayaannya setelah usia 65 tahun — bukan karena ia investor terbaik, melainkan karena ia telah berinvestasi sejak usia 10 tahun. Waktu adalah variabel terpenting.
+
+KEBEBASAN
+Kekayaan sejati bukan tentang kemampuan membeli barang-barang mewah, melainkan tentang kebebasan: kebebasan untuk memilih bagaimana menghabiskan waktu, dengan siapa, dan untuk apa.
+
+📚 Tersedia di Rak S-7 Litera Space`,
+
+    bumiManusia: `SINOPSIS LENGKAP — BUMI MANUSIA
+Penulis: Pramoedya Ananta Toer | Tetralogi Buru, Buku Pertama
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LATAR BELAKANG
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Ditulis di penjara pulau Buru tanpa kertas — disampaikan secara lisan kepada sesama tahanan, kemudian dituliskan. Novel ini adalah mahakarya sastra Indonesia yang telah diterjemahkan ke puluhan bahasa dan masuk daftar sastra terpenting dunia.
+
+Berlatar Hindia Belanda akhir abad ke-19 (1898), Bumi Manusia menggambarkan benturan antara dua peradaban: Eropa kolonial yang modern namun penuh kemunafikan, dan Jawa yang kaya budaya namun terjajah.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TOKOH-TOKOH
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MINKE — Pemuda pribumi jenius yang bersekolah di HBS (sekolah Belanda elite). Ia berbicara Belanda, mengagumi ilmu pengetahuan Eropa, namun akhirnya menyadari bahwa kecerdasan pun tidak cukup untuk menembus tembok kolonialisme.
+
+ANNELIES MELLEMA — Perempuan Erasia (Indo) yang jatuh cinta pada Minke. Anak dari Nyai Ontosoroh. Cantik, rapuh, terjebak antara dua dunia yang tidak satu pun sepenuhnya menerimanya.
+
+NYAI ONTOSOROH — Karakter paling menakjubkan dalam novel ini. Seorang "nyai" (gundik) yang diperlakukan rendah oleh hukum kolonial, namun memiliki kecerdasan, martabat, dan keteguhan jiwa yang melampaui siapapun di sekitarnya.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SINOPSIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Minke diperkenalkan ke keluarga Mellema — keluarga Indo yang kaya namun kompleks. Ia jatuh cinta pada Annelies, namun harus berhadapan dengan hukum kolonial yang kejam: sebagai "pribumi", haknya tidak setara. Ketika tragedi menimpa, Minke menyadari bahwa pendidikan Eropa tidak memberinya kesetaraan — hanya kesadaran bahwa ia tidak setara.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TEMA UTAMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Kolonialisme dan dehumanisasi
+• Kesadaran nasional yang lahir dari penderitaan
+• Martabat manusia vs sistem hukum yang zalim
+• Cinta yang melampaui batas ras
+
+📚 Tersedia di Rak S-1 Litera Space`,
+
+    // ============================================
+    // KOLEKSI BARU — E-BOOK
+    // ============================================
+    bumiTereLiye: `SINOPSIS LENGKAP — BUMI
+Penulis: Tere Liye | Genre: Fiksi Sains / Petualangan Remaja
+Seri: Bumi (Buku #1 dari Serial Bumi)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GAMBARAN UMUM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+"Bumi" adalah novel pertama dari serial petualangan fiksi ilmiah karya Tere Liye yang mengisahkan tentang dunia paralel — realitas tersembunyi di balik realitas yang kita kenal.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TOKOH UTAMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RAIB (15 tahun) — Gadis biasa yang ternyata memiliki kemampuan luar biasa: bisa menghilang (invisible). Ia tidak sengaja menemukan bahwa ada klan-klan tersembunyi di bumi dengan kemampuan supranatural.
+
+SELI — Sahabat Raib yang bisa mengeluarkan petir dari tangannya. Ceria dan berani.
+
+ALI — Sahabat jenius yang tidak memiliki kemampuan supranatural, tapi kecerdasannya setara teknologi masa depan.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SINOPSIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Raib menemukan bahwa dunia tidak sesederhana yang ia lihat. Ada "Klan Bulan" — keturunan dari entitas kuno yang hidup berdampingan dengan manusia biasa. Ketika ancaman dari klan jahat muncul, Raib, Seli, dan Ali harus masuk ke dalam dunia paralel yang berbahaya.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TEMA UTAMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Persahabatan dan kepercayaan
+• Penemuan jati diri dan kemampuan tersembunyi
+• Dunia paralel dan misteri alam semesta
+• Keberanian menghadapi yang tidak diketahui
+
+📌 Tersedia di Gramedia Digital | iPusnas`,
+
+    perahuKertas: `SINOPSIS LENGKAP — PERAHU KERTAS
+Penulis: Dee Lestari (Dewi Lestari) | Genre: Roman / Coming of Age
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TOKOH UTAMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KUGY — Perempuan eksentrik, pemimpi, penulis dongeng, yang percaya pada "pemandu" tak kasat mata. Ia mencintai lautan dan perahu kertas yang ia kirimkan ke laut sebagai surat untuk "Dewa Neptunus".
+
+KEENAN — Pemuda seniman berbakat yang harus mengorbankan passion-nya demi memenuhi harapan keluarga untuk kuliah bisnis.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SINOPSIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Kugy dan Keenan bertemu di Bandung — dua jiwa yang bak langit dan bumi namun saling menarik. Keduanya memendam perasaan namun memilih mendiamkan demi persahabatan dan komitmen masing-masing.
+
+Novel ini mengikuti perjalanan keduanya selama bertahun-tahun: karier yang naik turun, cinta yang datang dan pergi, dan pertanyaan besar tentang apakah seseorang harus mengorbankan mimpi atau cintanya.
+
+Ending yang diberikan Dee Lestari bukan tentang siapa yang "menang", melainkan tentang dua jiwa yang akhirnya menemukan keberaniannya masing-masing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEISTIMEWAAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Novel ini merupakan karya musik sekaligus sastra — ditulis bersamaan dengan album musik "Perahu Kertas" oleh Dee Lestari. Beberapa bagian cerita terinspirasi langsung dari lirik lagu.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TEMA UTAMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Mimpi vs realitas
+• Cinta yang membutuhkan keberanian
+• Seni sebagai jalan hidup
+• Timing dan keberanian berkata jujur
+
+📌 Tersedia di Gramedia Digital`,
+
+    negeri5Menara: `SINOPSIS LENGKAP — NEGERI 5 MENARA
+Penulis: Ahmad Fuadi | Trilogi Negeri 5 Menara, Buku Pertama
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LATAR BELAKANG
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Terinspirasi dari pengalaman nyata Ahmad Fuadi di Pondok Modern Gontor, Jawa Timur. Novel ini mengisahkan kehidupan pesantren modern yang penuh disiplin, keilmuan, dan persahabatan.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TOKOH UTAMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ALIF FIKRI — Pemuda dari Maninjau, Sumatra Barat, yang terpaksa masuk pesantren bukan universitas umum seperti impiannya (SMA Bandung). Ia merasa "terbuang" — hingga perlahan mulai menemukan dunia yang lebih besar dari yang ia bayangkan.
+
+SAHIBUL MENARA — Enam sahabat karib Alif yang berasal dari berbagai daerah Indonesia: Raja (Medan), Said (Surabaya), Dulmajid (Sumenep), Atang (Bandung), Baso (Gowa). Bersama mereka, Alif duduk di bawah menara masjid dan memimpikan negeri-negeri jauh.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MOTTO YANG MENGGERAKKAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+"Man Jadda Wajada" — Siapa yang bersungguh-sungguh, ia akan berhasil.
+
+Mantra Arab ini menjadi kompas kehidupan Alif dan sahabat-sahabatnya.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SINOPSIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Di bawah menara masjid Gontor, Alif dan lima sahabatnya mengembangkan kebiasaan: menatap awan dan membayangkan benua-benua yang ingin mereka jelajahi. Dari sana lahir "Sahibul Menara" — kelompok yang diikat oleh mimpi dan persahabatan.
+
+Novel mengalir antara kehidupan keras pesantren (bangun pukul 3 pagi, hukuman fisik bagi pelanggar, kompetisi intelektual) dan persahabatan yang menghangatkan hati.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TEMA UTAMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Pendidikan pesantren dan nilai-nilainya
+• Mimpi sebagai kompas hidup
+• Persahabatan lintas budaya Indonesia
+• Disiplin dan kerja keras
+
+📌 Tersedia di iPusnas (GRATIS) | Gramedia Digital`,
+
+    kiteRunner: `SINOPSIS LENGKAP — THE KITE RUNNER
+Penulis: Khaled Hosseini | Setting: Afghanistan & Amerika Serikat
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TOKOH UTAMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AMIR — Anak laki-laki dari keluarga Pashtun kaya di Kabul. Penulis muda berbakat yang hidup dalam bayang-bayang harapan ayahnya. Ia menyimpan rasa bersalah yang akan mengikutinya selama 26 tahun.
+
+HASSAN — Anak pembantu keluarga Amir, keturunan Hazara (kelompok minoritas yang direndahkan). Hassan adalah sahabat paling setia yang pernah ada — selalu berkata "Untuk kamu, seribu kali lagi."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SINOPSIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Pada musim dingin 1975, Amir memenangkan turnamen layang-layang di Kabul. Hassan, sang "kite runner" (pelari layang-layang), berlari mengejar layang-layang yang jatuh sebagai hadiah kemenangan — dengan berjanji "Untuk kamu, seribu kali lagi."
+
+Sore itu, Amir menyaksikan Hassan dianiaya oleh sekelompok anak-anak, namun memilih untuk tidak berbuat apa-apa. Keputusan itu menjadi beban yang ia bawa seumur hidup.
+
+Bertahun-tahun kemudian, setelah invasi Soviet dan Taliban menghancurkan Afghanistan, Amir mendapat kesempatan untuk "menebus diri" — sebuah perjalanan berbahaya kembali ke tanah kelahiran yang sudah tidak ia kenali.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TEMA UTAMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Rasa bersalah dan penebusan
+• Persahabatan yang melampaui kelas sosial
+• Afghanistan dan tragedi sejarahnya
+• Hubungan ayah dan anak
+• Keberanian moral
+
+📌 Tersedia di Google Play Books | Gramedia Digital`,
+
+    cantikItuLuka: `SINOPSIS LENGKAP — CANTIK ITU LUKA
+Penulis: Eka Kurniawan | Genre: Realisme Magis / Sastra
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TENTANG NOVEL INI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+"Cantik Itu Luka" adalah mahakarya sastra Indonesia yang menggabungkan realisme magis ala Gabriel García Márquez dengan sejarah kelam Indonesia — dari era kolonial Belanda, pendudukan Jepang, hingga masa kemerdekaan dan tragedi 1965.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TOKOH SENTRAL: DEWI AYU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Dewi Ayu adalah seorang perempuan Indo (Belanda-Indonesia) yang terpaksa menjadi pelacur di masa pendudukan Jepang. Ia dikenal sebagai perempuan tercantik di Halimunda — dan kecantikan itulah yang menjadi kutukan hidupnya.
+
+Ia memiliki tiga anak perempuan yang semuanya cantik luar biasa, dan seorang anak keempat yang ia berikan nama "Si Cantik" — dengan harapan anak itu lahir buruk rupa, agar terbebas dari kutukan kecantikan. Namun doa itu terjawab terlalu harfiah.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ELEMEN REALISME MAGIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Novel ini dibuka dengan Dewi Ayu bangkit dari kubur. Dari sana, cerita mengalir mundur — menggali sejarah, kutukan, cinta, kekerasan, dan ironi yang melingkupi keluarga Dewi Ayu selama beberapa generasi.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TEMA UTAMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Kecantikan sebagai beban dan kutukan
+• Kekerasan seksual dan martabat perempuan
+• Sejarah Indonesia yang traumatis
+• Dendam dan siklus kekerasan antar generasi
+• Realisme magis sebagai cara bercerita tentang yang tak terucapkan
+
+📌 Tersedia di Gramedia Digital`,
+
+    // ============================================
+    // KOLEKSI BARU — DIGITAL
+    // ============================================
+    podcastLiterasi: `TRANSKRIP PODCAST — MEMBACA DI ERA DIGITAL
+Diproduksi oleh: Tim Litera Space | Format: Audio Podcast
+Durasi: ±45 menit
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RINGKASAN EPISODE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Episode perdana podcast Litera Space mengundang tiga narasumber: seorang pustakawan senior, seorang penulis muda, dan seorang peneliti literasi digital. Mereka membahas tantangan dan peluang membaca di era yang semakin terdistraksi.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+POIN-POIN UTAMA DISKUSI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SEGMEN 1 — KRISIS PERHATIAN (00:00-12:00)
+Rata-rata manusia modern memiliki rentang perhatian (attention span) lebih pendek dari ikan mas. Data penelitian menunjukkan bahwa minat baca buku panjang menurun, sementara konsumsi konten pendek (reels, shorts, thread) meningkat pesat. Bagaimana perpustakaan merespons ini?
+
+SEGMEN 2 — E-BOOK VS BUKU FISIK (12:00-25:00)
+Studi kognitif terbaru menunjukkan bahwa membaca buku fisik menghasilkan pemahaman lebih dalam dibanding e-book, terutama untuk konten yang membutuhkan penalaran kompleks. Namun e-book unggul dalam aksesibilitas, pencarian, dan portabilitas.
+
+SEGMEN 3 — AUDIO BOOK DAN PODCAST LITERASI (25:00-35:00)
+Apakah mendengarkan buku "valid" sebagai kegiatan membaca? Para narasumber berdebat dengan data menarik: neurosains menunjukkan proses kognitif yang serupa antara membaca dan mendengar.
+
+SEGMEN 4 — MASA DEPAN PERPUSTAKAAN (35:00-45:00)
+Perpustakaan bukan hanya gudang buku — melainkan ruang komunitas, kurator konten terpercaya di tengah informasi banjir, dan inkubator literasi kritis. Litera Space hadir sebagai model perpustakaan masa depan.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎧 Dengarkan di platform streaming Litera Space`,
+
+    webinarKatalog: `MATERI WEBINAR — KATALOGISASI BAHAN PUSTAKA MODERN
+Penyelenggara: Perpustakaan Nasional RI
+Pembicara: Dr. Wina Erwina, M.Lib. (Direktur Deposit Bahan Pustaka Perpusnas)
+Durasi: 3 jam (termasuk sesi tanya jawab)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MATERI SESI 1 — EVOLUSI KATALOGISASI (60 menit)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Dari kartu katalog manual menuju metadata digital. Webinar dibuka dengan kilas balik sejarah: bagaimana katalogisasi berevolusi dari lembar-lembar kartu yang disimpan dalam laci kayu, hingga sistem MARC21 dan kini metadata linked data.
+
+TONGGAK PENTING:
+• 1876 — Dewey Decimal Classification diterbitkan
+• 1901 — Library of Congress mulai menjual kartu katalog
+• 1968 — MARC (Machine-Readable Cataloging) diperkenalkan
+• 1990-an — OPAC menggantikan katalog kartu
+• 2010-an — RDA (Resource Description & Access) menggantikan AACR2
+• Sekarang — Linked Data dan BIBFRAME sebagai standar masa depan
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MATERI SESI 2 — STANDAR RDA DAN ISBD (60 menit)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RDA (Resource Description and Access) adalah standar katalogisasi internasional terbaru yang menggantikan AACR2. Perbedaan mendasar:
+
+AACR2: berfokus pada format fisik (buku, majalah, rekaman)
+RDA: berfokus pada entitas dan hubungan antar entitas — lebih fleksibel untuk era digital
+
+ELEMEN INTI RDA:
+• Manifestation (bentuk fisik/digital)
+• Expression (versi/edisi)
+• Work (karya intelektual)
+• Item (satu kopian spesifik)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MATERI SESI 3 — METADATA DUBLIN CORE & LINKED DATA (60 menit)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Dublin Core adalah standar metadata sederhana 15 elemen yang digunakan luas di perpustakaan digital, repositori, dan arsip web. Elemen-elemennya: Title, Creator, Subject, Description, Publisher, Contributor, Date, Type, Format, Identifier, Source, Language, Relation, Coverage, Rights.
+
+LINKED DATA membawa metadata perpustakaan ke web semantik — data dapat "dipahami" oleh mesin, terhubung antar database, dan dicari secara lebih cerdas.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▶ Rekaman webinar tersedia di platform streaming Litera Space`,
+
+    aksaraNusantara: `PETA AKSARA NUSANTARA INTERAKTIF
+Sumber: Pusat Pengembangan dan Perlindungan Bahasa dan Sastra, Kemdikbud
+Status: Tersedia Online — Interaktif
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TENTANG PROYEK INI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Indonesia adalah salah satu negara dengan warisan sistem tulisan (aksara) terkaya di dunia. Setidaknya terdapat 20+ aksara tradisional yang masih terdokumentasi, masing-masing dengan sejarah, filosofi, dan keindahan estetikanya sendiri.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AKSARA-AKSARA UTAMA NUSANTARA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🌴 AKSARA JAWA (Hanacaraka)
+Salah satu aksara yang masih aktif diajarkan di sekolah dasar Jawa. Terdiri dari 20 huruf dasar dengan sistem pasangan (sandangan) yang kompleks dan indah.
+Ha-Na-Ca-Ra-Ka | Da-Ta-Sa-Wa-La | Pa-Dha-Ja-Ya-Nya | Ma-Ga-Ba-Tha-Nga
+
+🌺 AKSARA BALI
+Sangat erat dengan tradisi Hindu-Bali. Masih digunakan untuk teks-teks lontar keagamaan dan upacara adat. Memiliki keindahan visual yang diakui sebagai seni kaligrafi.
+
+🦁 AKSARA BATAK (Surat Batak)
+Digunakan oleh berbagai sub-etnis Batak: Toba, Karo, Pakpak, Simalungun, Mandailing. Masing-masing memiliki variasi uniknya.
+
+🌊 AKSARA LONTARA (Bugis-Makassar)
+Aksara yang digunakan untuk menulis Sureq Galigo dan berbagai naskah kesejarahan Sulawesi Selatan. Bentuknya yang geometris dan elegan mencerminkan keteguhan peradaban Bugis.
+
+📜 AKSARA SUNDA KUNO
+Ditemukan pada prasasti-prasasti di Jawa Barat. Upaya revitalisasi aksara Sunda terus dilakukan, termasuk pengembangan font digital.
+
+🏝️ AKSARA REJANG (Bengkulu)
+Salah satu aksara tertua di Sumatra. Unik karena ditulis dari kiri ke kanan dan memiliki bentuk huruf yang organik.
+
+🌿 AKSARA INCUNG (Kerinci, Jambi)
+Ditulis pada bambu menggunakan pahat atau benda tajam. Digunakan untuk menyimpan hukum adat, mantra, dan surat-surat penting.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STATUS PELESTARIAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+UNESCO mencatat beberapa aksara Nusantara dalam daftar warisan budaya tak benda yang terancam punah. Upaya pelestarian digital melalui:
+• Standarisasi encoding Unicode
+• Pengembangan font digital berkualitas
+• Platform pembelajaran online
+• Digitalisasi naskah-naskah kuno
+
+🗺️ Akses peta interaktif melalui portal bahasa.kemdikbud.go.id`,
+
+    sejarahPercetakan: `DOKUMENTER — SEJARAH PERCETAKAN DI INDONESIA
+Sumber: Arsip Nasional Republik Indonesia (ANRI)
+Status: Domain Publik | Tahun Produksi: 2019
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TENTANG DOKUMENTER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Dokumenter ini menelusuri perjalanan panjang teknologi percetakan di kepulauan Nusantara — dari prasasti batu dan manuskrip lontar, hingga mesin cetak era kolonial, mesin offset modern, dan era digital percetakan.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BABAK 1 — SEBELUM PERCETAKAN (Pra-1800)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sebelum mesin cetak, pengetahuan di Nusantara disebarkan melalui:
+• Prasasti batu (abad ke-4 hingga ke-15): Prasasti Yupa (Kalimantan), Prasasti Ciaruteun (Bogor)
+• Lontar: daun palma yang dikeringkan dan diukir — media utama sastra Bali, Jawa Kuno, dan Bugis
+• Salin-menyalin: para pujangga istana menyalin teks-teks penting secara manual
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BABAK 2 — MASUKNYA MESIN CETAK (1600-1900)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOC membawa mesin cetak ke Batavia pada abad ke-17. Pertama digunakan untuk mencetak dokumen administrasi, peraturan, dan kemudian Alkitab terjemahan untuk keperluan misi agama.
+
+Surat kabar pertama berbahasa Melayu: "Bintang Timur" (1851) menjadi tonggak penting dalam sejarah pers Indonesia.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BABAK 3 — PERCETAKAN ERA PERGERAKAN NASIONAL (1900-1945)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Mesin cetak menjadi senjata pergerakan nasional. Surat kabar dan pamflet menjadi medium perlawanan terhadap kolonialisme. Balai Pustaka (1917) didirikan Belanda — ironisnya — untuk "mengontrol" bacaan pribumi, namun justru menjadi inkubator sastra Indonesia modern.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BABAK 4 — ERA DIGITAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Revolusi digital mengubah industri percetakan selamanya. Print-on-demand, e-book, dan self-publishing membuka akses bagi penulis yang sebelumnya tidak dapat menembus penerbit besar.
+
+▶ Tonton dokumenter lengkap melalui arsip digital ANRI`,
+
+    // ============================================
+    // KOLEKSI BARU — JURNAL
+    // ============================================
+    jurnalLiterasiDigital: `JURNAL ILMIAH — LITERASI DIGITAL GENERASI Z DI ERA POST-PANDEMI
+Penulis: Dewi Rahmawati, M.Lib.
+Jurnal: Jurnal Ilmu Perpustakaan dan Informasi | Vol. 8, No. 2, 2024
+ISSN: 2548-5687 | Open Access
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ABSTRAK
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Identitas nasional merupakan ciri yang dimiliki oleh suatu bangsa sebagai pengenalan dan penjelasan kepribadian dari suatu negara. Identitas nasional Indonesia dapat dirumuskan dalam tiga bidang:
-(1) Identitas fundamental: Pancasila
-(2) Identitas instrumental: UUD 1945, Bahasa Indonesia, Garuda Pancasila, Sang Saka Merah Putih, Bhineka Tunggal Ika, dan Indonesia Raya
-(3) Identitas alamiah: Indonesia sebagai negara kepulauan, keragaman suku, budaya, dan agama
+Pandemi COVID-19 telah mengakselerasi transformasi digital di berbagai sektor, termasuk pendidikan dan perpustakaan. Penelitian ini mengkaji tingkat literasi digital Generasi Z (lahir 1997-2012) di Indonesia pasca-pandemi, serta implikasinya terhadap layanan perpustakaan perguruan tinggi.
+
+Metode: survei kuantitatif dengan 450 responden mahasiswa dari 5 universitas di Jawa Tengah.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-I. PENDAHULUAN
+TINJAUAN PUSTAKA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Setiap negara memiliki identitasnya masing-masing yang membedakannya dari negara lain di dunia. Identitas ini tidak hanya bersifat simbolis, melainkan merupakan ekspresi dari nilai-nilai, sejarah, dan cita-cita bersama suatu bangsa.
+DEFINISI LITERASI DIGITAL
+Area & Molina (2019) mendefinisikan literasi digital sebagai kemampuan menggunakan teknologi dan internet untuk menemukan, mengevaluasi, membuat, dan mengomunikasikan informasi. ALA (American Library Association) memperluas definisi ini dengan menambahkan dimensi etis dan kritis.
 
-Indonesia sebagai negara yang berdiri di atas keragaman luar biasa — lebih dari 300 suku bangsa, 700-an bahasa daerah, berbagai agama dan kepercayaan — membutuhkan identitas nasional yang mampu merangkul semua keberagaman tersebut dalam satu ikatan kebangsaan.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-II. PENGATURAN IDENTITAS NASIONAL DALAM UUD 1945
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-UUD 1945 mengatur identitas nasional pada Bab XV tentang Bendera, Bahasa, dan Lambang Negara, serta Lagu Kebangsaan. Bab ini telah mengalami amandemen sebanyak dua kali dan memiliki 5 pasal:
-
-• Pasal 35: Bendera Negara Indonesia ialah Sang Merah Putih
-• Pasal 36: Bahasa Negara ialah Bahasa Indonesia
-• Pasal 36A: Lambang Negara ialah Garuda Pancasila dengan semboyan Bhineka Tunggal Ika
-• Pasal 36B: Lagu Kebangsaan ialah Indonesia Raya
-• Pasal 36C: Ketentuan lebih lanjut mengenai Bendera, Bahasa, dan Lambang Negara, serta Lagu Kebangsaan diatur dengan undang-undang
+5 DIMENSI LITERASI DIGITAL (DigComp 2.2 Framework):
+1. Literasi Informasi dan Data
+2. Komunikasi dan Kolaborasi
+3. Kreasi Konten Digital
+4. Keamanan Digital
+5. Pemecahan Masalah
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-III. PENGATURAN DALAM UU NO. 24 TAHUN 2009
+TEMUAN PENELITIAN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-UU No. 24 Tahun 2009 tentang Bendera, Bahasa, dan Lambang Negara, serta Lagu Kebangsaan memberikan pengaturan yang lebih teknis dan operasional mengenai identitas nasional Indonesia.
+Dimensi Komunikasi (87%) dan Kreasi Konten (82%) memperoleh skor tertinggi — Generasi Z sangat fasih dalam media sosial dan produksi konten.
 
-A. BENDERA NEGARA — SANG MERAH PUTIH
-• Ukuran resmi ditetapkan dalam undang-undang
-• Pengaturan tata cara penggunaan bendera dalam berbagai upacara
-• Larangan perlakuan yang merendahkan kehormatan bendera
-• Bendera wajib dikibarkan pada hari-hari tertentu
+Namun dimensi Literasi Informasi hanya (56%) — kemampuan mengevaluasi kualitas dan keandalan sumber informasi masih rendah.
 
-B. BAHASA INDONESIA
-• Bahasa Indonesia sebagai bahasa resmi negara
-• Wajib digunakan dalam dokumen resmi negara, pidato kenegaraan
-• Penggunaan dalam pendidikan nasional
-• Pengembangan dan pelestarian bahasa Indonesia
-• Bahasa daerah tetap diakui dan dilindungi sebagai kekayaan budaya
-
-C. LAMBANG NEGARA — GARUDA PANCASILA
-• Deskripsi teknis Garuda Pancasila: elang jawa, perisai dengan 5 simbol sila
-• Semboyan: Bhineka Tunggal Ika (berbeda-beda tetapi tetap satu)
-• Penggunaan resmi dalam berbagai konteks
-
-D. LAGU KEBANGSAAN — INDONESIA RAYA
-• Ciptaan W.R. Supratman
-• Tata cara menyanyikan dan menghormati
-• Penggunaan dalam upacara resmi
+Dimensi Keamanan Digital (48%) — kesadaran privasi, perlindungan data, dan ancaman siber paling rendah dari semua dimensi.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IV. PANCASILA SEBAGAI IDENTITAS FUNDAMENTAL
+PARADOKS GENERASI Z
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Pancasila sebagai dasar negara sekaligus pandangan hidup (weltanschauung) bangsa Indonesia merupakan inti dari identitas nasional Indonesia. Lima sila Pancasila merepresentasikan nilai-nilai yang disepakati bersama oleh seluruh komponen bangsa:
-
-1. Ketuhanan Yang Maha Esa — pengakuan terhadap keberagaman agama
-2. Kemanusiaan yang Adil dan Beradab — penghormatan HAM
-3. Persatuan Indonesia — komitmen terhadap NKRI
-4. Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan — demokrasi deliberatif
-5. Keadilan Sosial bagi Seluruh Rakyat Indonesia — cita-cita keadilan distributif
+Generasi Z adalah "digital natives" — namun ini tidak otomatis berarti mereka melek digital secara kritis. Mereka ahli menggunakan teknologi, namun belum tentu mampu mengevaluasi informasi yang mereka konsumsi. Inilah tantangan terbesar: keyakinan yang berlebihan terhadap kemampuan digital sendiri.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-V. KESIMPULAN
+REKOMENDASI UNTUK PERPUSTAKAAN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Identitas nasional Indonesia merupakan konstruksi yang kompleks namun kokoh, berakar pada keberagaman yang justru menjadi kekuatan. Pengaturan dalam UUD 1945 dan UU No. 24/2009 memberikan landasan hukum yang jelas bagi penghormatan dan pelestarian identitas nasional.
+1. Program literasi informasi kritis (fact-checking, lateral reading)
+2. Workshop keamanan digital: privasi, password, phishing
+3. Integrasi literasi digital dalam instruksi bibliografi
+4. Kolaborasi dengan prodi TI dan Ilmu Komunikasi
 
-Tantangan ke depan adalah menjaga keseimbangan antara mempertahankan identitas nasional dengan memberikan ruang bagi perkembangan identitas lokal dan daerah yang kaya.
+Daftar Pustaka:
+• Area, M. & Molina, L. (2019). Digital competences. Journal of New Approaches in Educational Research
+• Gilster, P. (1997). Digital Literacy. Wiley
+• UNESCO. (2022). Digital Literacy Framework. Paris: UNESCO`,
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DAFTAR PUSTAKA (SEBAGIAN)
-• UUD Negara Republik Indonesia 1945
-• UU No. 24 Tahun 2009 tentang Bendera, Bahasa, dan Lambang Negara
-• Kaelan. (2012). Problem Epistemologis Empat Pilar Berbangsa dan Bernegara
-• Tilaar, H.A.R. (2007). Mengindonesia: Etnisitas dan Identitas Bangsa Indonesia`,
-
-    skripsiREBA: `SKRIPSI / TUGAS AKHIR
-ANALISA MANUAL HANDLING DENGAN METODE REBA DI PT ARNOTT'S INDONESIA
-
-Penulis: Eko Sarwiyadi
-Program Studi: Teknik Industri
-Status: Repositori Terbuka Litera Space
+    jurnalAIPerpustakaan: `JURNAL ILMIAH — PEMANFAATAN KECERDASAN BUATAN DALAM PENGELOLAAN PERPUSTAKAAN DIGITAL
+Penulis: Budi Santoso, S.I.P., M.Si.
+Jurnal: Berkala Ilmu Perpustakaan dan Informasi | Vol. 20, No. 1, 2024
+DOI: 10.22146/bip.xxxxx | Open Access
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ABSTRAK
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Penelitian ini berfokus pada analisis ergonomi aktivitas kerja manual handling yang dilakukan oleh pekerja di PT Arnott's Indonesia — sebuah perusahaan makanan ringan internasional. Dengan menggunakan metode REBA (Rapid Entire Body Assessment), penelitian mengidentifikasi tingkat risiko postur tubuh pekerja dan memberikan rekomendasi perbaikan.
+Kecerdasan Buatan (Artificial Intelligence/AI) telah merevolusi berbagai industri, termasuk pengelolaan informasi dan perpustakaan. Artikel ini melakukan kajian sistematis (systematic review) terhadap 45 artikel ilmiah internasional (2019-2024) tentang implementasi AI di perpustakaan digital.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+APLIKASI AI DALAM PERPUSTAKAAN DIGITAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. PENGINDEKSAN DAN KATALOGISASI OTOMATIS
+AI menggunakan Natural Language Processing (NLP) untuk:
+• Mengekstrak subjek dan kata kunci secara otomatis
+• Menghasilkan deskripsi bibliografi dari teks penuh
+• Mengklasifikasikan dokumen berdasarkan DDC/UDC
+• Mendeteksi duplikasi koleksi
+
+2. SISTEM REKOMENDASI
+Algoritma collaborative filtering dan content-based filtering:
+• Merekomendasikan buku berdasarkan riwayat peminjaman
+• Mengidentifikasi pola minat baca pengguna
+• Personalisasi tampilan OPAC
+• Contoh: "Pengguna yang meminjam X juga meminjam Y"
+
+3. CHATBOT REFERENSI
+AI conversational (seperti yang digunakan Litera Space):
+• Menjawab pertanyaan referensi 24/7
+• Memandu penelusuran informasi
+• Menjelaskan kebijakan perpustakaan
+• Merekomendasikan sumber berdasarkan topik
+
+4. DIGITALISASI DAN OCR CERDAS
+Optical Character Recognition (OCR) berbasis AI:
+• Digitalisasi naskah kuno dengan akurasi tinggi
+• Mengenali aksara tradisional (Jawa, Bali, Arab Melayu)
+• Koreksi otomatis hasil OCR
+
+5. PRESERVASI DIGITAL PREDIKTIF
+AI menganalisis:
+• Kondisi fisik bahan pustaka untuk prioritas digitalisasi
+• Tren akses untuk mengoptimalkan storage
+• Anomali sistem untuk pencegahan kerusakan data
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TANTANGAN IMPLEMENTASI DI INDONESIA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Keterbatasan infrastruktur digital di daerah
+• Ketersediaan dataset bahasa Indonesia untuk training AI
+• Kompetensi SDM perpustakaan
+• Biaya implementasi sistem AI
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KESIMPULAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AI bukan ancaman bagi profesi pustakawan — melainkan alat yang membebaskan pustakawan dari pekerjaan rutin agar dapat fokus pada peran yang lebih strategis: kurator konten, konsultan informasi, dan perancang layanan.`,
+
+    jurnalGreenLibrary: `JURNAL ILMIAH — GREEN LIBRARY: KONSEP PERPUSTAKAAN BERKELANJUTAN DI INDONESIA
+Penulis: Rini Kurniasih, S.Hum., M.A.
+Jurnal: Jurnal Pustaka Ilmu | Vol. 12, No. 1, 2023
+Open Access
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ABSTRAK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Konsep green library atau perpustakaan hijau merupakan respons institusi perpustakaan terhadap krisis lingkungan global. Artikel ini menganalisis implementasi green library di 12 perpustakaan perguruan tinggi di Indonesia dan merumuskan model ideal yang sesuai konteks lokal.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DEFINISI DAN PRINSIP GREEN LIBRARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Green library adalah perpustakaan yang dirancang, dibangun, dan dioperasikan dengan mempertimbangkan dampak lingkungan minimum, konsumsi energi optimal, dan kontribusi positif pada keberlanjutan ekosistem.
+
+EMPAT PILAR GREEN LIBRARY:
+1. Arsitektur & Desain Bangunan (green building)
+2. Manajemen Energi dan Air
+3. Koleksi dan Layanan Ramah Lingkungan
+4. Program Literasi Lingkungan
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TEMUAN: IMPLEMENTASI DI INDONESIA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ASPEK BANGUNAN (Skor rata-rata: 62/100)
+• 8 dari 12 perpustakaan sudah menggunakan pencahayaan alami
+• 5 perpustakaan memiliki panel surya aktif
+• 3 perpustakaan memiliki sertifikasi green building
+• Tantangan: biaya retrofit gedung lama
+
+ASPEK ENERGI (Skor rata-rata: 55/100)
+• Penggunaan lampu LED sudah hampir universal (11/12)
+• Sensor gerak untuk lampu otomatis (6/12)
+• AC inverter hemat energi (7/12)
+• Manajemen energi digital/smart grid (2/12)
+
+ASPEK KOLEKSI DIGITAL (Skor rata-rata: 71/100)
+• Ini adalah aspek tertinggi — digitalisasi koleksi adalah bentuk green library yang paling banyak dilakukan
+• Pengurangan pembelian bahan cetak yang tidak perlu
+• E-journal menggantikan langganan jurnal cetak
+
+ASPEK LITERASI LINGKUNGAN (Skor rata-rata: 48/100)
+• Aspek terendah — program edukasi lingkungan masih minim
+• Koleksi bertema lingkungan belum dikurasi secara khusus
+• Kampanye "go green" di perpustakaan masih sporadis
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+REKOMENDASI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Perpustakaan sebagai "green hub" kampus — pusat informasi dan gerakan lingkungan
+2. Integrasi SDGs dalam program literasi perpustakaan
+3. Kebijakan procurement bahan pustaka yang mempertimbangkan environmental footprint
+4. Sertifikasi green library nasional oleh Perpusnas`,
+
+    jurnalKebutuhanInfo: `JURNAL ILMIAH — ANALISIS KEBUTUHAN INFORMASI MAHASISWA TINGKAT AKHIR
+Penulis: Hendra Wijaya, S.I.P., M.Hum.
+Jurnal: Jurnal Akses: Pengabdian Kepada Masyarakat | Vol. 6, No. 2, 2024
+Open Access
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ABSTRAK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Mahasiswa tingkat akhir menghadapi tekanan informasi yang unik dalam proses penyusunan skripsi/tugas akhir. Penelitian deskriptif ini mengkaji pola kebutuhan informasi, perilaku pencarian, dan tingkat kepuasan layanan perpustakaan pada 200 mahasiswa tingkat akhir di tiga universitas di Semarang.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SUMBER INFORMASI YANG DIGUNAKAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Peringkat sumber informasi yang paling sering digunakan:
+1. Google Scholar (94%) — paling populer
+2. Dosen pembimbing (88%)
+3. E-journal institusi (76%)
+4. OPAC perpustakaan (71%)
+5. ResearchGate (65%)
+6. Repository universitas (58%)
+7. Buku teks di perpustakaan (52%)
+8. Wikipedia sebagai titik awal (47%)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HAMBATAN UTAMA PENCARIAN INFORMASI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Artikel full-text berbayar/terkunci paywall (78% responden)
+2. Kesulitan merumuskan kata kunci yang tepat (65%)
+3. Literatur berbahasa asing (58%)
+4. Terlalu banyak hasil pencarian yang tidak relevan (51%)
+5. Ketidaktahuan database yang tersedia (47%)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+POLA PERILAKU PENCARIAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• 67% mahasiswa tidak pernah mengikuti pelatihan penelusuran informasi
+• 82% menggunakan satu kata kunci tunggal, bukan boolean search
+• 71% tidak memanfaatkan fitur advanced search
+• Hanya 23% yang mengenal operator AND/OR/NOT dalam database
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMPLIKASI UNTUK PERPUSTAKAAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Wajibkan pelatihan penelusuran informasi untuk mahasiswa semester 5 ke atas
+2. Buat panduan database spesifik per program studi
+3. Layanan konsultasi referensi khusus mahasiswa skripsi
+4. Optimalkan langganan e-journal sesuai kebutuhan prodi
+5. Promosikan akses Sci-Hub alternatif legal melalui PNRI`,
+
+    jurnalMinatBaca: `JURNAL ILMIAH — MINAT BACA MASYARAKAT INDONESIA: STUDI KOMPARATIF 2015–2025
+Penulis: Sri Wahyuni, Ph.D.
+Jurnal: Jurnal Perpustakaan Indonesia | Vol. 15, No. 1, 2025
+Open Access
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ABSTRAK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Penelitian longitudinal selama satu dekade ini menganalisis tren minat baca masyarakat Indonesia menggunakan data dari BPS, survei UNESCO, PISA (Programme for International Student Assessment), dan data sirkulasi 150 perpustakaan publik di seluruh Indonesia.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DATA PISA — LITERASI MEMBACA INDONESIA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Skor PISA Literasi Membaca Indonesia:
+• 2015: 397 poin (peringkat 64/72 negara)
+• 2018: 371 poin (peringkat 74/79 negara)
+• 2022: 359 poin (peringkat 68/81 negara)
+• 2025 (proyeksi): 375-385 poin
+
+Indonesia secara konsisten berada di bawah rata-rata OECD (476 poin) — meski ada tanda-tanda perbaikan di 2025.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TREN POSITIF 2015-2025
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Pertumbuhan e-book dan audiobook: +340% (2015-2025)
+2. Jumlah pengguna iPusnas: 0 → 4,7 juta (2015-2025)
+3. Pertumbuhan toko buku online: +890%
+4. Komunitas baca aktif (Goodreads, klub buku): +520%
+5. Penerbitan buku lokal: +180%
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TREN NEGATIF YANG MENGKHAWATIRKAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Rata-rata jam membaca buku/minggu turun dari 6,2 jam (2015) → 4,1 jam (2025)
+2. "Membaca" media sosial meningkat drastis (rata-rata 5,8 jam/hari di 2025)
+3. Deep reading (membaca untuk pemahaman mendalam) menurun
+4. 47% responden mengaku lebih sering membaca meme/thread daripada artikel panjang
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FAKTOR-FAKTOR YANG MEMPENGARUHI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PENDORONG MINAT BACA:
+• Ketersediaan buku gratis (iPusnas, Perpusnas digital)
+• Komunitas baca yang aktif di media sosial
+• Tren "bookstagram" dan "booktok"
+• Program literasi di sekolah yang membaik
+
+PENGHAMBAT MINAT BACA:
+• Kompetisi konten digital yang sangat kuat (TikTok, Instagram)
+• Harga buku yang relatif tinggi
+• Keterbatasan akses perpustakaan di daerah
+• Kurikulum yang tidak mendorong membaca untuk kesenangan
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KESIMPULAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Indonesia menghadapi paradoks literasi: lebih banyak yang "membaca" (konten digital) namun fewer yang membaca untuk pemahaman mendalam. Tantangan dekade berikutnya bukan sekadar meningkatkan kuantitas membaca, melainkan kualitas dan kedalaman membaca.`,
+
+    // ============================================
+    // KOLEKSI BARU — SKRIPSI
+    // ============================================
+    skripsiSIPerpustakaan: `SKRIPSI — IMPLEMENTASI SISTEM INFORMASI PERPUSTAKAAN BERBASIS WEB
+DI SMA NEGERI 1 SEMARANG
+Penulis: Anisa Putri Rahayu | NIM: 2021180001
+Program Studi: Ilmu Perpustakaan, Universitas Diponegoro
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 BAB I — PENDAHULUAN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-1.1 Latar Belakang
-Industri makanan dan minuman merupakan salah satu sektor yang intensif dalam kegiatan manual handling. Kegiatan mengangkat, memindahkan, dan membawa beban secara manual tanpa alat bantu yang memadai berpotensi menyebabkan cedera muskuloskeletal (Musculoskeletal Disorders/MSDs).
+Latar Belakang
+SMA Negeri 1 Semarang memiliki koleksi lebih dari 15.000 buku namun masih menggunakan sistem manual berbasis kartu katalog. Proses pencarian buku memakan waktu lama, data peminjaman tidak akurat, dan laporan statistik sulit dihasilkan. Penelitian ini mengembangkan dan mengimplementasikan Sistem Informasi Perpustakaan (SIPerpus) berbasis web.
 
-Di PT Arnott's Indonesia, ditemukan beberapa titik kerja yang berpotensi menyebabkan risiko ergonomi tinggi, terutama pada:
-• Stasiun pemindahan produk WIP ke mesin feeder
-• Stasiun pengolahan adonan cream
-
-1.2 Rumusan Masalah
-• Bagaimana tingkat risiko postur kerja pada aktivitas manual handling di PT Arnott's?
-• Apa rekomendasi perbaikan yang dapat diberikan?
-
-1.3 Tujuan Penelitian
-• Mengidentifikasi level risiko ergonomi menggunakan metode REBA
-• Memberikan rekomendasi perbaikan stasiun kerja
+Rumusan Masalah
+1. Bagaimana merancang SIPerpus yang sesuai kebutuhan SMA Negeri 1 Semarang?
+2. Bagaimana tingkat penerimaan pengguna terhadap sistem yang dikembangkan?
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 BAB II — LANDASAN TEORI
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-2.1 Ergonomi
-Ergonomi adalah ilmu yang mempelajari interaksi antara manusia dengan sistem kerjanya, dengan tujuan mengoptimalkan kesejahteraan dan performa sistem secara keseluruhan.
+Sistem Informasi Perpustakaan
+SIPerpus adalah sistem terintegrasi yang mencakup modul: pengolahan koleksi, OPAC, sirkulasi, keanggotaan, dan pelaporan statistik. Standar yang digunakan mengacu pada ISBD (International Standard Bibliographic Description) dan SNI perpustakaan sekolah.
 
-2.2 Manual Handling
-Manual handling adalah semua kegiatan transportasi atau pemindahan beban oleh satu atau lebih pekerja, termasuk mengangkat, menurunkan, mendorong, menarik, membawa, atau memindahkan beban.
-
-2.3 Musculoskeletal Disorders (MSDs)
-MSDs adalah gangguan pada otot, tendon, ligamen, saraf, dan pembuluh darah yang disebabkan atau diperburuk oleh kondisi kerja. Gejala meliputi nyeri, kekakuan, bengkak, dan berkurangnya kemampuan gerak.
-
-2.4 Metode REBA (Rapid Entire Body Assessment)
-REBA dikembangkan oleh Sue Hignett dan Lynn McAtamney (2000). Metode ini mengevaluasi seluruh tubuh pekerja melalui dua kelompok:
-
-KELOMPOK A: Batang Tubuh, Leher, Kaki
-• Postur batang tubuh (0-5°, 5-20°, >20°, dll.)
-• Postur leher (ke depan, ke belakang)
-• Posisi kaki (duduk, berdiri satu kaki, dll.)
-+ Faktor beban/gaya
-
-KELOMPOK B: Lengan Atas, Lengan Bawah, Pergelangan Tangan
-• Sudut lengan atas dari vertikal
-• Postur lengan bawah
-• Deviasi pergelangan tangan
-+ Faktor coupling (genggaman)
-
-TABEL SKOR REBA:
-• Skor 1: Risiko dapat diabaikan (acceptable)
-• Skor 2-3: Risiko rendah (mungkin perlu perbaikan)
-• Skor 4-7: Risiko sedang (perlu investigasi)
-• Skor 8-10: Risiko tinggi (perlu perbaikan segera)
-• Skor 11-15: Risiko sangat tinggi (perlu perbaikan sekarang)
+Teknologi yang Digunakan
+• Framework: Laravel 10 (PHP)
+• Database: MySQL 8.0
+• Frontend: Bootstrap 5 + JavaScript
+• Barcode: Code128 dengan scanner USB
+• Hosting: VPS lokal sekolah
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BAB III — METODOLOGI PENELITIAN
+BAB III — METODOLOGI
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-3.1 Jenis Penelitian: Penelitian deskriptif kuantitatif
-3.2 Lokasi: PT Arnott's Indonesia
-3.3 Objek: Pekerja di stasiun pemindahan WIP dan pengolahan adonan cream
-3.4 Metode Pengumpulan Data:
-• Observasi langsung dan dokumentasi foto/video
-• Pengukuran dimensi anthropometri pekerja
-• Wawancara keluhan MSDs
-3.5 Analisis: Metode REBA + Nordic Body Map
+Metode Pengembangan: Agile Scrum (4 sprint, masing-masing 2 minggu)
+
+Sprint 1: Analisis kebutuhan dan desain database
+Sprint 2: Modul katalog dan OPAC
+Sprint 3: Modul sirkulasi dan keanggotaan
+Sprint 4: Modul laporan dan pengujian
+
+Pengujian menggunakan Black Box Testing dan UAT (User Acceptance Testing) dengan 30 responden (20 siswa, 7 guru, 3 pustakawan).
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 BAB IV — HASIL DAN PEMBAHASAN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-4.1 Hasil Penilaian REBA
+FITUR YANG BERHASIL DIIMPLEMENTASIKAN:
+✅ OPAC dengan pencarian fulltext dan filter multi-kriteria
+✅ Input data buku dengan scan barcode ISBN (5x lebih cepat)
+✅ Manajemen peminjaman dan pengembalian otomatis
+✅ Notifikasi keterlambatan via SMS dan WhatsApp
+✅ Dashboard statistik: koleksi, sirkulasi, pemustaka aktif
+✅ Laporan otomatis format PDF dan Excel
 
-STASIUN 1 — Pemindahan Produk WIP ke Mesin Feeder:
-• Skor REBA: 8 (Risiko Tinggi)
-• Masalah utama: Membungkuk berulang dengan beban >10 kg
-• Frekuensi: 200+ kali per shift
-
-STASIUN 2 — Pengolahan Adonan Cream:
-• Skor REBA: 7 (Risiko Sedang-Tinggi)
-• Masalah utama: Postur lengan tinggi, gerakan repetitif
-• Keluhan tertinggi: bahu dan punggung bawah
-
-4.2 Keluhan Pekerja (Nordic Body Map)
-Keluhan terbanyak:
-1. Punggung bawah (Low Back Pain) — 85% pekerja
-2. Bahu — 70% pekerja
-3. Leher — 60% pekerja
+HASIL UAT:
+• Kemudahan penggunaan: 88% pengguna menyatakan "mudah"
+• Kecepatan pencarian: 92% menyatakan "lebih cepat dari sistem lama"
+• Kepuasan keseluruhan: 4.2/5.0
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BAB V — REKOMENDASI PERBAIKAN
+BAB V — KESIMPULAN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-5.1 Rekayasa Teknik
-• Pengadaan Truck Lifter / Trolley Hidrolik untuk pemindahan beban berat
-• Penyesuaian ketinggian meja kerja sesuai dimensi anthropometri pekerja
-• Rotasi palet otomatis untuk menghindari membungkuk berulang
+SIPerpus berhasil dikembangkan dan diterima dengan baik oleh pengguna. Waktu pencarian koleksi berkurang dari rata-rata 8 menit (manual) menjadi 45 detik (digital). Sistem ini direkomendasikan untuk direplikasi di perpustakaan sekolah lain di Semarang.`,
 
-5.2 Rekayasa Administratif
-• Rotasi kerja setiap 2 jam untuk mengurangi paparan repetitif
-• Istirahat mikro setiap 45 menit
-• Program pelatihan teknik pengangkatan yang benar
-
-5.3 Alat Pelindung Diri (APD)
-• Back support belt untuk pekerjaan angkat berat
-• Anti-fatigue mat pada area berdiri statis
-
-5.4 Media Edukasi
-• Poster panduan postur kerja yang benar (dipasang di area kerja)
-• Modul pelatihan ergonomi dasar untuk seluruh pekerja
+    skripsiPromosiPerpus: `SKRIPSI — PENGARUH PROMOSI PERPUSTAKAAN MELALUI MEDIA SOSIAL TERHADAP KUNJUNGAN PEMUSTAKA
+Penulis: Muhammad Fajar Rizaldi | NIM: 2020180045
+Program Studi: Ilmu Perpustakaan dan Informasi, Universitas Islam Indonesia
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BAB VI — KESIMPULAN
+BAB I — PENDAHULUAN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Aktivitas manual handling di PT Arnott's menunjukkan tingkat risiko tinggi berdasarkan skor REBA
-• Intervensi ergonomi yang direkomendasikan berpotensi menurunkan risiko MSDs secara signifikan
-• Implementasi Truck Lifter diprioritaskan karena memberikan dampak paling besar terhadap pengurangan risiko
+Latar Belakang
+Di era media sosial, perpustakaan menghadapi tantangan baru: bagaimana menarik generasi muda yang lebih tertarik pada konten digital daripada mengunjungi perpustakaan fisik. Penelitian ini mengkaji efektivitas promosi perpustakaan melalui Instagram, TikTok, dan Twitter/X terhadap peningkatan kunjungan.
+
+Hipotesis: Terdapat pengaruh signifikan antara intensitas promosi media sosial dengan jumlah kunjungan pemustaka pada perpustakaan perguruan tinggi.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DAFTAR PUSTAKA
-• Hignett, S. & McAtamney, L. (2000). Rapid Entire Body Assessment. Applied Ergonomics, 31(2), 201-205.
-• Bridger, R.S. (2003). Introduction to Ergonomics. Taylor & Francis.
-• Tarwaka. (2010). Ergonomi Industri. Harapan Press.
-• Suma'mur. (2009). Higiene Perusahaan dan Keselamatan Kerja. Sagung Seto.`
+BAB II — LANDASAN TEORI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Pemasaran Perpustakaan
+Kotler & Andreasen (2008): pemasaran perpustakaan adalah aplikasi prinsip-prinsip pemasaran untuk meningkatkan efisiensi pelayanan dan kepuasan pengguna, bukan sekadar "menjual" koleksi.
+
+Model AIDA dalam Promosi Perpustakaan:
+• Attention: konten yang menarik perhatian (visual, humor, informatif)
+• Interest: konten yang membangun minat (review buku, tips penelitian)
+• Desire: konten yang membangkitkan keinginan (showcase fasilitas, testimoni)
+• Action: konten yang mendorong tindakan (event, kompetisi, undangan)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BAB III — METODOLOGI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Populasi: seluruh pemustaka aktif 5 perpustakaan perguruan tinggi di Yogyakarta (n=12.450)
+Sampel: 375 responden (teknik proportional stratified random sampling)
+Instrumen: kuesioner + analisis konten media sosial perpustakaan
+Analisis: regresi linear sederhana dan korelasi Pearson
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BAB IV — HASIL DAN PEMBAHASAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PLATFORM PALING EFEKTIF:
+1. Instagram (r=0.68, p<0.01) — korelasi kuat dengan kunjungan
+2. TikTok (r=0.61, p<0.01) — efektif untuk menarik usia 17-22 tahun
+3. Twitter/X (r=0.44, p<0.05) — lebih efektif untuk info akademis/riset
+
+JENIS KONTEN PALING BERPENGARUH:
+• Reels/TikTok "tour perpustakaan": +34% kunjungan pertama
+• Rekomendasi buku mingguan: +28% peminjaman koleksi terkait
+• Live session dengan pustakawan: +41% pertanyaan referensi
+• Konten event/workshop: +67% registrasi peserta
+
+TEMUAN MENARIK:
+67% responden mengaku pertama kali mengetahui fasilitas tertentu perpustakaan melalui media sosial, bukan dari mengunjungi langsung.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BAB V — KESIMPULAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Terdapat pengaruh signifikan antara intensitas promosi media sosial dan jumlah kunjungan pemustaka (R²=0.58). Perpustakaan direkomendasikan untuk mengalokasikan minimal 5 jam/minggu untuk pengelolaan konten media sosial yang terencana dan konsisten.`,
+
+    skripsiGreenBuilding: `SKRIPSI — ANALISIS EFISIENSI ENERGI PADA GEDUNG PERPUSTAKAAN UNIVERSITAS
+DENGAN PENDEKATAN GREEN BUILDING
+Penulis: Diah Kusumawati | NIM: 2019340089
+Program Studi: Teknik Arsitektur, Universitas Diponegoro
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BAB I — PENDAHULUAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Latar Belakang
+Gedung perpustakaan merupakan fasilitas publik yang beroperasi dalam waktu panjang setiap hari, dengan kebutuhan pencahayaan, pendinginan, dan peralatan digital yang tinggi. Konsumsi energi rata-rata perpustakaan universitas di Indonesia mencapai 180-220 kWh/m²/tahun — di atas standar efisiensi internasional.
+
+Penelitian ini menganalisis potensi penghematan energi pada gedung Perpustakaan Pusat Universitas X menggunakan konsep green building dan simulasi Building Energy Modeling (BEM).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BAB II — LANDASAN TEORI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GREENSHIP Indonesia (GBCI)
+Rating system nasional untuk bangunan hijau di Indonesia, mengadaptasi LEED (Leadership in Energy and Environmental Design) Amerika Serikat untuk iklim tropis. Kategori penilaian:
+• Appropriate Site Development (15%)
+• Energy Efficiency & Conservation (25%)
+• Water Conservation (20%)
+• Material Resources & Cycle (15%)
+• Indoor Health & Comfort (15%)
+• Building & Environment Management (10%)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BAB III — METODOLOGI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Metode: kombinasi observasi lapangan, pengukuran langsung, dan simulasi komputer menggunakan software EnergyPlus dan DesignBuilder.
+
+Objek penelitian: Gedung Perpustakaan Pusat 4 lantai, luas total 6.400 m², beroperasi 16 jam/hari.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BAB IV — HASIL DAN PEMBAHASAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KONDISI EKSISTING:
+• Konsumsi energi: 198 kWh/m²/tahun
+• Beban terbesar: AC (52%), pencahayaan (28%), peralatan (20%)
+• Intensitas Konsumsi Energi (IKE): Agak boros (>160 kWh/m²/th)
+
+REKOMENDASI DAN PROYEKSI PENGHEMATAN:
+
+SKENARIO 1 — Retrofit Pencahayaan (LED + sensor gerak)
+• Investasi: Rp 180 juta
+• Penghematan: 34% konsumsi listrik pencahayaan
+• Payback period: 2,3 tahun
+
+SKENARIO 2 — Peningkatan Selubung Bangunan (double-skin facade, Low-E glass)
+• Investasi: Rp 850 juta
+• Pengurangan beban AC: 28%
+• Payback period: 6,8 tahun
+
+SKENARIO 3 — Instalasi PLTS Rooftop (50 kWp)
+• Investasi: Rp 550 juta
+• Produksi energi: 67.000 kWh/tahun
+• Payback period: 5,2 tahun
+
+SKENARIO KOMBINASI (1+2+3):
+• Total investasi: Rp 1,58 miliar
+• Penghematan energi: 47%
+• IKE baru: 105 kWh/m²/tahun (kategori Efisien)
+• Sertifikasi GREENSHIP: proyeksi Silver
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BAB V — KESIMPULAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Implementasi green building pada gedung perpustakaan layak secara ekonomis dan lingkungan. Penghematan energi 47% setara pengurangan emisi CO₂ sebesar 41 ton/tahun.`,
+
+    skripsiPerilakuPencarian: `SKRIPSI — PERILAKU PENCARIAN INFORMASI MAHASISWA PROGRAM STUDI ILMU PERPUSTAKAAN UNDIP
+Penulis: Rizky Amalia Nuraini | NIM: 2021180067
+Program Studi: Ilmu Perpustakaan, Universitas Diponegoro Semarang
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BAB I — PENDAHULUAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Latar Belakang
+Ironi penelitian ini: mahasiswa Ilmu Perpustakaan — yang secara teoritis paling terlatih dalam penelusuran informasi — apakah perilaku pencarian informasinya memang lebih baik daripada mahasiswa dari prodi lain? Penelitian ini menguji hipotesis tersebut secara empiris.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BAB II — MODEL PERILAKU PENCARIAN INFORMASI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MODEL WILSON (2000)
+Model paling berpengaruh dalam kajian perilaku pencarian informasi. Wilson mengidentifikasi tiga level:
+1. Information Behavior (perilaku informasi secara umum)
+2. Information Seeking Behavior (perilaku pencarian aktif)
+3. Information Search Behavior (interaksi spesifik dengan sistem pencarian)
+
+MODEL ISP KUHLTHAU (2004)
+Information Search Process — 6 tahap:
+1. Initiation (menyadari kebutuhan informasi)
+2. Selection (memilih topik)
+3. Exploration (menjelajahi)
+4. Formulation (memformulasikan fokus)
+5. Collection (mengumpulkan)
+6. Presentation (menyajikan/menggunakan)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BAB III — METODOLOGI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Metode: Mixed methods (kuantitatif + kualitatif)
+Instrumen: Kuesioner + wawancara mendalam
+Sampel: 120 mahasiswa Ilmu Perpustakaan Undip semester 3-7
+Pembanding: 120 mahasiswa dari prodi lain (Hukum, Teknik, FEB)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BAB IV — TEMUAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PERBANDINGAN MAHASISWA IP UNDIP vs PRODI LAIN:
+
+Penggunaan Boolean search:
+• Mahasiswa IP: 78% | Prodi lain: 23%
+
+Kemampuan evaluasi sumber:
+• Mahasiswa IP: 84% | Prodi lain: 41%
+
+Pemanfaatan database spesifik bidang:
+• Mahasiswa IP: 91% | Prodi lain: 34%
+
+Kemampuan membuat sitasi yang benar:
+• Mahasiswa IP: 89% | Prodi lain: 52%
+
+TEMUAN MENGEJUTKAN — MAHASISWA IP UNDIP:
+Meski lebih baik secara teknis, 61% mahasiswa IP mengaku masih merasa "overwhelmed" (kewalahan) dengan banjir informasi. 45% mengaku sering mengalami "analysis paralysis" — terlalu banyak sumber sehingga sulit memilih.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BAB V — KESIMPULAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Mahasiswa Ilmu Perpustakaan Undip memiliki kompetensi penelusuran informasi yang secara statistik signifikan lebih baik dari mahasiswa prodi lain. Namun kemampuan teknis saja tidak cukup — dibutuhkan pengembangan "information resilience": kemampuan mengelola keberlimpahan informasi tanpa mengalami kecemasan kognitif.`
 };
 
 // =====================================================
@@ -1208,7 +2792,7 @@ function switchSubKoleksi(subId, btn) {
 }
 
 // =====================================================
-// OPAC
+// OPAC — DITAMBAH DATA KOLEKSI BARU
 // =====================================================
 function cariBuku() {
     const q = document.getElementById('opac-search').value.toLowerCase().trim();
@@ -1224,13 +2808,42 @@ function cariBuku() {
         { kata: ['arsip', 'aktif', 'video', 'bpn'], judul: 'Video Tutorial Olah Arsip Aktif', penulis: 'Biro Umum ATR/BPN', kategori: 'Koleksi Digital', status: 'Streaming', sub: 'koleksi-digital' },
         { kata: ['reba', 'arnott', 'manual', 'ergonomi', 'eko'], judul: 'Analisa Manual Handling - Metode REBA', penulis: 'Eko Sarwiyadi', kategori: 'Skripsi', status: 'Repositori Terbuka', sub: 'koleksi-skripsi' },
         { kata: ['galigo', 'sureq', 'bugis', 'lontara'], judul: 'Manuskrip Sureq Galigo', penulis: 'Colliq Pujie', kategori: 'Koleksi Digital', status: 'Domain Publik', sub: 'koleksi-digital' },
-        { kata: ['manajemen', 'informasi', 'hartono', 'perpustakaan'], judul: 'Manajemen Sumber Informasi dan Perpustakaan', penulis: 'Drs. Hartono', kategori: 'Buku Fisik', status: 'Rak S-3', sub: 'koleksi-buku' }
+        { kata: ['manajemen', 'informasi', 'hartono', 'perpustakaan'], judul: 'Manajemen Sumber Informasi dan Perpustakaan', penulis: 'Drs. Hartono', kategori: 'Buku Fisik', status: 'Rak S-3', sub: 'koleksi-buku' },
+        // KOLEKSI BARU
+        { kata: ['sapiens', 'harari', 'manusia', 'homo'], judul: 'Sapiens: Riwayat Singkat Umat Manusia', penulis: 'Yuval Noah Harari', kategori: 'Buku Fisik', status: 'Rak S-2', sub: 'koleksi-buku' },
+        { kata: ['atomic', 'habits', 'james', 'clear', 'kebiasaan'], judul: 'Atomic Habits', penulis: 'James Clear', kategori: 'Buku Fisik', status: 'Rak S-5', sub: 'koleksi-buku' },
+        { kata: ['laskar', 'pelangi', 'andrea', 'hirata', 'belitung'], judul: 'Laskar Pelangi', penulis: 'Andrea Hirata', kategori: 'Buku Fisik', status: 'Rak S-1', sub: 'koleksi-buku' },
+        { kata: ['thinking', 'fast', 'slow', 'kahneman', 'bias'], judul: 'Thinking, Fast and Slow', penulis: 'Daniel Kahneman', kategori: 'Buku Fisik', status: 'Rak S-6', sub: 'koleksi-buku' },
+        { kata: ['pulang', 'tere', 'liye', 'bujang'], judul: 'Pulang', penulis: 'Tere Liye', kategori: 'Buku Fisik', status: 'Rak S-2', sub: 'koleksi-buku' },
+        { kata: ['ilmu', 'perpustakaan', 'sulistyo', 'basuki'], judul: 'Pengantar Ilmu Perpustakaan', penulis: 'Sulistyo-Basuki', kategori: 'Buku Fisik', status: 'Rak S-3', sub: 'koleksi-buku' },
+        { kata: ['alchemist', 'paulo', 'coelho', 'alkemis', 'santiago'], judul: 'The Alchemist', penulis: 'Paulo Coelho', kategori: 'Buku Fisik', status: 'Rak S-4', sub: 'koleksi-buku' },
+        { kata: ['rich', 'dad', 'poor', 'kiyosaki', 'aset', 'finansial'], judul: 'Rich Dad Poor Dad', penulis: 'Robert T. Kiyosaki', kategori: 'Buku Fisik', status: 'Rak S-7', sub: 'koleksi-buku' },
+        { kata: ['metodologi', 'penelitian', 'sugiyono', 'kualitatif'], judul: 'Metodologi Penelitian Kualitatif', penulis: 'Prof. Dr. Sugiyono', kategori: 'Buku Fisik', status: 'Rak R-1', sub: 'koleksi-buku' },
+        { kata: ['filosofi', 'teras', 'stoik', 'henry', 'manampiring'], judul: 'Filosofi Teras', penulis: 'Henry Manampiring', kategori: 'Buku Fisik', status: 'Rak S-5', sub: 'koleksi-buku' },
+        { kata: ['psychology', 'money', 'morgan', 'housel', 'uang'], judul: 'The Psychology of Money', penulis: 'Morgan Housel', kategori: 'Buku Fisik', status: 'Rak S-7', sub: 'koleksi-buku' },
+        { kata: ['bumi', 'manusia', 'pramoedya', 'minke', 'nyai'], judul: 'Bumi Manusia', penulis: 'Pramoedya Ananta Toer', kategori: 'Buku Fisik', status: 'Rak S-1', sub: 'koleksi-buku' },
+        { kata: ['bumi', 'tere', 'liye', 'raib', 'klan'], judul: 'Bumi (Tere Liye)', penulis: 'Tere Liye', kategori: 'E-Book', status: 'Digital', sub: 'koleksi-ebook' },
+        { kata: ['perahu', 'kertas', 'dee', 'lestari', 'kugy', 'keenan'], judul: 'Perahu Kertas', penulis: 'Dee Lestari', kategori: 'E-Book', status: 'Digital', sub: 'koleksi-ebook' },
+        { kata: ['negeri', 'menara', 'fuadi', 'gontor', 'alif'], judul: 'Negeri 5 Menara', penulis: 'Ahmad Fuadi', kategori: 'E-Book', status: 'Digital', sub: 'koleksi-ebook' },
+        { kata: ['kite', 'runner', 'hosseini', 'hassan', 'amir', 'afghanistan'], judul: 'The Kite Runner', penulis: 'Khaled Hosseini', kategori: 'E-Book', status: 'Digital', sub: 'koleksi-ebook' },
+        { kata: ['cantik', 'luka', 'eka', 'kurniawan', 'dewi', 'ayu'], judul: 'Cantik Itu Luka', penulis: 'Eka Kurniawan', kategori: 'E-Book', status: 'Digital', sub: 'koleksi-ebook' },
+        { kata: ['literasi', 'digital', 'generasi', 'z', 'dewi', 'rahmawati'], judul: 'Jurnal: Literasi Digital Generasi Z', penulis: 'Dewi Rahmawati', kategori: 'Jurnal Ilmiah', status: 'Open Access', sub: 'koleksi-jurnal' },
+        { kata: ['kecerdasan', 'buatan', 'ai', 'perpustakaan', 'chatbot'], judul: 'Jurnal: AI dalam Perpustakaan', penulis: 'Budi Santoso', kategori: 'Jurnal Ilmiah', status: 'Open Access', sub: 'koleksi-jurnal' },
+        { kata: ['green', 'library', 'hijau', 'berkelanjutan', 'energi'], judul: 'Jurnal: Green Library', penulis: 'Rini Kurniasih', kategori: 'Jurnal Ilmiah', status: 'Open Access', sub: 'koleksi-jurnal' },
+        { kata: ['minat', 'baca', 'masyarakat', 'indonesia', 'sri'], judul: 'Jurnal: Minat Baca Masyarakat', penulis: 'Sri Wahyuni', kategori: 'Jurnal Ilmiah', status: 'Open Access', sub: 'koleksi-jurnal' },
+        { kata: ['sistem', 'informasi', 'web', 'anisa', 'siperpus', 'sekolah'], judul: 'Skripsi: Sistem Informasi Perpustakaan Web', penulis: 'Anisa Putri Rahayu', kategori: 'Skripsi', status: 'Repositori Terbuka', sub: 'koleksi-skripsi' },
+        { kata: ['promosi', 'media', 'sosial', 'fajar', 'instagram', 'tiktok'], judul: 'Skripsi: Promosi Perpustakaan via Medsos', penulis: 'Muhammad Fajar', kategori: 'Skripsi', status: 'Repositori Terbuka', sub: 'koleksi-skripsi' },
+        { kata: ['green', 'building', 'gedung', 'diah', 'arsitektur', 'energi'], judul: 'Skripsi: Efisiensi Energi Gedung Perpustakaan', penulis: 'Diah Kusumawati', kategori: 'Skripsi', status: 'Repositori Terbuka', sub: 'koleksi-skripsi' },
+        { kata: ['perilaku', 'pencarian', 'rizky', 'amalia', 'undip'], judul: 'Skripsi: Perilaku Pencarian Informasi Undip', penulis: 'Rizky Amalia', kategori: 'Skripsi', status: 'Repositori Terbuka', sub: 'koleksi-skripsi' },
+        { kata: ['podcast', 'literasi', 'membaca', 'digital', 'audio'], judul: 'Podcast: Membaca di Era Digital', penulis: 'Tim Litera Space', kategori: 'Koleksi Digital', status: 'Streaming', sub: 'koleksi-digital' },
+        { kata: ['aksara', 'nusantara', 'jawa', 'bali', 'lontara', 'batak'], judul: 'Peta Aksara Nusantara Interaktif', penulis: 'Kemdikbud', kategori: 'Koleksi Digital', status: 'Online', sub: 'koleksi-digital' }
     ];
 
     const cocok = koleksi.filter(k => k.kata.some(kata => q.includes(kata)));
 
     if (cocok.length > 0) {
-        res.innerHTML = cocok.map(k => `
+        res.innerHTML = `<p style="color:#888; font-size:13px; margin-bottom:10px;">Ditemukan <strong>${cocok.length}</strong> koleksi:</p>` + 
+        cocok.map(k => `
             <div class="card" style="background: #E8F5E9; border: 2px solid #A5D6A7; animation: slideUp 0.4s ease; margin-bottom:10px;">
                 🟢 <strong>${k.kategori} Ditemukan!</strong><br><br>
                 <div style="display: flex; gap: 15px; align-items: center;">
@@ -1243,12 +2856,12 @@ function cariBuku() {
                 </div>
             </div>`).join('');
     } else {
-        res.innerHTML = `<div class="card" style="background: #FFEBEE; border: 2px solid #EF9A9A;">🔴 <strong>Koleksi tidak ditemukan</strong><br>Kata kunci "<strong>${document.getElementById('opac-search').value}</strong>" tidak cocok. Coba: 'Ronggeng', 'Arsip', 'Lemon', atau 'Maman'.</div>`;
+        res.innerHTML = `<div class="card" style="background: #FFEBEE; border: 2px solid #EF9A9A;">🔴 <strong>Koleksi tidak ditemukan</strong><br>Kata kunci "<strong>${document.getElementById('opac-search').value}</strong>" tidak cocok. Coba: 'Sapiens', 'Laskar Pelangi', 'Atomic Habits', 'Ronggeng', 'Lemon', atau 'Maman'.</div>`;
     }
 }
 
 // =====================================================
-// LIA AI — MENGGUNAKAN CLAUDE ANTHROPIC API
+// LIA AI — CLAUDE API
 // =====================================================
 async function tanyaLia() {
     const input = document.getElementById('chat-input');
@@ -1256,29 +2869,31 @@ async function tanyaLia() {
     const userMsg = input.value.trim();
     if (!userMsg) return;
 
-    // Tampilkan pesan user
     area.innerHTML += `<p style="margin: 5px 0; color: var(--text-dark);"><strong>Kamu:</strong> ${userMsg}</p>`;
     input.value = '';
     area.scrollTop = area.scrollHeight;
 
-    // Tambahkan ke history
     liaHistory.push({ role: 'user', content: userMsg });
 
-    // Loading indicator
     const loadId = 'lia-' + Date.now();
     area.innerHTML += `<p id="${loadId}" class="lia-typing"><strong>Lia AI:</strong> Sedang mengetik... ✨</p>`;
     area.scrollTop = area.scrollHeight;
 
     const systemPrompt = `Kamu adalah Lia AI, Pustakawan AI pintar dan ramah dari perpustakaan digital premium "Litera Space". 
     
-Koleksi yang tersedia di Litera Space:
-- Buku fisik: Laut Bercerita (Leila Chudori), Rumah Untuk Alie (Lenn Liu), Manajemen Sumber Informasi (Drs. Hartono)
-- E-Book: Re: dan perempuan (Maman Suherman), Ronggeng Dukuh Paruk (Ahmad Tohari), As Long As the Lemon Trees Grow (Zoulfa Katouh)
-- Jurnal: Identitas Nasional (Tatu Afifah)
-- Skripsi: Analisa Manual Handling REBA (Eko Sarwiyadi)
-- Digital: Video Arsip ATR/BPN, Manuskrip Sureq Galigo
+Koleksi yang tersedia di Litera Space (40 judul):
 
-Jawablah dengan gaya bahasa yang sopan, hangat, ceria, dan informatif. Gunakan sapaan "Readers" atau "Ji". Fokus pada rekomendasi buku, tips membaca, dan seputar dunia perpustakaan. Jawaban maksimal 3-4 kalimat, padat dan bermanfaat. Sesekali tambahkan emoji yang relevan untuk mempercantik jawaban.`;
+BUKU FISIK (15 judul): Laut Bercerita (Leila Chudori), Rumah Untuk Alie (Lenn Liu), Manajemen Sumber Informasi (Drs. Hartono), Sapiens (Yuval Harari), Atomic Habits (James Clear), Laskar Pelangi (Andrea Hirata), Thinking Fast and Slow (Kahneman), Pulang (Tere Liye), Pengantar Ilmu Perpustakaan (Sulistyo-Basuki), The Alchemist (Paulo Coelho), Rich Dad Poor Dad (Kiyosaki), Metodologi Penelitian Kualitatif (Sugiyono), Filosofi Teras (Henry Manampiring), The Psychology of Money (Morgan Housel), Bumi Manusia (Pramoedya).
+
+E-BOOK (8 judul): Re: dan perempuan (Maman Suherman), Ronggeng Dukuh Paruk (Ahmad Tohari), As Long As the Lemon Trees Grow (Zoulfa Katouh), Bumi (Tere Liye), Perahu Kertas (Dee Lestari), Negeri 5 Menara (Ahmad Fuadi), The Kite Runner (Khaled Hosseini), Cantik Itu Luka (Eka Kurniawan).
+
+JURNAL (6 judul): Identitas Nasional (Tatu Afifah), Literasi Digital Generasi Z (Dewi Rahmawati), AI dalam Perpustakaan (Budi Santoso), Green Library (Rini Kurniasih), Kebutuhan Informasi Mahasiswa (Hendra Wijaya), Minat Baca Indonesia (Sri Wahyuni).
+
+SKRIPSI (5 judul): REBA Arnott's (Eko Sarwiyadi), Sistem Informasi Perpustakaan Web (Anisa Putri), Promosi Medsos (Muhammad Fajar), Green Building Perpustakaan (Diah Kusumawati), Perilaku Pencarian Informasi (Rizky Amalia).
+
+DIGITAL (6 judul): Video Arsip ATR/BPN, Sureq Galigo, Podcast Literasi Digital, Webinar Katalogisasi, Aksara Nusantara Interaktif, Dokumenter Sejarah Percetakan.
+
+Jawablah dengan gaya bahasa yang sopan, hangat, ceria, dan informatif. Gunakan sapaan "Readers" atau "Ji". Fokus pada rekomendasi buku, tips membaca, dan seputar dunia perpustakaan. Jawaban maksimal 4-5 kalimat, padat dan bermanfaat. Sesekali tambahkan emoji yang relevan.`;
 
     try {
         const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -1315,12 +2930,12 @@ Jawablah dengan gaya bahasa yang sopan, hangat, ceria, dan informatif. Gunakan s
 }
 
 // =====================================================
-// MODAL BACA BUKU
+// MODAL
 // =====================================================
 function bukaModal(judul, konten) {
     document.getElementById('modalTitle').innerText = judul;
     document.getElementById('modalBody').innerText = konten;
-    document.getElementById('bookModal').style.display = 'flex';
+	document.getElementById('bookModal').style.display = 'flex';
     ukuranFont = 16;
     document.getElementById('modalBody').style.fontSize = '16px';
     gantiTemaBaca('light');
@@ -1390,4 +3005,3 @@ function prosesSirkulasi() {
 </script>
 </body>
 </html>
-
