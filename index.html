@@ -31,58 +31,58 @@
         }
         * { box-sizing: border-box; font-family: 'Quicksand', sans-serif; transition: background 0.3s, color 0.3s, border-color 0.3s; }
        body {
-    background: linear-gradient(135deg, #EEDCC6 0%, #F5EBE0 100%);
-    background-image: linear-gradient(rgba(141, 123, 109, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(141, 123, 109, 0.05) 1px, transparent 1px);
-    background-size: 20px 20px;
-    margin: 0;
-    padding: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
-    color: var(--text-dark);
-}
+          background: linear-gradient(135deg, #EEDCC6 0%, #F5EBE0 100%);
+          background-image: linear-gradient(rgba(141, 123, 109, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(141, 123, 109, 0.05) 1px, transparent 1px);
+          background-size: 20px 20px;
+          margin: 0;
+          padding: 24px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+          overflow: hidden;
+          color: var(--text-dark);
+       }
 
-.container {
-    width: min(1120px, calc(100vw - 48px));
-    height: min(720px, calc(100vh - 48px));
-    background: var(--bg-butter) url('bck.jpeg');
-    border-radius: 28px;
-    display: none;
-    box-shadow: 0 30px 70px rgba(0,0,0,0.15);
-    overflow: hidden;
-    border: 1px solid var(--border-light);
-    position: relative;
-}
+       .container {
+          width: min(1120px, calc(100vw - 48px));
+          height: min(720px, calc(100vh - 48px));
+          background: var(--bg-butter) url('bck.jpeg');
+          border-radius: 28px;
+          display: none;
+          box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+          overflow: hidden;
+          border: 1px solid var(--border-light);
+          position: relative;
+       }
 
-.auth-overlay {
-    width: min(1120px, calc(100vw - 48px));
-    height: min(720px, calc(100vh - 48px));
-    background: var(--bg-butter);
-    border-radius: 28px;
-    display: flex;
-    box-shadow: 0 30px 70px rgba(0,0,0,0.15);
-    overflow: hidden;
-    border: 1px solid var(--border-light);
-}
+      .auth-overlay {
+         width: min(1120px, calc(100vw - 48px));
+         height: min(720px, calc(100vh - 48px));
+         background: var(--bg-butter);
+         border-radius: 28px;
+         display: flex;
+         box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+         overflow: hidden;
+         border: 1px solid var(--border-light);
+      }
 
-.sidebar {
-    width: 260px;
-    background: var(--sidebar-warm);
-    padding: 20px 18px;
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid rgba(141, 123, 109, 0.2);
-}
+      .sidebar {
+        width: 260px;
+        background: var(--sidebar-warm);
+        padding: 20px 18px;
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid rgba(141, 123, 109, 0.2);
+      }
 
-.content {
-    flex: 1;
-    padding: 32px;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-}
-		    .auth-banner {
+      .content {
+        flex: 1;
+        padding: 32px;
+        overflow-y: auto;
+        scroll-behavior: smooth;
+      }
+	  .auth-banner {
             flex: 1.2; 
             background: var(--gradient-accent), url('motif pinterest.jpeg');
             background-size: cover;
@@ -433,7 +433,8 @@
 		width: 100%; 
 		transition: 0.3s; 
 		}
-        .btn-read-full:hover { transform: scale(1.03); }
+        
+		.btn-read-full:hover { transform: scale(1.03); }
         .btn-read-synopsis { 
 		background: var(--gradient-accent); 
 		color: white; 
@@ -462,7 +463,7 @@
             margin-left: 10px;
         }
     
-        /* ===== LITERA SPACE COMPACT V2 - jangan dihapus ===== */
+        /* ===== tampilan baru ===== */
         html, body {
             width: 100%;
             height: 100%;
@@ -820,6 +821,23 @@
             .grid { grid-template-columns: 1fr !important; }
             .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
         }
+		/* ===========================
+           MODE GELAP DAN MODE TERANG
+           ===========================*/
+
+        /* 1. ATURAN SAAT MODE TERANG (DEFAULT) */
+        .dark-toggle-btn {
+            background-color: #FFF3E0 !important; /* --- GANTI: Warna background tombol saat Mode Terang */
+            color: #E65100 !important;            /* --- GANTI: Warna tulisan/ikon saat Mode Terang */
+            border: 2px solid #E65100 !important; /* --- GANTI: Warna garis tepi tombol saat Mode Terang */
+        }
+
+        /* 2. ATURAN SAAT MODE GELAP AKTIF */
+        [data-theme="dark"] .dark-toggle-btn {
+            background-color: #3A322E !important; /* --- GANTI: Warna background tombol saat Mode Gelap */
+            color: #F5EBE0 !important;            /* --- GANTI: Warna tulisan/ikon saat Mode Gelap */
+            border: 2px solid #F5EBE0 !important; /* --- GANTI: Warna garis tepi tombol saat Mode Gelap */
+        }
     </style>
 </head>
 <body>
@@ -876,7 +894,7 @@
         <div class="nav-item" id="nav-agenda" onclick="switchPage('agenda')">📅 Agenda & Berita</div>
         <div class="nav-item" id="nav-kontak" onclick="switchPage('kontak')">📞 Kontak Kami</div>
         <button class="dark-toggle-btn" onclick="toggleDarkMode()">
-            <i class="fa-solid fa-moon" id="dark-icon"></i>
+            <i class="fa-solid fa-bed" id="dark-icon"></i>
             <span id="dark-text">Mode Gelap</span>
         </button>
     </div>
@@ -928,7 +946,8 @@
                     </div>
                 </div>
                 <h3 class="subtitle-highlight">👔 Struktur Organisasi</h3>
-                <img src="struktur.jpeg" alt="Struktur Organisasi" style="max-width: 100%; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <br>
+				<img src="organisasi.jpeg" alt="Struktur Organisasi" style="max-width: 70%; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
             </div>
         </div>
 
@@ -1070,8 +1089,8 @@
                     <!-- BUKU BARU 1 -->
                     <div class="book-item">
                       
-                       <img src="cover sapiens.jpeg" alt="Sapiens" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-					   <br>
+                        <img src="cover sapiens.jpeg" alt="Sapiens" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					    <br>
 						<strong>Sapiens: Riwayat Singkat Umat Manusia</strong><br><small>Yuval Noah Harari</small><br>
                         <span class="read-badge tersedia">🟢 Tersedia di Rak S-2</span>
                         <button class="btn-read-synopsis" onclick="bukaModal('Sapiens: Riwayat Singkat Umat Manusia — Yuval Noah Harari', KONTEN_BUKU.sapiens)">📖 Baca Ringkasan</button>
@@ -1079,8 +1098,8 @@
                     <!-- BUKU BARU 2 -->
                     <div class="book-item">
                         
-                       <img src="cover automic.jpeg" alt="Atomic" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-					   <br>
+                        <img src="cover automic.jpeg" alt="Atomic" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					    <br>
 						<strong>Atomic Habits</strong><br><small>James Clear</small><br>
                         <span class="read-badge tersedia">🟢 Tersedia di Rak S-5</span>
                         <button class="btn-read-synopsis" onclick="bukaModal('Atomic Habits — James Clear', KONTEN_BUKU.atomicHabits)">📖 Baca Ringkasan</button>
@@ -1088,8 +1107,8 @@
                     <!-- BUKU BARU 3 -->
                     <div class="book-item">
                         
-                       <img src="laskar.jpeg" alt="Laskar Pelangi" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-					   <br>
+                        <img src="laskar.jpeg" alt="Laskar Pelangi" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					    <br>
 						<strong>Laskar Pelangi</strong><br><small>Andrea Hirata</small><br>
                         <span class="read-badge tersedia">🟢 Tersedia di Rak S-1</span>
                         <button class="btn-read-synopsis" onclick="bukaModal('Laskar Pelangi — Andrea Hirata', KONTEN_BUKU.laskarPelangi)">📖 Baca Ringkasan</button>
@@ -1123,18 +1142,16 @@
                     <!-- BUKU BARU 7 -->
                     <div class="book-item">
                         
-                       <img src="cover alchemist.jpeg" alt="The Alchemist" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-					   <br>
+                        <img src="cover alchemist.jpeg" alt="The Alchemist" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					    <br>
 						<strong>The Alchemist</strong><br><small>Paulo Coelho</small><br>
                         <span class="read-badge terbatas">🟡 1 Eks Tersisa — Rak S-4</span>
                         <button class="btn-read-synopsis" onclick="bukaModal('The Alchemist — Paulo Coelho', KONTEN_BUKU.alchemist)">📖 Baca Ringkasan</button>
                     </div>
                     <!-- BUKU BARU 8 -->
                     <div class="book-item">
-                       
-                       <img src="cover rich dad.jpeg" alt="Rich Dad" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-					   
-					   <br>
+                        <img src="cover rich dad.jpeg" alt="Rich Dad" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					    <br>
 						<strong>Rich Dad Poor Dad</strong><br><small>Robert T. Kiyosaki</small><br>
                         <span class="read-badge tersedia">🟢 Tersedia di Rak S-7</span>
                         <button class="btn-read-synopsis" onclick="bukaModal('Rich Dad Poor Dad — Robert T. Kiyosaki', KONTEN_BUKU.richDad)">📖 Baca Ringkasan</button>
@@ -1160,7 +1177,7 @@
                     <div class="book-item">
                         
                         <img src="cover sikologi.jpeg" alt="The Psychology" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-					   <br>
+					    <br>
 						<strong>The Psychology of Money</strong><br><small>Morgan Housel</small><br>
                         <span class="read-badge tersedia">🟢 Tersedia di Rak S-7</span>
                         <button class="btn-read-synopsis" onclick="bukaModal('The Psychology of Money — Morgan Housel', KONTEN_BUKU.psychologyMoney)">📖 Baca Ringkasan</button>
@@ -1168,8 +1185,8 @@
                     <!-- BUKU BARU 12 -->
                     <div class="book-item">
                        
-                       <img src="cover bumi manusia.jpeg" alt="Bumi Manusia" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-					   <br>
+                        <img src="cover bumi manusia.jpeg" alt="Bumi Manusia" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					    <br>
 						<strong>Bumi Manusia</strong><br><small>Pramoedya Ananta Toer</small><br>
                         <span class="read-badge tersedia">🟢 Tersedia di Rak S-1</span>
                         <button class="btn-read-synopsis" onclick="bukaModal('Bumi Manusia — Pramoedya Ananta Toer', KONTEN_BUKU.bumiManusia)">📖 Baca Ringkasan</button>
@@ -1253,8 +1270,8 @@
                     </div>
                     <div class="book-item">
                         <img src="cover as long as.jpg" alt="Lemon Trees" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-                       <br>
-					   <strong>As Long As the Lemon Trees Grow</strong><br><small>Zoulfa Katouh</small><br>
+                        <br>
+					    <strong>As Long As the Lemon Trees Grow</strong><br><small>Zoulfa Katouh</small><br>
                         <span class="read-badge sinopsis">🟡 Sinopsis Lengkap</span>
                         <button class="btn-read-synopsis" onclick="bukaModal('As Long As the Lemon Trees Grow — Zoulfa Katouh', KONTEN_BUKU.lemonTrees)">📖 Baca Sinopsis Lengkap</button>
                         <button class="btn-read-full" onclick="window.open('https://www.gramedia.com','_blank')" style="margin-top:4px;">🔗 Baca Teks Penuh (Gramedia)</button>
@@ -1263,7 +1280,7 @@
                     <div class="book-item">
                         
                         <img src="cover bumi.jpeg" alt="Bumi" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-					   <br>
+					    <br>
 						<strong>Bumi</strong><br><small>Tere Liye</small><br>
                         <span class="read-badge sinopsis">🟡 Sinopsis Lengkap</span>
                         <button class="btn-read-synopsis" onclick="bukaModal('Bumi — Tere Liye', KONTEN_BUKU.bumiTereLiye)">📖 Baca Sinopsis Lengkap</button>
@@ -1272,9 +1289,9 @@
                     <!-- EBOOK BARU 2 -->
                     <div class="book-item">
                        
-                       <img src="perahu.jpeg" alt="Perahu Kertas" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-					   <br>
-					   <strong>Perahu Kertas</strong><br><small>Dee Lestari</small><br>
+                        <img src="perahu.jpeg" alt="Perahu Kertas" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					    <br>
+					    <strong>Perahu Kertas</strong><br><small>Dee Lestari</small><br>
                         <span class="read-badge sinopsis">🟡 Sinopsis Lengkap</span>
                         <button class="btn-read-synopsis" onclick="bukaModal('Perahu Kertas — Dee Lestari', KONTEN_BUKU.perahuKertas)">📖 Baca Sinopsis Lengkap</button>
                         <button class="btn-read-full" onclick="window.open('https://www.gramedia.com','_blank')" style="margin-top:4px;">🔗 Baca Teks Penuh (Gramedia)</button>
@@ -1282,8 +1299,8 @@
                     <!-- EBOOK BARU 3 -->
                     <div class="book-item">
                         
-                       <img src="negeri.jpeg" alt="Negeri 5 Menara" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-					   <br>
+                        <img src="negeri.jpeg" alt="Negeri 5 Menara" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					    <br>
 						<strong>Negeri 5 Menara</strong><br><small>Ahmad Fuadi</small><br>
                         <span class="read-badge sinopsis">🟡 Sinopsis Lengkap</span>
                         <button class="btn-read-synopsis" onclick="bukaModal('Negeri 5 Menara — Ahmad Fuadi', KONTEN_BUKU.negeri5Menara)">📖 Baca Sinopsis Lengkap</button>
@@ -1293,7 +1310,7 @@
                     <div class="book-item">
                         
                         <img src="cover kite.jpeg" alt="The Kite Runner" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-					   <br>
+					    <br>
 						<strong>The Kite Runner</strong><br><small>Khaled Hosseini</small><br>
                         <span class="read-badge sinopsis">🟡 Sinopsis Lengkap</span>
                         <button class="btn-read-synopsis" onclick="bukaModal('The Kite Runner — Khaled Hosseini', KONTEN_BUKU.kiteRunner)">📖 Baca Sinopsis Lengkap</button>
@@ -1302,8 +1319,8 @@
                     <!-- EBOOK BARU 5 -->
                     <div class="book-item">
                        
-                       <img src="cover cantik.jpeg" alt="Cantik Itu Luka" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-					   <br>
+                        <img src="cover cantik.jpeg" alt="Cantik Itu Luka" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+					    <br>
 						<strong>Cantik Itu Luka</strong><br><small>Eka Kurniawan</small><br>
                         <span class="read-badge sinopsis">🟡 Sinopsis Lengkap</span>
                         <button class="btn-read-synopsis" onclick="bukaModal('Cantik Itu Luka — Eka Kurniawan', KONTEN_BUKU.cantikItuLuka)">📖 Baca Sinopsis Lengkap</button>
@@ -1376,7 +1393,7 @@
             <div id="koleksi-skripsi" class="sub-koleksi">
                 <h3 style="color: var(--primary-rose);">Repositori Skripsi & Tugas Akhir — 5 Judul</h3>
                 <div class="grid-3">
-                    <div class="book-item">
+                        <div class="book-item">
                         <img src="cover-skripsi.jpg" alt="Skripsi" style="height: 140px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
                         <br>
 						<strong>Analisa Manual Handling dengan Metode REBA di PT Arnott's Indonesia</strong>
@@ -1452,10 +1469,12 @@
                 <p><strong>L.Charity:</strong> 200 Buku Terdonasikan ke Sekolah Pelosok.</p>
             </div>
             <div class="card" style="border-left: 6px solid #42A5F5;">
-                <h4 style="margin: 0; color: #42A5F5;">📅 AGENDA MENDATANG</h4>
-                <p><strong>Bedah Buku "Ronggeng Dukuh Paruk":</strong> Diskusi makna sosial dan sejarah bersama civitas akademika.</p>
-                <p><strong>Workshop Menulis Karya Ilmiah:</strong> Teknik sitasi APA/MLA untuk skripsi dan jurnal.</p>
-                <p><strong>Pelatihan Literasi Digital:</strong> Cara membedakan berita hoaks vs sumber terpercaya.</p>
+                <h4 style="margin: 0; color: #42A5F5;">📅 AGENDA MENDATANG</h4> 
+                <img src="poster.jpeg" alt="Poster" style="height: 200px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <br>
+                <a href=" https://ratiwihayatul.github.io/literaspace-library/ronggeng-bedah-buku.html" target="_blank" style="text-decoration: none; cursor: pointer;">
+                <span style="color: black;">Bedah Buku "Ronggeng Dukuh Paruk", <span style="color: black;">Diskusi makna sosial dan sejarah civitas akademika.</span></span>
+                </a>
             </div>
         </div>
 
@@ -3133,10 +3152,10 @@ function toggleDarkMode() {
     document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
     if (isDark) {
         document.documentElement.removeAttribute('data-theme');
-        document.getElementById('dark-icon').className = "fa-solid fa-moon";
+        document.getElementById('dark-icon').className = "fa-solid fa-bed";
         document.getElementById('dark-text').innerText = "Mode Gelap";
     } else {
-        document.getElementById('dark-icon').className = "fa-solid fa-sun";
+        document.getElementById('dark-icon').className = "fa-solid fa-lightbulb";
         document.getElementById('dark-text').innerText = "Mode Terang";
     }
 }
@@ -3316,10 +3335,33 @@ function tutupBuku() {
     liaHistory = liaHistory.slice(-6); // keep last 3 turns
 }
 
+// Kita bikin variabel skala yang benar-benar baru dan mandiri
+if (typeof skalaFontGlobal === 'undefined') {
+    var skalaFontGlobal = 100; // Skala awal adalah 100%
+}
+
 function ubahUkuranFont(aksi) {
-    if (aksi === 'tambah' && ukuranFont < 26) ukuranFont += 2;
-    if (aksi === 'kurang' && ukuranFont > 12) ukuranFont -= 2;
-    document.getElementById('modalBody').style.fontSize = ukuranFont + 'px';
+    // 1. Atur naik turunnya skala dalam bentuk persen
+    if (aksi === 'tambah' && skalaFontGlobal < 140) {
+        skalaFontGlobal += 10; // Naik 10% setiap klik A+
+    } else if (aksi === 'kurang' && skalaFontGlobal > 80) {
+        skalaFontGlobal -= 10; // Turun 10% setiap klik A-
+    }
+
+    // 2. KUNCI NYA: Langsung paksa elemen pembungkus utama untuk membesar/mengecil fungsinya
+    // Kita targetkan ke bodi utama halaman atau kotak artikel
+    const targetUtama = document.getElementById('modalBody') || document.querySelector('.artikel-container') || document.body;
+    
+    if (targetUtama) {
+        // Kita paksa suntikkan style inline dengan tingkat dewa (!important) lewat JavaScript
+        targetUtama.style.setProperty('font-size', skalaFontGlobal + '%', 'important');
+        
+        // Jaga-jaga kalau isinya adalah paragraf yang dikunci individual, kita hajar semua di dalamnya
+        const anakCucuTeks = targetUtama.querySelectorAll('p, span, li');
+        anakCucuTeks.forEach(elemen => {
+            elemen.style.setProperty('font-size', skalaFontGlobal + '%', 'important');
+        });
+    }
 }
 
 function gantiTemaBaca(tema) {
